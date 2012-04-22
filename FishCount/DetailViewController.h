@@ -23,10 +23,12 @@
 
 -(void) didClickScheduleButton:(id) sender;
 -(void) didClickSignatureButton:(id) sender;
+-(void) loadNewModel:(Visit*)visit;
 
 @property(nonatomic, assign) UITableViewStyle tableViewStyle;
 @property(nonatomic, retain) Visit *visit;
 @property(nonatomic, retain) UIImageView *sigImage;
 @property(nonatomic, retain) UIButton *getSignatureButton;
+@property(nonatomic, retain) UIButton *viewScheduleButton;
 
 @end

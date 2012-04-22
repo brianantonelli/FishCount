@@ -17,7 +17,7 @@
 
 @implementation DetailViewController
 
-@synthesize tableViewStyle, visit, sigImage, getSignatureButton;
+@synthesize tableViewStyle, visit, sigImage, getSignatureButton, viewScheduleButton;
 @synthesize masterPopoverController = _masterPopoverController;
 
 -(void) didClickScheduleButton:(id) sender{
@@ -51,24 +51,68 @@
     
     self.title = @"Georgia Aquarium Educator Assistant";
 
+    // Setup view
     UIView *view = [[[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
 	[view setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
     
+    // Setup table
     UITableView *tableView = [[[UITableView alloc] initWithFrame:[view bounds] style:UITableViewStyleGrouped] autorelease];
 	[tableView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
 	[self setTableView:tableView];
 	
 	[view addSubview:tableView];
 	[self setView:view];
-        
+    
+    // Add signature button
     self.getSignatureButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[self.getSignatureButton setTitle:@"getSignatureButton" forState:UIControlStateNormal];
+	[self.getSignatureButton setTitle:@"Add Signature" forState:UIControlStateNormal];
 	[self.getSignatureButton sizeToFit];
-	[self.getSignatureButton setFrame:CGRectMake(10.0f, 
-										   10.0f, 
+	[self.getSignatureButton setFrame:CGRectMake(40.0f, 
+										   640.0f, 
 										   self.getSignatureButton.frame.size.width, 
 										   self.getSignatureButton.frame.size.height)];
 	[self.getSignatureButton setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
+    [self.getSignatureButton setHidden:YES];
+
+    // Add schedule button
+    self.viewScheduleButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	[self.viewScheduleButton setTitle:@"View Schedule" forState:UIControlStateNormal];
+	[self.viewScheduleButton sizeToFit];
+	[self.viewScheduleButton setFrame:CGRectMake(200.0f, 
+                                                 640.0f, 
+                                                 self.viewScheduleButton.frame.size.width, 
+                                                 self.viewScheduleButton.frame.size.height)];
+	[self.viewScheduleButton setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
+    [self.viewScheduleButton setHidden:YES];
+    
+    // Add signature image
+    self.sigImage = [[UIImageView alloc] initWithFrame:CGRectMake(40.0f, 740.0f, 300.f, 100.0f)];
+    [self.sigImage setHidden:YES];
+}
+
+-(void) loadNewModel:(Visit*)_visit{
+    // Setup datasource
+    VisitFormDataSource *vfds = [[[VisitFormDataSource alloc] initWithModel:_visit] autorelease];
+    vfds.delegate = self;
+    self.formDataSource = vfds;
+
+    // Handle signature image
+    if(_visit.signatureImage != nil){
+        [self.sigImage setImage:_visit.signatureImage];
+        [self.sigImage setHidden:NO];
+    }
+    else{
+        [self.sigImage setImage:nil];
+        [self.sigImage setHidden:YES];
+    }
+    
+    // Misc
+    [self.getSignatureButton setHidden:NO];
+    [self.viewScheduleButton setHidden:NO];
+    self.title = _visit.school;
+    self.visit = _visit;
+    
+//    NSLog(@"table height is = %d", self.tableView.frame.size.height);
 }
 
 -(void) configureView{
@@ -78,9 +122,19 @@
 {
     [super viewDidLoad];
     
-    // TODO: add to subview that scrolls
-    [self.view addSubview:self.getSignatureButton];
+    [self.tableView addSubview:self.getSignatureButton];
     [self.getSignatureButton addTarget:self action:@selector(didClickSignatureButton:) forControlEvents:UIControlEventTouchUpInside];
+
+    [self.tableView addSubview:self.viewScheduleButton];
+    [self.viewScheduleButton addTarget:self action:@selector(didClickScheduleButton:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.tableView addSubview:self.sigImage];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    [self.sigImage setHidden:YES];
 }
 
 - (void)viewDidUnload
@@ -112,13 +166,6 @@
 																   action:nil] autorelease];
     [self.navigationItem setRightBarButtonItem:saveButton animated:YES];
     
-    // TODO: not visible in portrait mode!
-    UIBarButtonItem *scheduleButton = [[[UIBarButtonItem alloc] initWithTitle:@"View Schedule" 
-                                                                        style:UIBarButtonItemStylePlain 
-                                                                       target:self
-                                                                       action:@selector(didClickScheduleButton:)
-                                        ] autorelease];
-    [self.navigationItem setLeftBarButtonItem:scheduleButton animated:YES];
     
     self.masterPopoverController = nil;
 }
@@ -135,7 +182,9 @@
 
 -(void)signatureConfirmed:(UIImage *)signatureImage signatureController:(JBSignatureController *)sender
 {
-    [sigImage setImage:signatureImage];
+    [self.sigImage setImage:signatureImage];
+    [self.sigImage setHidden:NO];
+    
     visit.signatureImage = signatureImage;
     
     [self dismissModalViewControllerAnimated:YES];
@@ -163,6 +212,7 @@
     [visit release];
     [sigImage release];
     [getSignatureButton release];
+    [viewScheduleButton release];
     
     [super dealloc];
 }

@@ -113,11 +113,7 @@
 
     if(self.detailViewController.visit == visit) return;
     
-    VisitFormDataSource *vfds = [[[VisitFormDataSource alloc] initWithModel:visit] autorelease];
-    vfds.delegate = self.detailViewController;
-    self.detailViewController.formDataSource = vfds;
-    self.detailViewController.title = visit.school;
-    self.detailViewController.visit = visit;
+    [self.detailViewController loadNewModel:visit];
 }
 
 @end

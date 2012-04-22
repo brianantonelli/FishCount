@@ -160,7 +160,6 @@
     [states release];
     [counties release];
     [programs release];
-    [delegate release];
     
     [super dealloc];
 }
