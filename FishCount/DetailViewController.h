@@ -7,11 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <IBAForms/IBAFormViewController.h>
+#import "ScheduleViewController.h"
+#import "Visit.h"
+#import "JBSignatureController.h"
+#import "VisitFormDataSource.h"
 
-@interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
+@interface DetailViewController : IBAFormViewController <UISplitViewControllerDelegate, ModalViewControllerDelegate, JBSignatureControllerDelegate, VisitFormDataSourceDelegate>{
+    UITableViewStyle tableViewStyle;
+    Visit *visit;
+    UIImageView *sigImage;
+    
+    UIButton *getSignatureButton;
+}
 
-@property (strong, nonatomic) id detailItem;
+-(void) didClickScheduleButton:(id) sender;
+-(void) didClickSignatureButton:(id) sender;
 
-@property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property(nonatomic, assign) UITableViewStyle tableViewStyle;
+@property(nonatomic, retain) Visit *visit;
+@property(nonatomic, retain) UIImageView *sigImage;
+@property(nonatomic, retain) UIButton *getSignatureButton;
 
 @end

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		371E295515433BFE00ECCAEF /* JBSignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 371E295415433BFE00ECCAEF /* JBSignatureView.m */; };
+		371E295815433C0800ECCAEF /* JBSignatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 371E295715433C0800ECCAEF /* JBSignatureController.m */; };
+		371E295A15433C3900ECCAEF /* images in Resources */ = {isa = PBXBuildFile; fileRef = 371E295915433C3900ECCAEF /* images */; };
 		373110BC153E36C900FB43C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110BB153E36C900FB43C8 /* UIKit.framework */; };
 		373110BE153E36C900FB43C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110BD153E36C900FB43C8 /* Foundation.framework */; };
 		373110C0153E36C900FB43C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110BF153E36C900FB43C8 /* CoreGraphics.framework */; };
@@ -16,24 +19,158 @@
 		373110CF153E36C900FB43C8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 373110CD153E36C900FB43C8 /* MainStoryboard.storyboard */; };
 		373110D2153E36C900FB43C8 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110D1153E36C900FB43C8 /* MasterViewController.m */; };
 		373110D5153E36C900FB43C8 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110D4153E36C900FB43C8 /* DetailViewController.m */; };
+		373110DC153E384100FB43C8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110DB153E384100FB43C8 /* CFNetwork.framework */; };
+		373110DE153E384800FB43C8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110DD153E384800FB43C8 /* CoreData.framework */; };
+		373110E0153E384E00FB43C8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110DF153E384E00FB43C8 /* Security.framework */; };
+		373110E2153E385600FB43C8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110E1153E385600FB43C8 /* MobileCoreServices.framework */; };
+		373110E4153E385B00FB43C8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110E3153E385B00FB43C8 /* SystemConfiguration.framework */; };
+		373110E6153E386100FB43C8 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110E5153E386100FB43C8 /* libxml2.dylib */; };
+		373110E8153E386600FB43C8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110E7153E386600FB43C8 /* QuartzCore.framework */; };
+		37311100153E38B900FB43C8 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110F5153E387800FB43C8 /* libRestKit.a */; };
+		37311104153E3AE000FB43C8 /* Visit.m in Sources */ = {isa = PBXBuildFile; fileRef = 37311103153E3AE000FB43C8 /* Visit.m */; };
+		3731110D153E473F00FB43C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110C7153E36C900FB43C8 /* main.m */; };
+		3731110E153E473F00FB43C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110CB153E36C900FB43C8 /* AppDelegate.m */; };
+		3731110F153E473F00FB43C8 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110D1153E36C900FB43C8 /* MasterViewController.m */; };
+		37311110153E473F00FB43C8 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110D4153E36C900FB43C8 /* DetailViewController.m */; };
+		37311111153E473F00FB43C8 /* Visit.m in Sources */ = {isa = PBXBuildFile; fileRef = 37311103153E3AE000FB43C8 /* Visit.m */; };
+		37311114153E473F00FB43C8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110E7153E386600FB43C8 /* QuartzCore.framework */; };
+		37311115153E473F00FB43C8 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110E5153E386100FB43C8 /* libxml2.dylib */; };
+		37311116153E473F00FB43C8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110E3153E385B00FB43C8 /* SystemConfiguration.framework */; };
+		37311117153E473F00FB43C8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110E1153E385600FB43C8 /* MobileCoreServices.framework */; };
+		37311118153E473F00FB43C8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110DF153E384E00FB43C8 /* Security.framework */; };
+		37311119153E473F00FB43C8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110DD153E384800FB43C8 /* CoreData.framework */; };
+		3731111A153E473F00FB43C8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110DB153E384100FB43C8 /* CFNetwork.framework */; };
+		3731111B153E473F00FB43C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110BB153E36C900FB43C8 /* UIKit.framework */; };
+		3731111C153E473F00FB43C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110BD153E36C900FB43C8 /* Foundation.framework */; };
+		3731111D153E473F00FB43C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110BF153E36C900FB43C8 /* CoreGraphics.framework */; };
+		3731111F153E473F00FB43C8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 373110C4153E36C900FB43C8 /* InfoPlist.strings */; };
+		37311120153E473F00FB43C8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 373110CD153E36C900FB43C8 /* MainStoryboard.storyboard */; };
+		37311128153E475600FB43C8 /* visits.json in Resources */ = {isa = PBXBuildFile; fileRef = 37311127153E475600FB43C8 /* visits.json */; };
+		37311138153FAE9100FB43C8 /* VisitFormDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 37311137153FAE9100FB43C8 /* VisitFormDataSource.m */; };
+		379DA49E154269710081D42F /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379DA49D154269710081D42F /* ScheduleViewController.m */; };
+		379DA4A115426BD80081D42F /* ScheduleFormDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 379DA4A015426BD80081D42F /* ScheduleFormDataSource.m */; };
+		37D31D46153FD7D200769CAA /* StringToNumberTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D31D45153FD7D200769CAA /* StringToNumberTransformer.m */; };
+		37FE0A18153FBC2A00DDB24E /* libIBAForms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37311131153FAAEB00FB43C8 /* libIBAForms.a */; };
+		37FE0A19153FBC2A00DDB24E /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110F5153E387800FB43C8 /* libRestKit.a */; };
+		37FE0A1C153FBC3400DDB24E /* libIBAForms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37311131153FAAEB00FB43C8 /* libIBAForms.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		373110F4153E387800FB43C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 373110E9153E387700FB43C8 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D1614564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		373110F6153E387800FB43C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 373110E9153E387700FB43C8 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D2614564E820060A5C5;
+			remoteInfo = RestKitTests;
+		};
+		373110F8153E387800FB43C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 373110E9153E387700FB43C8 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E62145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
+		373110FA153E387800FB43C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 373110E9153E387700FB43C8 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E78145651060060A5C5;
+			remoteInfo = RestKitFrameworkTests;
+		};
+		373110FC153E387800FB43C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 373110E9153E387700FB43C8 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 259C301615128079003066A2;
+			remoteInfo = RestKitResources;
+		};
+		373110FE153E38AF00FB43C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 373110E9153E387700FB43C8 /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		3731110B153E473F00FB43C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 373110E9153E387700FB43C8 /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		37311130153FAAEB00FB43C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37311129153FAAEB00FB43C8 /* IBAForms.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = IBAForms;
+		};
+		37FE09FF153FB08800DDB24E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37311129153FAAEB00FB43C8 /* IBAForms.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = IBAForms;
+		};
+		37FE0A1A153FBC2F00DDB24E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37311129153FAAEB00FB43C8 /* IBAForms.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = IBAForms;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		371E295315433BFE00ECCAEF /* JBSignatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBSignatureView.h; sourceTree = "<group>"; };
+		371E295415433BFE00ECCAEF /* JBSignatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBSignatureView.m; sourceTree = "<group>"; };
+		371E295615433C0800ECCAEF /* JBSignatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBSignatureController.h; sourceTree = "<group>"; };
+		371E295715433C0800ECCAEF /* JBSignatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBSignatureController.m; sourceTree = "<group>"; };
+		371E295915433C3900ECCAEF /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		373110B7153E36C900FB43C8 /* FishCount.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FishCount.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		373110BB153E36C900FB43C8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		373110BD153E36C900FB43C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		373110BF153E36C900FB43C8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		373110C3153E36C900FB43C8 /* FishCount-Info.plist */ = {isa = PBXFileReference; path = "FishCount-Info.plist"; sourceTree = "<group>"; };
+		373110C3153E36C900FB43C8 /* FishCount-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FishCount-Info.plist"; sourceTree = "<group>"; };
 		373110C5153E36C900FB43C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		373110C7153E36C900FB43C8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		373110C9153E36C900FB43C8 /* FishCount-Prefix.pch */ = {isa = PBXFileReference; path = "FishCount-Prefix.pch"; sourceTree = "<group>"; };
-		373110CA153E36C900FB43C8 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		373110C9153E36C900FB43C8 /* FishCount-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FishCount-Prefix.pch"; sourceTree = "<group>"; };
+		373110CA153E36C900FB43C8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		373110CB153E36C900FB43C8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		373110CE153E36C900FB43C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		373110D0153E36C900FB43C8 /* MasterViewController.h */ = {isa = PBXFileReference; path = MasterViewController.h; sourceTree = "<group>"; };
+		373110D0153E36C900FB43C8 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		373110D1153E36C900FB43C8 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		373110D3153E36C900FB43C8 /* DetailViewController.h */ = {isa = PBXFileReference; path = DetailViewController.h; sourceTree = "<group>"; };
+		373110D3153E36C900FB43C8 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		373110D4153E36C900FB43C8 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		373110DB153E384100FB43C8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		373110DD153E384800FB43C8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		373110DF153E384E00FB43C8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		373110E1153E385600FB43C8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		373110E3153E385B00FB43C8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		373110E5153E386100FB43C8 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		373110E7153E386600FB43C8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		373110E9153E387700FB43C8 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
+		37311102153E3AE000FB43C8 /* Visit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Visit.h; sourceTree = "<group>"; };
+		37311103153E3AE000FB43C8 /* Visit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Visit.m; sourceTree = "<group>"; };
+		37311124153E473F00FB43C8 /* FishCount copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FishCount copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		37311126153E473F00FB43C8 /* FishCount copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "FishCount copy-Info.plist"; path = "/Users/monkeymojo/Dev/FishCount/FishCount copy-Info.plist"; sourceTree = "<absolute>"; };
+		37311127153E475600FB43C8 /* visits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = visits.json; sourceTree = "<group>"; };
+		37311129153FAAEB00FB43C8 /* IBAForms.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IBAForms.xcodeproj; path = IBAForms/library/IBAForms.xcodeproj; sourceTree = "<group>"; };
+		37311136153FAE9100FB43C8 /* VisitFormDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitFormDataSource.h; sourceTree = "<group>"; };
+		37311137153FAE9100FB43C8 /* VisitFormDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitFormDataSource.m; sourceTree = "<group>"; };
+		379DA49C154269710081D42F /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
+		379DA49D154269710081D42F /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
+		379DA49F15426BD80081D42F /* ScheduleFormDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleFormDataSource.h; sourceTree = "<group>"; };
+		379DA4A015426BD80081D42F /* ScheduleFormDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleFormDataSource.m; sourceTree = "<group>"; };
+		37D31D44153FD7D100769CAA /* StringToNumberTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringToNumberTransformer.h; sourceTree = "<group>"; };
+		37D31D45153FD7D200769CAA /* StringToNumberTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringToNumberTransformer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,21 +178,59 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37FE0A1C153FBC3400DDB24E /* libIBAForms.a in Frameworks */,
+				37311100153E38B900FB43C8 /* libRestKit.a in Frameworks */,
+				373110E8153E386600FB43C8 /* QuartzCore.framework in Frameworks */,
+				373110E6153E386100FB43C8 /* libxml2.dylib in Frameworks */,
+				373110E4153E385B00FB43C8 /* SystemConfiguration.framework in Frameworks */,
+				373110E2153E385600FB43C8 /* MobileCoreServices.framework in Frameworks */,
+				373110E0153E384E00FB43C8 /* Security.framework in Frameworks */,
+				373110DE153E384800FB43C8 /* CoreData.framework in Frameworks */,
+				373110DC153E384100FB43C8 /* CFNetwork.framework in Frameworks */,
 				373110BC153E36C900FB43C8 /* UIKit.framework in Frameworks */,
 				373110BE153E36C900FB43C8 /* Foundation.framework in Frameworks */,
 				373110C0153E36C900FB43C8 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		37311112153E473F00FB43C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37FE0A18153FBC2A00DDB24E /* libIBAForms.a in Frameworks */,
+				37FE0A19153FBC2A00DDB24E /* libRestKit.a in Frameworks */,
+				37311114153E473F00FB43C8 /* QuartzCore.framework in Frameworks */,
+				37311115153E473F00FB43C8 /* libxml2.dylib in Frameworks */,
+				37311116153E473F00FB43C8 /* SystemConfiguration.framework in Frameworks */,
+				37311117153E473F00FB43C8 /* MobileCoreServices.framework in Frameworks */,
+				37311118153E473F00FB43C8 /* Security.framework in Frameworks */,
+				37311119153E473F00FB43C8 /* CoreData.framework in Frameworks */,
+				3731111A153E473F00FB43C8 /* CFNetwork.framework in Frameworks */,
+				3731111B153E473F00FB43C8 /* UIKit.framework in Frameworks */,
+				3731111C153E473F00FB43C8 /* Foundation.framework in Frameworks */,
+				3731111D153E473F00FB43C8 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		371E294E15433BCF00ECCAEF /* views */ = {
+			isa = PBXGroup;
+			children = (
+				371E295315433BFE00ECCAEF /* JBSignatureView.h */,
+				371E295415433BFE00ECCAEF /* JBSignatureView.m */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
 		373110AC153E36C800FB43C8 = {
 			isa = PBXGroup;
 			children = (
 				373110C1153E36C900FB43C8 /* FishCount */,
 				373110BA153E36C900FB43C8 /* Frameworks */,
 				373110B8153E36C900FB43C8 /* Products */,
+				37311126153E473F00FB43C8 /* FishCount copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				373110B7153E36C900FB43C8 /* FishCount.app */,
+				37311124153E473F00FB43C8 /* FishCount copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +246,15 @@
 		373110BA153E36C900FB43C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				37311129153FAAEB00FB43C8 /* IBAForms.xcodeproj */,
+				373110E9153E387700FB43C8 /* RestKit.xcodeproj */,
+				373110E5153E386100FB43C8 /* libxml2.dylib */,
+				373110E7153E386600FB43C8 /* QuartzCore.framework */,
+				373110E3153E385B00FB43C8 /* SystemConfiguration.framework */,
+				373110E1153E385600FB43C8 /* MobileCoreServices.framework */,
+				373110DF153E384E00FB43C8 /* Security.framework */,
+				373110DD153E384800FB43C8 /* CoreData.framework */,
+				373110DB153E384100FB43C8 /* CFNetwork.framework */,
 				373110BB153E36C900FB43C8 /* UIKit.framework */,
 				373110BD153E36C900FB43C8 /* Foundation.framework */,
 				373110BF153E36C900FB43C8 /* CoreGraphics.framework */,
@@ -80,13 +265,14 @@
 		373110C1153E36C900FB43C8 /* FishCount */ = {
 			isa = PBXGroup;
 			children = (
+				371E294E15433BCF00ECCAEF /* views */,
+				379DA49B154269390081D42F /* controllers */,
+				37D31D47153FD7D800769CAA /* transformers */,
+				37311135153FAE6900FB43C8 /* datasources */,
+				37311101153E3A0000FB43C8 /* models */,
 				373110CA153E36C900FB43C8 /* AppDelegate.h */,
 				373110CB153E36C900FB43C8 /* AppDelegate.m */,
 				373110CD153E36C900FB43C8 /* MainStoryboard.storyboard */,
-				373110D0153E36C900FB43C8 /* MasterViewController.h */,
-				373110D1153E36C900FB43C8 /* MasterViewController.m */,
-				373110D3153E36C900FB43C8 /* DetailViewController.h */,
-				373110D4153E36C900FB43C8 /* DetailViewController.m */,
 				373110C2153E36C900FB43C8 /* Supporting Files */,
 			);
 			path = FishCount;
@@ -95,12 +281,78 @@
 		373110C2153E36C900FB43C8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				371E295915433C3900ECCAEF /* images */,
+				37311127153E475600FB43C8 /* visits.json */,
 				373110C3153E36C900FB43C8 /* FishCount-Info.plist */,
 				373110C4153E36C900FB43C8 /* InfoPlist.strings */,
 				373110C7153E36C900FB43C8 /* main.m */,
 				373110C9153E36C900FB43C8 /* FishCount-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		373110EA153E387700FB43C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				373110F5153E387800FB43C8 /* libRestKit.a */,
+				373110F7153E387800FB43C8 /* RestKitTests.octest */,
+				373110F9153E387800FB43C8 /* RestKit.framework */,
+				373110FB153E387800FB43C8 /* RestKitFrameworkTests.octest */,
+				373110FD153E387800FB43C8 /* RestKitResources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		37311101153E3A0000FB43C8 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				37311102153E3AE000FB43C8 /* Visit.h */,
+				37311103153E3AE000FB43C8 /* Visit.m */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		3731112A153FAAEB00FB43C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37311131153FAAEB00FB43C8 /* libIBAForms.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		37311135153FAE6900FB43C8 /* datasources */ = {
+			isa = PBXGroup;
+			children = (
+				37311136153FAE9100FB43C8 /* VisitFormDataSource.h */,
+				37311137153FAE9100FB43C8 /* VisitFormDataSource.m */,
+				379DA49F15426BD80081D42F /* ScheduleFormDataSource.h */,
+				379DA4A015426BD80081D42F /* ScheduleFormDataSource.m */,
+			);
+			name = datasources;
+			sourceTree = "<group>";
+		};
+		379DA49B154269390081D42F /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				371E295615433C0800ECCAEF /* JBSignatureController.h */,
+				371E295715433C0800ECCAEF /* JBSignatureController.m */,
+				373110D0153E36C900FB43C8 /* MasterViewController.h */,
+				373110D1153E36C900FB43C8 /* MasterViewController.m */,
+				373110D3153E36C900FB43C8 /* DetailViewController.h */,
+				373110D4153E36C900FB43C8 /* DetailViewController.m */,
+				379DA49C154269710081D42F /* ScheduleViewController.h */,
+				379DA49D154269710081D42F /* ScheduleViewController.m */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		37D31D47153FD7D800769CAA /* transformers */ = {
+			isa = PBXGroup;
+			children = (
+				37D31D44153FD7D100769CAA /* StringToNumberTransformer.h */,
+				37D31D45153FD7D200769CAA /* StringToNumberTransformer.m */,
+			);
+			name = transformers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,10 +369,31 @@
 			buildRules = (
 			);
 			dependencies = (
+				37FE0A1B153FBC2F00DDB24E /* PBXTargetDependency */,
+				373110FF153E38AF00FB43C8 /* PBXTargetDependency */,
 			);
 			name = FishCount;
 			productName = FishCount;
 			productReference = 373110B7153E36C900FB43C8 /* FishCount.app */;
+			productType = "com.apple.product-type.application";
+		};
+		37311109153E473F00FB43C8 /* Generate Seed Database */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37311121153E473F00FB43C8 /* Build configuration list for PBXNativeTarget "Generate Seed Database" */;
+			buildPhases = (
+				3731110C153E473F00FB43C8 /* Sources */,
+				37311112153E473F00FB43C8 /* Frameworks */,
+				3731111E153E473F00FB43C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				37FE0A00153FB08800DDB24E /* PBXTargetDependency */,
+				3731110A153E473F00FB43C8 /* PBXTargetDependency */,
+			);
+			name = "Generate Seed Database";
+			productName = FishCount;
+			productReference = 37311124153E473F00FB43C8 /* FishCount copy.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -141,12 +414,68 @@
 			mainGroup = 373110AC153E36C800FB43C8;
 			productRefGroup = 373110B8153E36C900FB43C8 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3731112A153FAAEB00FB43C8 /* Products */;
+					ProjectRef = 37311129153FAAEB00FB43C8 /* IBAForms.xcodeproj */;
+				},
+				{
+					ProductGroup = 373110EA153E387700FB43C8 /* Products */;
+					ProjectRef = 373110E9153E387700FB43C8 /* RestKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				373110B6153E36C900FB43C8 /* FishCount */,
+				37311109153E473F00FB43C8 /* Generate Seed Database */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		373110F5153E387800FB43C8 /* libRestKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKit.a;
+			remoteRef = 373110F4153E387800FB43C8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		373110F7153E387800FB43C8 /* RestKitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitTests.octest;
+			remoteRef = 373110F6153E387800FB43C8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		373110F9153E387800FB43C8 /* RestKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RestKit.framework;
+			remoteRef = 373110F8153E387800FB43C8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		373110FB153E387800FB43C8 /* RestKitFrameworkTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitFrameworkTests.octest;
+			remoteRef = 373110FA153E387800FB43C8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		373110FD153E387800FB43C8 /* RestKitResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitResources.bundle;
+			remoteRef = 373110FC153E387800FB43C8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		37311131153FAAEB00FB43C8 /* libIBAForms.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libIBAForms.a;
+			remoteRef = 37311130153FAAEB00FB43C8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		373110B5153E36C900FB43C8 /* Resources */ = {
@@ -155,6 +484,17 @@
 			files = (
 				373110C6153E36C900FB43C8 /* InfoPlist.strings in Resources */,
 				373110CF153E36C900FB43C8 /* MainStoryboard.storyboard in Resources */,
+				371E295A15433C3900ECCAEF /* images in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3731111E153E473F00FB43C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3731111F153E473F00FB43C8 /* InfoPlist.strings in Resources */,
+				37311120153E473F00FB43C8 /* MainStoryboard.storyboard in Resources */,
+				37311128153E475600FB43C8 /* visits.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,10 +509,52 @@
 				373110CC153E36C900FB43C8 /* AppDelegate.m in Sources */,
 				373110D2153E36C900FB43C8 /* MasterViewController.m in Sources */,
 				373110D5153E36C900FB43C8 /* DetailViewController.m in Sources */,
+				37311104153E3AE000FB43C8 /* Visit.m in Sources */,
+				37311138153FAE9100FB43C8 /* VisitFormDataSource.m in Sources */,
+				37D31D46153FD7D200769CAA /* StringToNumberTransformer.m in Sources */,
+				379DA49E154269710081D42F /* ScheduleViewController.m in Sources */,
+				379DA4A115426BD80081D42F /* ScheduleFormDataSource.m in Sources */,
+				371E295515433BFE00ECCAEF /* JBSignatureView.m in Sources */,
+				371E295815433C0800ECCAEF /* JBSignatureController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3731110C153E473F00FB43C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3731110D153E473F00FB43C8 /* main.m in Sources */,
+				3731110E153E473F00FB43C8 /* AppDelegate.m in Sources */,
+				3731110F153E473F00FB43C8 /* MasterViewController.m in Sources */,
+				37311110153E473F00FB43C8 /* DetailViewController.m in Sources */,
+				37311111153E473F00FB43C8 /* Visit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		373110FF153E38AF00FB43C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = 373110FE153E38AF00FB43C8 /* PBXContainerItemProxy */;
+		};
+		3731110A153E473F00FB43C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = 3731110B153E473F00FB43C8 /* PBXContainerItemProxy */;
+		};
+		37FE0A00153FB08800DDB24E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IBAForms;
+			targetProxy = 37FE09FF153FB08800DDB24E /* PBXContainerItemProxy */;
+		};
+		37FE0A1B153FBC2F00DDB24E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IBAForms;
+			targetProxy = 37FE0A1A153FBC2F00DDB24E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		373110C4153E36C900FB43C8 /* InfoPlist.strings */ = {
@@ -244,8 +626,17 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FishCount/FishCount-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
+					"\"$(SRCROOT)/IBAForms/library/headers\"",
+				);
 				INFOPLIST_FILE = "FishCount/FishCount-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -255,8 +646,63 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FishCount/FishCount-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
+					"\"$(SRCROOT)/IBAForms/library/headers\"",
+				);
 				INFOPLIST_FILE = "FishCount/FishCount-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		37311122153E473F00FB43C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FishCount/FishCount-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = RESTKIT_GENERATE_SEED_DB;
+				HEADER_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
+					/Users/monkeymojo/Dev/FishCount/IBAForms/library/headers,
+				);
+				IBC_PLUGIN_SEARCH_PATHS = "\"$(SRCROOT)/FishCount/libs/headers\"";
+				INFOPLIST_FILE = "FishCount copy-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "FishCount copy";
+				USER_HEADER_SEARCH_PATHS = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		37311123153E473F00FB43C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FishCount/FishCount-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = RESTKIT_GENERATE_SEED_DB;
+				HEADER_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
+					/Users/monkeymojo/Dev/FishCount/IBAForms/library/headers,
+				);
+				IBC_PLUGIN_SEARCH_PATHS = "\"$(SRCROOT)/FishCount/libs/headers\"";
+				INFOPLIST_FILE = "FishCount copy-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "FishCount copy";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -280,6 +726,16 @@
 				373110DA153E36C900FB43C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37311121153E473F00FB43C8 /* Build configuration list for PBXNativeTarget "Generate Seed Database" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37311122153E473F00FB43C8 /* Debug */,
+				37311123153E473F00FB43C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
