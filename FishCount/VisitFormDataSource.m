@@ -92,6 +92,8 @@
 																 valueTransformer:[StringToNumberTransformer instance]];
 		[countsSection addFormField:[numberField3 autorelease]];
 		numberField3.textFormFieldCell.textField.keyboardType = UIKeyboardTypeNumberPad;
+        
+        
 }
     
     return self;

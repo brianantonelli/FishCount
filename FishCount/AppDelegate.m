@@ -18,7 +18,8 @@
     RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
     RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
 
-	RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"http://192.168.0.147:3000"];
+//	RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"http://192.168.0.147:3000"];
+    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"http://brians-macbook-pro.local:3000"];
     objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
     
     // Configure object mappings

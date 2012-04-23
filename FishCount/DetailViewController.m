@@ -17,7 +17,7 @@
 
 @implementation DetailViewController
 
-@synthesize tableViewStyle, visit, sigImage, getSignatureButton, viewScheduleButton, visitorCounterButton;
+@synthesize tableViewStyle, visit, sigImage, getSignatureButton, viewScheduleButton, visitorCounterButton, providedStudentCountLabel, providedChaperoneCountLabel, providedExtraChaperoneCountLabel;
 @synthesize masterPopoverController = _masterPopoverController;
 
 -(void) didClickScheduleButton:(id) sender{
@@ -115,6 +115,26 @@
     // Add signature image
     self.sigImage = [[UIImageView alloc] initWithFrame:CGRectMake(40.0f, 740.0f, 300.f, 100.0f)];
     [self.sigImage setHidden:YES];
+    
+    // Provided Counter Labels
+    self.providedStudentCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(540.0f, 428.0f, 100.0f, 42.0f)];
+    self.providedStudentCountLabel.textAlignment = UITextAlignmentRight;
+    self.providedStudentCountLabel.font = [UIFont systemFontOfSize:12.0f];
+    self.providedStudentCountLabel.backgroundColor = [UIColor clearColor];
+    [self.providedStudentCountLabel setHidden:YES];
+    
+    self.providedChaperoneCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(540.0f, 470.0f, 100.0f, 42.0f)];
+    self.providedChaperoneCountLabel.textAlignment = UITextAlignmentRight;
+    self.providedChaperoneCountLabel.font = [UIFont systemFontOfSize:12.0f];
+    self.providedChaperoneCountLabel.backgroundColor = [UIColor clearColor];
+    [self.providedChaperoneCountLabel setHidden:YES];
+    
+    self.providedExtraChaperoneCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(540.0f, 515.0f, 100.0f, 42.0f)];
+    self.providedExtraChaperoneCountLabel.textAlignment = UITextAlignmentRight;
+    self.providedExtraChaperoneCountLabel.font = [UIFont systemFontOfSize:12.0f];
+    self.providedExtraChaperoneCountLabel.backgroundColor = [UIColor clearColor];
+    [self.providedExtraChaperoneCountLabel setHidden:YES];
+
 }
 
 -(void) loadNewModel:(Visit*)_visit{
@@ -138,9 +158,19 @@
     [self.viewScheduleButton setHidden:NO];
     [self.visitorCounterButton setHidden:NO];
     
+    // Provided Counter Labels
+    // Height needs to be dynamic.. :(
+//    [self.providedStudentCountLabel setHidden:NO];
+//    [self.providedChaperoneCountLabel setHidden:NO];
+//    [self.providedExtraChaperoneCountLabel setHidden:NO];
+    
     self.title = _visit.school;
     self.visit = _visit;
-    
+
+    self.providedStudentCountLabel.text = [NSString stringWithFormat:@"Est. %d", [self.visit.studentCount intValue]];
+    self.providedChaperoneCountLabel.text = [NSString stringWithFormat:@"Est. %d", [self.visit.chaperoneCount intValue]];
+    self.providedExtraChaperoneCountLabel.text = [NSString stringWithFormat:@"Est. %d", [self.visit.extraChaperoneCount intValue]];
+
 //    NSLog(@"table height is = %d", self.tableView.frame.size.height);
 }
 
@@ -161,6 +191,11 @@
     [self.visitorCounterButton addTarget:self action:@selector(didClickVisitorCounterButton:) forControlEvents:UIControlEventTouchUpInside];
 
     [self.tableView addSubview:self.sigImage];
+    
+    // Provided Counter Labels
+    [self.tableView addSubview:self.providedStudentCountLabel];
+    [self.tableView addSubview:self.providedChaperoneCountLabel];
+    [self.tableView addSubview:self.providedExtraChaperoneCountLabel];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -260,6 +295,9 @@
     [getSignatureButton release];
     [viewScheduleButton release];
     [visitorCounterButton release];
+    [providedStudentCountLabel release];
+    [providedChaperoneCountLabel release];
+    [providedExtraChaperoneCountLabel release];
     
     [super dealloc];
 }

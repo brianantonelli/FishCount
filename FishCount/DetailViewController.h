@@ -21,6 +21,9 @@
     UIButton *getSignatureButton;
     UIButton *viewScheduleButton;
     UIButton *visitorCounterButton;
+    UILabel *providedStudentCountLabel;
+    UILabel *providedChaperoneCountLabel;
+    UILabel *providedExtraChaperoneCountLabel;
 }
 
 -(void) didClickScheduleButton:(id) sender;
@@ -34,5 +37,9 @@
 @property(nonatomic, retain) UIButton *getSignatureButton;
 @property(nonatomic, retain) UIButton *viewScheduleButton;
 @property(nonatomic, retain) UIButton *visitorCounterButton;
+@property(nonatomic, retain) UILabel *providedStudentCountLabel;
+@property(nonatomic, retain) UILabel *providedChaperoneCountLabel;
+@property(nonatomic, retain) UILabel *providedExtraChaperoneCountLabel;
+
 
 @end
