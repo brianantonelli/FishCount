@@ -102,7 +102,7 @@
 
     Visit *visit = (Visit*) self.model;
     if([@"stateControl" isEqualToString:keyPath]){
-        if([@"Georgia" isEqualToString:visit.state]){
+        if([@"Georgia" isEqualToString:[visit.stateControl anyObject]]){
             [self addCounty];
         }
         else{

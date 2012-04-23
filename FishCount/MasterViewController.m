@@ -112,6 +112,22 @@
     Visit *visit = [visits objectAtIndex:indexPath.row];
 
     if(self.detailViewController.visit == visit) return;
+
+    // Move value into multiselect controls for new model
+    if(visit.state != nil) visit.stateControl = [NSSet setWithObject:visit.state];
+    if(visit.county != nil) visit.countyControl = [NSSet setWithObject:visit.county];
+    if(visit.program != nil) visit.programControl = [NSSet setWithObject:visit.program];
+    if(visit.paymentType != nil) visit.paymentTypeControl = [NSSet setWithObject:visit.paymentType];
+    if(visit.theType != nil) visit.theTypeControl = [NSSet setWithObject:visit.theType];
+    
+    // Copy out the value from the multiselect controls to the string value for old model
+    Visit *old = self.detailViewController.formDataSource.model;
+    old.state = [NSString stringWithFormat:@"%@", [old.stateControl anyObject]];
+    old.county = [NSString stringWithFormat:@"%@", [old.countyControl anyObject]];
+    old.program = [NSString stringWithFormat:@"%@", [old.programControl anyObject]];
+    old.paymentType = [NSString stringWithFormat:@"%@", [old.paymentTypeControl anyObject]];
+    old.theType = [NSString stringWithFormat:@"%@", [old.theTypeControl anyObject]];
+
     
     [self.detailViewController loadNewModel:visit];
 }

@@ -17,7 +17,7 @@
 
 @implementation DetailViewController
 
-@synthesize tableViewStyle, visit, sigImage, getSignatureButton, viewScheduleButton;
+@synthesize tableViewStyle, visit, sigImage, getSignatureButton, viewScheduleButton, visitorCounterButton;
 @synthesize masterPopoverController = _masterPopoverController;
 
 -(void) didClickScheduleButton:(id) sender{
@@ -43,6 +43,22 @@
     [self presentModalViewController:ctrl animated:YES];
     [ctrl release];
     [signatureController release];
+}
+
+-(void) didClickVisitorCounterButton:(id) sender{
+    VisitorCounterViewController *visitCounterController = [[VisitorCounterViewController alloc] init];
+    visitCounterController.delegate = self;
+    visitCounterController.providedStudentCount = self.visit.studentCount;
+    visitCounterController.providedChaperoneCount = self.visit.chaperoneCount;
+    visitCounterController.providedExtraChaperoneCount = self.visit.extraChaperoneCount;
+    [visitCounterController setCountsForStudents:[self.visit.actualStudentCount intValue] andChaps:[self.visit.actualChaperoneCount intValue] andExtraChaps:[self.visit.actualExtraChaperoneCount intValue]];
+    
+    UINavigationController *ctrl = [[UINavigationController alloc] initWithRootViewController:visitCounterController];
+    ctrl.modalPresentationStyle = UIModalPresentationFormSheet;
+    
+    [self presentModalViewController:ctrl animated:YES];
+    [ctrl release];
+    [visitCounterController release];
 }
 
 - (void)loadView 
@@ -84,7 +100,18 @@
                                                  self.viewScheduleButton.frame.size.height)];
 	[self.viewScheduleButton setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
     [self.viewScheduleButton setHidden:YES];
-    
+
+    // Add visitor counter button
+    self.visitorCounterButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	[self.visitorCounterButton setTitle:@"Visitor Counter" forState:UIControlStateNormal];
+	[self.visitorCounterButton sizeToFit];
+	[self.visitorCounterButton setFrame:CGRectMake(360.0f, 
+                                                 640.0f, 
+                                                 self.visitorCounterButton.frame.size.width, 
+                                                 self.visitorCounterButton.frame.size.height)];
+	[self.visitorCounterButton setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
+    [self.visitorCounterButton setHidden:YES];
+
     // Add signature image
     self.sigImage = [[UIImageView alloc] initWithFrame:CGRectMake(40.0f, 740.0f, 300.f, 100.0f)];
     [self.sigImage setHidden:YES];
@@ -109,6 +136,8 @@
     // Misc
     [self.getSignatureButton setHidden:NO];
     [self.viewScheduleButton setHidden:NO];
+    [self.visitorCounterButton setHidden:NO];
+    
     self.title = _visit.school;
     self.visit = _visit;
     
@@ -127,7 +156,10 @@
 
     [self.tableView addSubview:self.viewScheduleButton];
     [self.viewScheduleButton addTarget:self action:@selector(didClickScheduleButton:) forControlEvents:UIControlEventTouchUpInside];
-    
+
+    [self.tableView addSubview:self.visitorCounterButton];
+    [self.visitorCounterButton addTarget:self action:@selector(didClickVisitorCounterButton:) forControlEvents:UIControlEventTouchUpInside];
+
     [self.tableView addSubview:self.sigImage];
 }
 
@@ -204,6 +236,20 @@
 }
 
 #pragma mark -
+#pragma mark VisitorCounterViewControllerDelegate
+
+- (void)didDismissVisitorModalViewWithCounterData:(NSDictionary *)counterData{
+    Visit *model = (Visit*) self.formDataSource.model;
+    model.actualStudentCount = [counterData objectForKey:@"studentCount"];
+    model.actualChaperoneCount = [counterData objectForKey:@"chaperoneCount"];
+    model.actualExtraChaperoneCount = [counterData objectForKey:@"extraChaperoneCount"];
+
+    [self.tableView reloadData];
+    
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark -
 #pragma mark Memory Management
 
 - (void)dealloc
@@ -213,6 +259,7 @@
     [sigImage release];
     [getSignatureButton release];
     [viewScheduleButton release];
+    [visitorCounterButton release];
     
     [super dealloc];
 }

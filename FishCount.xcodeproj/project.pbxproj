@@ -10,6 +10,7 @@
 		371E295515433BFE00ECCAEF /* JBSignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 371E295415433BFE00ECCAEF /* JBSignatureView.m */; };
 		371E295815433C0800ECCAEF /* JBSignatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 371E295715433C0800ECCAEF /* JBSignatureController.m */; };
 		371E295A15433C3900ECCAEF /* images in Resources */ = {isa = PBXBuildFile; fileRef = 371E295915433C3900ECCAEF /* images */; };
+		37293A29154498F3007560A7 /* VisitorCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37293A28154498F2007560A7 /* VisitorCounterViewController.m */; };
 		373110BC153E36C900FB43C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110BB153E36C900FB43C8 /* UIKit.framework */; };
 		373110BE153E36C900FB43C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110BD153E36C900FB43C8 /* Foundation.framework */; };
 		373110C0153E36C900FB43C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110BF153E36C900FB43C8 /* CoreGraphics.framework */; };
@@ -49,6 +50,8 @@
 		37311138153FAE9100FB43C8 /* VisitFormDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 37311137153FAE9100FB43C8 /* VisitFormDataSource.m */; };
 		379DA49E154269710081D42F /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379DA49D154269710081D42F /* ScheduleViewController.m */; };
 		379DA4A115426BD80081D42F /* ScheduleFormDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 379DA4A015426BD80081D42F /* ScheduleFormDataSource.m */; };
+		37A2209315450060002E26CD /* iPhoneIcon_Medium.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A2209215450060002E26CD /* iPhoneIcon_Medium.png */; };
+		37A2209515450089002E26CD /* iPhoneIcon_Big.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A2209415450089002E26CD /* iPhoneIcon_Big.png */; };
 		37D31D46153FD7D200769CAA /* StringToNumberTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D31D45153FD7D200769CAA /* StringToNumberTransformer.m */; };
 		37FE0A18153FBC2A00DDB24E /* libIBAForms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37311131153FAAEB00FB43C8 /* libIBAForms.a */; };
 		37FE0A19153FBC2A00DDB24E /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110F5153E387800FB43C8 /* libRestKit.a */; };
@@ -134,6 +137,8 @@
 		371E295615433C0800ECCAEF /* JBSignatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBSignatureController.h; sourceTree = "<group>"; };
 		371E295715433C0800ECCAEF /* JBSignatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBSignatureController.m; sourceTree = "<group>"; };
 		371E295915433C3900ECCAEF /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		37293A27154498F2007560A7 /* VisitorCounterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitorCounterViewController.h; sourceTree = "<group>"; };
+		37293A28154498F2007560A7 /* VisitorCounterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitorCounterViewController.m; sourceTree = "<group>"; };
 		373110B7153E36C900FB43C8 /* FishCount.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FishCount.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		373110BB153E36C900FB43C8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		373110BD153E36C900FB43C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -169,6 +174,8 @@
 		379DA49D154269710081D42F /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
 		379DA49F15426BD80081D42F /* ScheduleFormDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleFormDataSource.h; sourceTree = "<group>"; };
 		379DA4A015426BD80081D42F /* ScheduleFormDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleFormDataSource.m; sourceTree = "<group>"; };
+		37A2209215450060002E26CD /* iPhoneIcon_Medium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPhoneIcon_Medium.png; path = ../iPhoneIcon_Medium.png; sourceTree = "<group>"; };
+		37A2209415450089002E26CD /* iPhoneIcon_Big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPhoneIcon_Big.png; path = ../iPhoneIcon_Big.png; sourceTree = "<group>"; };
 		37D31D44153FD7D100769CAA /* StringToNumberTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringToNumberTransformer.h; sourceTree = "<group>"; };
 		37D31D45153FD7D200769CAA /* StringToNumberTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringToNumberTransformer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -281,6 +288,8 @@
 		373110C2153E36C900FB43C8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				37A2209215450060002E26CD /* iPhoneIcon_Medium.png */,
+				37A2209415450089002E26CD /* iPhoneIcon_Big.png */,
 				371E295915433C3900ECCAEF /* images */,
 				37311127153E475600FB43C8 /* visits.json */,
 				373110C3153E36C900FB43C8 /* FishCount-Info.plist */,
@@ -342,6 +351,8 @@
 				373110D4153E36C900FB43C8 /* DetailViewController.m */,
 				379DA49C154269710081D42F /* ScheduleViewController.h */,
 				379DA49D154269710081D42F /* ScheduleViewController.m */,
+				37293A27154498F2007560A7 /* VisitorCounterViewController.h */,
+				37293A28154498F2007560A7 /* VisitorCounterViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -485,6 +496,8 @@
 				373110C6153E36C900FB43C8 /* InfoPlist.strings in Resources */,
 				373110CF153E36C900FB43C8 /* MainStoryboard.storyboard in Resources */,
 				371E295A15433C3900ECCAEF /* images in Resources */,
+				37A2209315450060002E26CD /* iPhoneIcon_Medium.png in Resources */,
+				37A2209515450089002E26CD /* iPhoneIcon_Big.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +529,7 @@
 				379DA4A115426BD80081D42F /* ScheduleFormDataSource.m in Sources */,
 				371E295515433BFE00ECCAEF /* JBSignatureView.m in Sources */,
 				371E295815433C0800ECCAEF /* JBSignatureController.m in Sources */,
+				37293A29154498F3007560A7 /* VisitorCounterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
