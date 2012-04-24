@@ -10,6 +10,7 @@
 #import "DetailViewController.h"
 #import "Visit.h"
 #import "VisitFormDataSource.h"
+#import <RestKit/NSString+RKAdditions.h>
 
 @implementation MasterViewController
 
@@ -21,8 +22,18 @@
 }
 
 -(void) loadObjectsFromWeb{
+    /** TODO: turn on when sufficient data exists!
+    NSDate *today = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSDateFormatter *dateFormat = [[[NSDateFormatter alloc] init] autorelease];
+    [dateFormat setDateFormat:@"MM/dd/yy"];
+   
+    NSDictionary *queryParams = [NSDictionary dictionaryWithObject:[dateFormat stringFromDate:today] forKey:@"date"];
+    NSString *resourcePath = [@"/visits.json" stringByAppendingQueryParameters:queryParams];
+    */
+    
+    NSString *resourcePath = @"/visits.json";
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
-    [objectManager loadObjectsAtResourcePath:@"/visits.json" delegate:self];
+    [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
 }
 
 #pragma mark RKObjectLoaderDelegate methods

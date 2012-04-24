@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <RestKit/RestKit.h>
+#import <RestKit/CoreData.h>
 #import "Visit.h"
 
 @implementation AppDelegate
@@ -15,16 +16,31 @@
 @synthesize window = _window;
 
 -(void) configureRestKit{
-    RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
-    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+//    RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
+//    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
 
-//	RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"http://192.168.0.147:3000"];
-    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"http://brians-macbook-pro.local:3000"];
+	RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"http://192.168.0.147:3000"];
+//    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"http://brians-macbook-pro.local:3000"];
     objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
     
+    // Initialize object store
+#ifdef RESTKIT_GENERATE_SEED_DB
+    NSString *seedDatabaseName = nil;
+    NSString *databaseName = RKDefaultSeedDatabaseFileName;
+#else
+    NSString *seedDatabaseName = RKDefaultSeedDatabaseFileName;
+    NSString *databaseName = @"FishCount.sqlite";
+#endif
+    
+    objectManager.objectStore = [RKManagedObjectStore objectStoreWithStoreFilename:databaseName 
+                                                             usingSeedDatabaseName:seedDatabaseName 
+                                                                managedObjectModel:nil 
+                                                                          delegate:self];
+
+
     // Configure object mappings
-    RKObjectMapping* visitMapping = [RKObjectMapping mappingForClass:[Visit class]];
-    //visitMapping.primaryKeyAttribute = @"identifier";
+    RKManagedObjectMapping* visitMapping = [RKManagedObjectMapping mappingForClass:[Visit class]inManagedObjectStore:objectManager.objectStore];
+    visitMapping.primaryKeyAttribute = @"identifier";
     [visitMapping mapKeyPathsToAttributes:@"id", @"identifier",
      @"order", @"order",
      @"school", @"school",
@@ -47,9 +63,8 @@
      @"actual_extrapdchaperon", @"actualExtraChaperoneCount",
      @"teacher", @"leadTeacher",
      @"state", @"state", nil];
-//     @"paymenttype", @"paymentType", nil];
     
-    [objectManager.mappingProvider setObjectMapping:visitMapping forResourcePathPattern:@"/visits.json"]; // TODO: date parameter
+    [objectManager.mappingProvider setObjectMapping:visitMapping forResourcePathPattern:@"/visits.json"];
     
     // Setup inverse serialization mapping for posting
     [objectManager.mappingProvider setSerializationMapping:[visitMapping inverseMapping] forClass:[Visit class]];
@@ -59,6 +74,18 @@
     [objectManager.router routeClass:[Visit class] toResourcePath:@"/visits.json" forMethod:RKRequestMethodGET];
     [objectManager.router routeClass:[Visit class] toResourcePath:@"/visits.json" forMethod:RKRequestMethodPOST];
     [objectManager.router routeClass:[Visit class] toResourcePath:@"/visits/:identifier.json" forMethod:RKRequestMethodPUT];
+
+#ifdef RESTKIT_GENERATE_SEED_DB
+    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelInfo);
+    RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
+    RKManagedObjectSeeder* seeder = [RKManagedObjectSeeder objectSeederWithObjectManager:objectManager];
+    
+    // Seed the database with instances of Status from a snapshot of the RestKit Twitter timeline
+    [seeder seedObjectsFromFile:@"visits.json" withObjectMapping:visitMapping];
+    
+    // Finalize the seeding operation and output a helpful informational message
+    [seeder finalizeSeedingAndExit];
+#endif
     
     // MySQL date format
     [RKObjectMapping addDefaultDateFormatterForString:@"yyyy-MM-dd HH:mm:ss" inTimeZone:nil];
@@ -68,6 +95,8 @@
     Visit *test = [Visit new];
     test.school = @"west!";
     [[RKObjectManager sharedManager] postObject:test delegate:self];
+     
+     SEE OBJECT SERIALIZATION: https://github.com/RestKit/RestKit/blob/master/Docs/Object%20Mapping.md
      */
 }
 

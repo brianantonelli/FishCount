@@ -15,6 +15,42 @@
 		372C88AC1545201300A3C31B /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 372C88AB1545201300A3C31B /* Default-Portrait@2x~ipad.png */; };
 		372C88AE1545201900A3C31B /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 372C88AD1545201900A3C31B /* Default-Landscape~ipad.png */; };
 		372C88B01545201D00A3C31B /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 372C88AF1545201D00A3C31B /* Default-Landscape@2x~ipad.png */; };
+		372C88B6154639A600A3C31B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 372C88B4154639A600A3C31B /* Model.xcdatamodeld */; };
+		372C88BD15463F1B00A3C31B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110C7153E36C900FB43C8 /* main.m */; };
+		372C88BE15463F1B00A3C31B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110CB153E36C900FB43C8 /* AppDelegate.m */; };
+		372C88BF15463F1B00A3C31B /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110D1153E36C900FB43C8 /* MasterViewController.m */; };
+		372C88C015463F1B00A3C31B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110D4153E36C900FB43C8 /* DetailViewController.m */; };
+		372C88C115463F1B00A3C31B /* Visit.m in Sources */ = {isa = PBXBuildFile; fileRef = 37311103153E3AE000FB43C8 /* Visit.m */; };
+		372C88C215463F1B00A3C31B /* VisitFormDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 37311137153FAE9100FB43C8 /* VisitFormDataSource.m */; };
+		372C88C315463F1B00A3C31B /* StringToNumberTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D31D45153FD7D200769CAA /* StringToNumberTransformer.m */; };
+		372C88C415463F1B00A3C31B /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379DA49D154269710081D42F /* ScheduleViewController.m */; };
+		372C88C515463F1B00A3C31B /* ScheduleFormDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 379DA4A015426BD80081D42F /* ScheduleFormDataSource.m */; };
+		372C88C615463F1B00A3C31B /* JBSignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 371E295415433BFE00ECCAEF /* JBSignatureView.m */; };
+		372C88C715463F1B00A3C31B /* JBSignatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 371E295715433C0800ECCAEF /* JBSignatureController.m */; };
+		372C88C815463F1B00A3C31B /* VisitorCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37293A28154498F2007560A7 /* VisitorCounterViewController.m */; };
+		372C88C915463F1B00A3C31B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 372C88B4154639A600A3C31B /* Model.xcdatamodeld */; };
+		372C88CB15463F1B00A3C31B /* libIBAForms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37311131153FAAEB00FB43C8 /* libIBAForms.a */; };
+		372C88CC15463F1B00A3C31B /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110F5153E387800FB43C8 /* libRestKit.a */; };
+		372C88CD15463F1B00A3C31B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110E7153E386600FB43C8 /* QuartzCore.framework */; };
+		372C88CE15463F1B00A3C31B /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110E5153E386100FB43C8 /* libxml2.dylib */; };
+		372C88CF15463F1B00A3C31B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110E3153E385B00FB43C8 /* SystemConfiguration.framework */; };
+		372C88D015463F1B00A3C31B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110E1153E385600FB43C8 /* MobileCoreServices.framework */; };
+		372C88D115463F1B00A3C31B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110DF153E384E00FB43C8 /* Security.framework */; };
+		372C88D215463F1B00A3C31B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110DD153E384800FB43C8 /* CoreData.framework */; };
+		372C88D315463F1B00A3C31B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110DB153E384100FB43C8 /* CFNetwork.framework */; };
+		372C88D415463F1B00A3C31B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110BB153E36C900FB43C8 /* UIKit.framework */; };
+		372C88D515463F1B00A3C31B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110BD153E36C900FB43C8 /* Foundation.framework */; };
+		372C88D615463F1B00A3C31B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110BF153E36C900FB43C8 /* CoreGraphics.framework */; };
+		372C88D815463F1B00A3C31B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 373110C4153E36C900FB43C8 /* InfoPlist.strings */; };
+		372C88D915463F1B00A3C31B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 373110CD153E36C900FB43C8 /* MainStoryboard.storyboard */; };
+		372C88DA15463F1B00A3C31B /* images in Resources */ = {isa = PBXBuildFile; fileRef = 371E295915433C3900ECCAEF /* images */; };
+		372C88DB15463F1B00A3C31B /* iPhoneIcon_Medium.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A2209215450060002E26CD /* iPhoneIcon_Medium.png */; };
+		372C88DC15463F1B00A3C31B /* iPhoneIcon_Big.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A2209415450089002E26CD /* iPhoneIcon_Big.png */; };
+		372C88DD15463F1B00A3C31B /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 372C88A91545200E00A3C31B /* Default-Portrait~ipad.png */; };
+		372C88DE15463F1B00A3C31B /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 372C88AB1545201300A3C31B /* Default-Portrait@2x~ipad.png */; };
+		372C88DF15463F1B00A3C31B /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 372C88AD1545201900A3C31B /* Default-Landscape~ipad.png */; };
+		372C88E015463F1B00A3C31B /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 372C88AF1545201D00A3C31B /* Default-Landscape@2x~ipad.png */; };
+		372C88E8154642F600A3C31B /* RKSeedDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 372C88E7154642F600A3C31B /* RKSeedDatabase.sqlite */; };
 		373110BC153E36C900FB43C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110BB153E36C900FB43C8 /* UIKit.framework */; };
 		373110BE153E36C900FB43C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110BD153E36C900FB43C8 /* Foundation.framework */; };
 		373110C0153E36C900FB43C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110BF153E36C900FB43C8 /* CoreGraphics.framework */; };
@@ -33,36 +69,30 @@
 		373110E8153E386600FB43C8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110E7153E386600FB43C8 /* QuartzCore.framework */; };
 		37311100153E38B900FB43C8 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110F5153E387800FB43C8 /* libRestKit.a */; };
 		37311104153E3AE000FB43C8 /* Visit.m in Sources */ = {isa = PBXBuildFile; fileRef = 37311103153E3AE000FB43C8 /* Visit.m */; };
-		3731110D153E473F00FB43C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110C7153E36C900FB43C8 /* main.m */; };
-		3731110E153E473F00FB43C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110CB153E36C900FB43C8 /* AppDelegate.m */; };
-		3731110F153E473F00FB43C8 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110D1153E36C900FB43C8 /* MasterViewController.m */; };
-		37311110153E473F00FB43C8 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110D4153E36C900FB43C8 /* DetailViewController.m */; };
-		37311111153E473F00FB43C8 /* Visit.m in Sources */ = {isa = PBXBuildFile; fileRef = 37311103153E3AE000FB43C8 /* Visit.m */; };
-		37311114153E473F00FB43C8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110E7153E386600FB43C8 /* QuartzCore.framework */; };
-		37311115153E473F00FB43C8 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110E5153E386100FB43C8 /* libxml2.dylib */; };
-		37311116153E473F00FB43C8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110E3153E385B00FB43C8 /* SystemConfiguration.framework */; };
-		37311117153E473F00FB43C8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110E1153E385600FB43C8 /* MobileCoreServices.framework */; };
-		37311118153E473F00FB43C8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110DF153E384E00FB43C8 /* Security.framework */; };
-		37311119153E473F00FB43C8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110DD153E384800FB43C8 /* CoreData.framework */; };
-		3731111A153E473F00FB43C8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110DB153E384100FB43C8 /* CFNetwork.framework */; };
-		3731111B153E473F00FB43C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110BB153E36C900FB43C8 /* UIKit.framework */; };
-		3731111C153E473F00FB43C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110BD153E36C900FB43C8 /* Foundation.framework */; };
-		3731111D153E473F00FB43C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110BF153E36C900FB43C8 /* CoreGraphics.framework */; };
-		3731111F153E473F00FB43C8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 373110C4153E36C900FB43C8 /* InfoPlist.strings */; };
-		37311120153E473F00FB43C8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 373110CD153E36C900FB43C8 /* MainStoryboard.storyboard */; };
-		37311128153E475600FB43C8 /* visits.json in Resources */ = {isa = PBXBuildFile; fileRef = 37311127153E475600FB43C8 /* visits.json */; };
 		37311138153FAE9100FB43C8 /* VisitFormDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 37311137153FAE9100FB43C8 /* VisitFormDataSource.m */; };
 		379DA49E154269710081D42F /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379DA49D154269710081D42F /* ScheduleViewController.m */; };
 		379DA4A115426BD80081D42F /* ScheduleFormDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 379DA4A015426BD80081D42F /* ScheduleFormDataSource.m */; };
 		37A2209315450060002E26CD /* iPhoneIcon_Medium.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A2209215450060002E26CD /* iPhoneIcon_Medium.png */; };
 		37A2209515450089002E26CD /* iPhoneIcon_Big.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A2209415450089002E26CD /* iPhoneIcon_Big.png */; };
 		37D31D46153FD7D200769CAA /* StringToNumberTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D31D45153FD7D200769CAA /* StringToNumberTransformer.m */; };
-		37FE0A18153FBC2A00DDB24E /* libIBAForms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37311131153FAAEB00FB43C8 /* libIBAForms.a */; };
-		37FE0A19153FBC2A00DDB24E /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110F5153E387800FB43C8 /* libRestKit.a */; };
 		37FE0A1C153FBC3400DDB24E /* libIBAForms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37311131153FAAEB00FB43C8 /* libIBAForms.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		372C88B915463F1B00A3C31B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37311129153FAAEB00FB43C8 /* IBAForms.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = IBAForms;
+		};
+		372C88BB15463F1B00A3C31B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 373110E9153E387700FB43C8 /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
+		};
 		373110F4153E387800FB43C8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 373110E9153E387700FB43C8 /* RestKit.xcodeproj */;
@@ -105,25 +135,11 @@
 			remoteGlobalIDString = 25160D1514564E810060A5C5;
 			remoteInfo = RestKit;
 		};
-		3731110B153E473F00FB43C8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 373110E9153E387700FB43C8 /* RestKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 25160D1514564E810060A5C5;
-			remoteInfo = RestKit;
-		};
 		37311130153FAAEB00FB43C8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 37311129153FAAEB00FB43C8 /* IBAForms.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D2AAC07E0554694100DB518D;
-			remoteInfo = IBAForms;
-		};
-		37FE09FF153FB08800DDB24E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 37311129153FAAEB00FB43C8 /* IBAForms.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = IBAForms;
 		};
 		37FE0A1A153FBC2F00DDB24E /* PBXContainerItemProxy */ = {
@@ -147,6 +163,10 @@
 		372C88AB1545201300A3C31B /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait@2x~ipad.png"; path = "../Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 		372C88AD1545201900A3C31B /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		372C88AF1545201D00A3C31B /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		372C88B5154639A600A3C31B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		372C88E415463F1B00A3C31B /* FishCount copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FishCount copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		372C88E615463F1C00A3C31B /* FishCount copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "FishCount copy2-Info.plist"; path = "/Users/monkeymojo/Dev/FishCount/FishCount copy2-Info.plist"; sourceTree = "<absolute>"; };
+		372C88E7154642F600A3C31B /* RKSeedDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RKSeedDatabase.sqlite; sourceTree = "<group>"; };
 		373110B7153E36C900FB43C8 /* FishCount.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FishCount.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		373110BB153E36C900FB43C8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		373110BD153E36C900FB43C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -172,7 +192,6 @@
 		373110E9153E387700FB43C8 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		37311102153E3AE000FB43C8 /* Visit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Visit.h; sourceTree = "<group>"; };
 		37311103153E3AE000FB43C8 /* Visit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Visit.m; sourceTree = "<group>"; };
-		37311124153E473F00FB43C8 /* FishCount copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FishCount copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		37311126153E473F00FB43C8 /* FishCount copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "FishCount copy-Info.plist"; path = "/Users/monkeymojo/Dev/FishCount/FishCount copy-Info.plist"; sourceTree = "<absolute>"; };
 		37311127153E475600FB43C8 /* visits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = visits.json; sourceTree = "<group>"; };
 		37311129153FAAEB00FB43C8 /* IBAForms.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IBAForms.xcodeproj; path = IBAForms/library/IBAForms.xcodeproj; sourceTree = "<group>"; };
@@ -189,6 +208,25 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		372C88CA15463F1B00A3C31B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				372C88CB15463F1B00A3C31B /* libIBAForms.a in Frameworks */,
+				372C88CC15463F1B00A3C31B /* libRestKit.a in Frameworks */,
+				372C88CD15463F1B00A3C31B /* QuartzCore.framework in Frameworks */,
+				372C88CE15463F1B00A3C31B /* libxml2.dylib in Frameworks */,
+				372C88CF15463F1B00A3C31B /* SystemConfiguration.framework in Frameworks */,
+				372C88D015463F1B00A3C31B /* MobileCoreServices.framework in Frameworks */,
+				372C88D115463F1B00A3C31B /* Security.framework in Frameworks */,
+				372C88D215463F1B00A3C31B /* CoreData.framework in Frameworks */,
+				372C88D315463F1B00A3C31B /* CFNetwork.framework in Frameworks */,
+				372C88D415463F1B00A3C31B /* UIKit.framework in Frameworks */,
+				372C88D515463F1B00A3C31B /* Foundation.framework in Frameworks */,
+				372C88D615463F1B00A3C31B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		373110B4153E36C900FB43C8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -205,25 +243,6 @@
 				373110BC153E36C900FB43C8 /* UIKit.framework in Frameworks */,
 				373110BE153E36C900FB43C8 /* Foundation.framework in Frameworks */,
 				373110C0153E36C900FB43C8 /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		37311112153E473F00FB43C8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				37FE0A18153FBC2A00DDB24E /* libIBAForms.a in Frameworks */,
-				37FE0A19153FBC2A00DDB24E /* libRestKit.a in Frameworks */,
-				37311114153E473F00FB43C8 /* QuartzCore.framework in Frameworks */,
-				37311115153E473F00FB43C8 /* libxml2.dylib in Frameworks */,
-				37311116153E473F00FB43C8 /* SystemConfiguration.framework in Frameworks */,
-				37311117153E473F00FB43C8 /* MobileCoreServices.framework in Frameworks */,
-				37311118153E473F00FB43C8 /* Security.framework in Frameworks */,
-				37311119153E473F00FB43C8 /* CoreData.framework in Frameworks */,
-				3731111A153E473F00FB43C8 /* CFNetwork.framework in Frameworks */,
-				3731111B153E473F00FB43C8 /* UIKit.framework in Frameworks */,
-				3731111C153E473F00FB43C8 /* Foundation.framework in Frameworks */,
-				3731111D153E473F00FB43C8 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +265,7 @@
 				373110BA153E36C900FB43C8 /* Frameworks */,
 				373110B8153E36C900FB43C8 /* Products */,
 				37311126153E473F00FB43C8 /* FishCount copy-Info.plist */,
+				372C88E615463F1C00A3C31B /* FishCount copy2-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -253,7 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				373110B7153E36C900FB43C8 /* FishCount.app */,
-				37311124153E473F00FB43C8 /* FishCount copy.app */,
+				372C88E415463F1B00A3C31B /* FishCount copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -288,6 +308,7 @@
 				373110CA153E36C900FB43C8 /* AppDelegate.h */,
 				373110CB153E36C900FB43C8 /* AppDelegate.m */,
 				373110CD153E36C900FB43C8 /* MainStoryboard.storyboard */,
+				372C88B4154639A600A3C31B /* Model.xcdatamodeld */,
 				373110C2153E36C900FB43C8 /* Supporting Files */,
 			);
 			path = FishCount;
@@ -296,6 +317,7 @@
 		373110C2153E36C900FB43C8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				372C88E7154642F600A3C31B /* RKSeedDatabase.sqlite */,
 				37A2209215450060002E26CD /* iPhoneIcon_Medium.png */,
 				37A2209415450089002E26CD /* iPhoneIcon_Big.png */,
 				372C88AF1545201D00A3C31B /* Default-Landscape@2x~ipad.png */,
@@ -381,6 +403,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		372C88B715463F1B00A3C31B /* Seed Database */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 372C88E115463F1B00A3C31B /* Build configuration list for PBXNativeTarget "Seed Database" */;
+			buildPhases = (
+				372C88BC15463F1B00A3C31B /* Sources */,
+				372C88CA15463F1B00A3C31B /* Frameworks */,
+				372C88D715463F1B00A3C31B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				372C88B815463F1B00A3C31B /* PBXTargetDependency */,
+				372C88BA15463F1B00A3C31B /* PBXTargetDependency */,
+			);
+			name = "Seed Database";
+			productName = FishCount;
+			productReference = 372C88E415463F1B00A3C31B /* FishCount copy.app */;
+			productType = "com.apple.product-type.application";
+		};
 		373110B6153E36C900FB43C8 /* FishCount */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 373110D8153E36C900FB43C8 /* Build configuration list for PBXNativeTarget "FishCount" */;
@@ -398,25 +439,6 @@
 			name = FishCount;
 			productName = FishCount;
 			productReference = 373110B7153E36C900FB43C8 /* FishCount.app */;
-			productType = "com.apple.product-type.application";
-		};
-		37311109153E473F00FB43C8 /* Generate Seed Database */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 37311121153E473F00FB43C8 /* Build configuration list for PBXNativeTarget "Generate Seed Database" */;
-			buildPhases = (
-				3731110C153E473F00FB43C8 /* Sources */,
-				37311112153E473F00FB43C8 /* Frameworks */,
-				3731111E153E473F00FB43C8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				37FE0A00153FB08800DDB24E /* PBXTargetDependency */,
-				3731110A153E473F00FB43C8 /* PBXTargetDependency */,
-			);
-			name = "Generate Seed Database";
-			productName = FishCount;
-			productReference = 37311124153E473F00FB43C8 /* FishCount copy.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -450,7 +472,7 @@
 			projectRoot = "";
 			targets = (
 				373110B6153E36C900FB43C8 /* FishCount */,
-				37311109153E473F00FB43C8 /* Generate Seed Database */,
+				372C88B715463F1B00A3C31B /* Seed Database */,
 			);
 		};
 /* End PBXProject section */
@@ -501,6 +523,22 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		372C88D715463F1B00A3C31B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				372C88D815463F1B00A3C31B /* InfoPlist.strings in Resources */,
+				372C88D915463F1B00A3C31B /* MainStoryboard.storyboard in Resources */,
+				372C88DA15463F1B00A3C31B /* images in Resources */,
+				372C88DB15463F1B00A3C31B /* iPhoneIcon_Medium.png in Resources */,
+				372C88DC15463F1B00A3C31B /* iPhoneIcon_Big.png in Resources */,
+				372C88DD15463F1B00A3C31B /* Default-Portrait~ipad.png in Resources */,
+				372C88DE15463F1B00A3C31B /* Default-Portrait@2x~ipad.png in Resources */,
+				372C88DF15463F1B00A3C31B /* Default-Landscape~ipad.png in Resources */,
+				372C88E015463F1B00A3C31B /* Default-Landscape@2x~ipad.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		373110B5153E36C900FB43C8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -514,22 +552,33 @@
 				372C88AC1545201300A3C31B /* Default-Portrait@2x~ipad.png in Resources */,
 				372C88AE1545201900A3C31B /* Default-Landscape~ipad.png in Resources */,
 				372C88B01545201D00A3C31B /* Default-Landscape@2x~ipad.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3731111E153E473F00FB43C8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3731111F153E473F00FB43C8 /* InfoPlist.strings in Resources */,
-				37311120153E473F00FB43C8 /* MainStoryboard.storyboard in Resources */,
-				37311128153E475600FB43C8 /* visits.json in Resources */,
+				372C88E8154642F600A3C31B /* RKSeedDatabase.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		372C88BC15463F1B00A3C31B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				372C88BD15463F1B00A3C31B /* main.m in Sources */,
+				372C88BE15463F1B00A3C31B /* AppDelegate.m in Sources */,
+				372C88BF15463F1B00A3C31B /* MasterViewController.m in Sources */,
+				372C88C015463F1B00A3C31B /* DetailViewController.m in Sources */,
+				372C88C115463F1B00A3C31B /* Visit.m in Sources */,
+				372C88C215463F1B00A3C31B /* VisitFormDataSource.m in Sources */,
+				372C88C315463F1B00A3C31B /* StringToNumberTransformer.m in Sources */,
+				372C88C415463F1B00A3C31B /* ScheduleViewController.m in Sources */,
+				372C88C515463F1B00A3C31B /* ScheduleFormDataSource.m in Sources */,
+				372C88C615463F1B00A3C31B /* JBSignatureView.m in Sources */,
+				372C88C715463F1B00A3C31B /* JBSignatureController.m in Sources */,
+				372C88C815463F1B00A3C31B /* VisitorCounterViewController.m in Sources */,
+				372C88C915463F1B00A3C31B /* Model.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		373110B3153E36C900FB43C8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -546,38 +595,27 @@
 				371E295515433BFE00ECCAEF /* JBSignatureView.m in Sources */,
 				371E295815433C0800ECCAEF /* JBSignatureController.m in Sources */,
 				37293A29154498F3007560A7 /* VisitorCounterViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3731110C153E473F00FB43C8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3731110D153E473F00FB43C8 /* main.m in Sources */,
-				3731110E153E473F00FB43C8 /* AppDelegate.m in Sources */,
-				3731110F153E473F00FB43C8 /* MasterViewController.m in Sources */,
-				37311110153E473F00FB43C8 /* DetailViewController.m in Sources */,
-				37311111153E473F00FB43C8 /* Visit.m in Sources */,
+				372C88B6154639A600A3C31B /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		372C88B815463F1B00A3C31B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IBAForms;
+			targetProxy = 372C88B915463F1B00A3C31B /* PBXContainerItemProxy */;
+		};
+		372C88BA15463F1B00A3C31B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = 372C88BB15463F1B00A3C31B /* PBXContainerItemProxy */;
+		};
 		373110FF153E38AF00FB43C8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RestKit;
 			targetProxy = 373110FE153E38AF00FB43C8 /* PBXContainerItemProxy */;
-		};
-		3731110A153E473F00FB43C8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = RestKit;
-			targetProxy = 3731110B153E473F00FB43C8 /* PBXContainerItemProxy */;
-		};
-		37FE0A00153FB08800DDB24E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = IBAForms;
-			targetProxy = 37FE09FF153FB08800DDB24E /* PBXContainerItemProxy */;
 		};
 		37FE0A1B153FBC2F00DDB24E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -606,6 +644,51 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		372C88E215463F1B00A3C31B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FishCount/FishCount-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					RESTKIT_GENERATE_SEED_DB,
+					"DEBUG=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
+					"\"$(SRCROOT)/IBAForms/library/headers\"",
+				);
+				INFOPLIST_FILE = "FishCount copy2-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "FishCount copy";
+				USER_HEADER_SEARCH_PATHS = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		372C88E315463F1B00A3C31B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FishCount/FishCount-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = RESTKIT_GENERATE_SEED_DB;
+				HEADER_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
+					"\"$(SRCROOT)/IBAForms/library/headers\"",
+				);
+				INFOPLIST_FILE = "FishCount copy2-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "FishCount copy";
+				USER_HEADER_SEARCH_PATHS = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		373110D6153E36C900FB43C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -691,55 +774,18 @@
 			};
 			name = Release;
 		};
-		37311122153E473F00FB43C8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FishCount/FishCount-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = RESTKIT_GENERATE_SEED_DB;
-				HEADER_SEARCH_PATHS = (
-					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
-					/Users/monkeymojo/Dev/FishCount/IBAForms/library/headers,
-				);
-				IBC_PLUGIN_SEARCH_PATHS = "\"$(SRCROOT)/FishCount/libs/headers\"";
-				INFOPLIST_FILE = "FishCount copy-Info.plist";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
-				PRODUCT_NAME = "FishCount copy";
-				USER_HEADER_SEARCH_PATHS = "";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		37311123153E473F00FB43C8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FishCount/FishCount-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = RESTKIT_GENERATE_SEED_DB;
-				HEADER_SEARCH_PATHS = (
-					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
-					/Users/monkeymojo/Dev/FishCount/IBAForms/library/headers,
-				);
-				IBC_PLUGIN_SEARCH_PATHS = "\"$(SRCROOT)/FishCount/libs/headers\"";
-				INFOPLIST_FILE = "FishCount copy-Info.plist";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
-				PRODUCT_NAME = "FishCount copy";
-				USER_HEADER_SEARCH_PATHS = "";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		372C88E115463F1B00A3C31B /* Build configuration list for PBXNativeTarget "Seed Database" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				372C88E215463F1B00A3C31B /* Debug */,
+				372C88E315463F1B00A3C31B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		373110B1153E36C800FB43C8 /* Build configuration list for PBXProject "FishCount" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -758,16 +804,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		37311121153E473F00FB43C8 /* Build configuration list for PBXNativeTarget "Generate Seed Database" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				37311122153E473F00FB43C8 /* Debug */,
-				37311123153E473F00FB43C8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		372C88B4154639A600A3C31B /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				372C88B5154639A600A3C31B /* Model.xcdatamodel */,
+			);
+			currentVersion = 372C88B5154639A600A3C31B /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 373110AE153E36C800FB43C8 /* Project object */;
 }

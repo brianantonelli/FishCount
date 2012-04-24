@@ -10,7 +10,7 @@
 #import <RestKit/CoreData.h>
 
 
-@interface Visit : NSObject{
+@interface Visit : NSManagedObject{
     BOOL needsToBeSynced;
 }
 

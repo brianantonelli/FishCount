@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>FishCount copy 2.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>FishCount copy.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -17,6 +22,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>372C88B715463F1B00A3C31B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>373110B6153E36C900FB43C8</key>
 		<dict>
 			<key>primary</key>
