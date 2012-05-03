@@ -34,8 +34,6 @@
 @property(nonatomic, retain) NSNumber *actualStudentCount;
 @property(nonatomic, retain) NSNumber *actualChaperoneCount;
 @property(nonatomic, retain) NSNumber *actualExtraChaperoneCount;
-
-// check with steph
 @property(nonatomic, retain) NSString *leadTeacher;
 @property(nonatomic, retain) NSString *state;
 @property(nonatomic, retain) NSString *paymentType;

@@ -7,8 +7,10 @@
 //
 
 #import "DetailViewController.h"
+#import <RestKit/RestKit.h>
 #import "ScheduleViewController.h"
 #import "ScheduleFormDataSource.h"
+#import "Visit.h"
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -59,6 +61,17 @@
     [self presentModalViewController:ctrl animated:YES];
     [ctrl release];
     [visitCounterController release];
+}
+
+-(void) didClickSaveButton:(id) sender{
+    UIAlertView *alert = [[UIAlertView alloc] init];
+	[alert setTitle:@"Finalize Record"];
+	[alert setMessage:@"Do you want to finalize this record? By finalizing a record it will be saved to the database upon syncing the iPad. Only finalize if you are responsible for this school!"];
+	[alert setDelegate:self];
+	[alert addButtonWithTitle:@"No"];
+	[alert addButtonWithTitle:@"Yes"];
+	[alert show];
+	[alert release];
 }
 
 - (void)loadView 
@@ -138,6 +151,7 @@
 }
 
 -(void) loadNewModel:(Visit*)_visit{
+    // TODO: Weird bug: if you click into a text field, then click another school then click back and click a text field it crashes!
     // Setup datasource
     VisitFormDataSource *vfds = [[[VisitFormDataSource alloc] initWithModel:_visit] autorelease];
     vfds.delegate = self;
@@ -227,10 +241,10 @@
 {
     // Called when the view is shown again in the split view, invalidating the button and popover controller.
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
-    UIBarButtonItem *saveButton = [[[UIBarButtonItem alloc] initWithTitle:@"Save"
+    UIBarButtonItem *saveButton = [[[UIBarButtonItem alloc] initWithTitle:@"Finalize"
 																	style:UIBarButtonItemStyleDone 
-																   target:nil 
-																   action:nil] autorelease];
+																   target:self 
+																   action:@selector(didClickSaveButton:)] autorelease];
     [self.navigationItem setRightBarButtonItem:saveButton animated:YES];
     
     
@@ -282,6 +296,17 @@
     [self.tableView reloadData];
     
     [self dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark -
+#pragma mark UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Todo" message:@"Flag record as dirty and in need of a sync!" delegate:nil cancelButtonTitle:@"Aight" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+    }
 }
 
 #pragma mark -

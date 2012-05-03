@@ -37,7 +37,6 @@
                                                                 managedObjectModel:nil 
                                                                           delegate:self];
 
-
     // Configure object mappings
     RKManagedObjectMapping* visitMapping = [RKManagedObjectMapping mappingForClass:[Visit class]inManagedObjectStore:objectManager.objectStore];
     visitMapping.primaryKeyAttribute = @"identifier";

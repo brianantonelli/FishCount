@@ -18,10 +18,36 @@
 @synthesize visits;
 
 -(void) loadObjectsFromDataStore{
+    [self.visits release];
     
+    NSFetchRequest* request = [Visit fetchRequest];
+    NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:NO];
+    [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
+    
+    self.visits = [Visit objectsWithFetchRequest:request];
+}
+
+-(void) loadObjectsFromWebPrompt{
+    if([self.visits count] == 0){
+        [self loadObjectsFromWeb];
+        return;
+    }
+    
+	UIAlertView *alert = [[UIAlertView alloc] init];
+	[alert setTitle:@"Load New Data"];
+	[alert setMessage:@"Do you want to load the latest data from the server? All existing data will be deleted. This cannot be undone!"];
+	[alert setDelegate:self];
+	[alert addButtonWithTitle:@"No"];
+	[alert addButtonWithTitle:@"Yes"];
+	[alert show];
+	[alert release];
 }
 
 -(void) loadObjectsFromWeb{
+    // Clean out the store
+    RKManagedObjectStore *store = [RKObjectManager sharedManager].objectStore;
+    [store deletePersistantStore];
+    
     /** TODO: turn on when sufficient data exists!
     NSDate *today = [NSDate dateWithTimeIntervalSinceNow:0];
     NSDateFormatter *dateFormat = [[[NSDateFormatter alloc] init] autorelease];
@@ -36,7 +62,16 @@
     [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
 }
 
+-(void) syncObjectsToWeb{
+    NSLog(@"TODO: syncItemsToWeb");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TODO" message:@"-(void) syncObjectsToWeb{" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+}
+
+#pragma mark -
 #pragma mark RKObjectLoaderDelegate methods
+
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
     self.visits = objects;
     [self.tableView reloadData];
@@ -48,34 +83,40 @@
                                                     delegate:nil 
                                            cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
 	[alert show];
-	NSLog(@"Hit error: %@", error);
+	NSLog(@"objectLoader error: %@", error);
 }
 
-- (void)awakeFromNib
-{
-    self.clearsSelectionOnViewWillAppear = NO;
-    self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
-    [super awakeFromNib];
+#pragma mark -
+#pragma mark UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1){
+        [self loadObjectsFromWeb];
+    }
 }
 
-- (void)dealloc
-{
-    [_detailViewController release];
-    [visits release];
-    [super dealloc];
-}
+#pragma mark -
+#pragma mark View related
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 
-//    UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)] autorelease];
-//    self.navigationItem.rightBarButtonItem = addButton;
+    UIBarButtonItem *loadFromWebButton = [[[UIBarButtonItem alloc] initWithTitle:@"Load"
+																	style:UIBarButtonItemStyleDone 
+																   target:self 
+																   action:@selector(loadObjectsFromWebPrompt)] autorelease];
+    self.navigationItem.leftBarButtonItem = loadFromWebButton;
+        
+    UIBarButtonItem *syncToWebButton = [[[UIBarButtonItem alloc] initWithTitle:@"Sync"
+                                                                           style:UIBarButtonItemStyleDone 
+                                                                          target:self 
+                                                                          action:@selector(syncObjectsToWeb)] autorelease];
+    self.navigationItem.rightBarButtonItem = syncToWebButton;
 
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
-    [self loadObjectsFromWeb];
+    [self loadObjectsFromDataStore];
 }
 
 - (void)viewDidUnload
@@ -89,11 +130,21 @@
     return YES;
 }
 
-- (void)insertNewObject:(id)sender
+- (void)awakeFromNib
 {
-    if (!visits) {
-        self.visits = [[NSArray alloc] init];
-    }
+    self.clearsSelectionOnViewWillAppear = NO;
+    self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
+    [super awakeFromNib];
+}
+
+#pragma mark -
+#pragma mark Memory Management
+
+- (void)dealloc
+{
+    [_detailViewController release];
+    [visits release];
+    [super dealloc];
 }
 
 #pragma mark - UITableViewDelegate
@@ -133,12 +184,28 @@
     
     // Copy out the value from the multiselect controls to the string value for old model
     Visit *old = self.detailViewController.formDataSource.model;
-    old.state = [NSString stringWithFormat:@"%@", [old.stateControl anyObject]];
-    old.county = [NSString stringWithFormat:@"%@", [old.countyControl anyObject]];
-    old.program = [NSString stringWithFormat:@"%@", [old.programControl anyObject]];
-    old.paymentType = [NSString stringWithFormat:@"%@", [old.paymentTypeControl anyObject]];
-    old.theType = [NSString stringWithFormat:@"%@", [old.theTypeControl anyObject]];
-
+    if(old != nil){
+        old.state = [NSString stringWithFormat:@"%@", [old.stateControl anyObject]];
+        old.county = [NSString stringWithFormat:@"%@", [old.countyControl anyObject]];
+        old.program = [NSString stringWithFormat:@"%@", [old.programControl anyObject]];
+        old.paymentType = [NSString stringWithFormat:@"%@", [old.paymentTypeControl anyObject]];
+        old.theType = [NSString stringWithFormat:@"%@", [old.theTypeControl anyObject]];
+        
+        // Save to core data
+        RKManagedObjectStore *store = [RKObjectManager sharedManager].objectStore;
+        NSError *err = nil;
+        [store save:&err];
+        if(err != nil){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error saving to the local database." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            [alert show];
+            [alert release];
+            
+            NSLog(@"Error saving to store! %@", [err description]);
+        }
+        else {
+            NSLog(@"Successfully saved to store!");
+        }
+    }
     
     [self.detailViewController loadNewModel:visit];
 }

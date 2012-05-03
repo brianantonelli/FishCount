@@ -11,13 +11,14 @@
 
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController <RKObjectLoaderDelegate>{
+@interface MasterViewController : UITableViewController <RKObjectLoaderDelegate, UIAlertViewDelegate>{
     NSArray *visits;
 }
 
 -(void) loadObjectsFromDataStore;
-
+-(void) loadObjectsFromWebPrompt;
 -(void) loadObjectsFromWeb;
+-(void) syncObjectsToWeb;
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 @property(nonatomic, retain) NSArray *visits;

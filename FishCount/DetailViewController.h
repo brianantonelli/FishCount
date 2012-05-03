@@ -14,7 +14,7 @@
 #import "VisitFormDataSource.h"
 #import "VisitorCounterViewController.h"
 
-@interface DetailViewController : IBAFormViewController <UISplitViewControllerDelegate, ModalViewControllerDelegate, JBSignatureControllerDelegate, VisitFormDataSourceDelegate, VisitorCounterViewControllerDelegate>{
+@interface DetailViewController : IBAFormViewController <UISplitViewControllerDelegate, ModalViewControllerDelegate, JBSignatureControllerDelegate, VisitFormDataSourceDelegate, VisitorCounterViewControllerDelegate, UIAlertViewDelegate>{
     UITableViewStyle tableViewStyle;
     Visit *visit;
     UIImageView *sigImage;    
@@ -29,6 +29,7 @@
 -(void) didClickScheduleButton:(id) sender;
 -(void) didClickSignatureButton:(id) sender;
 -(void) didClickVisitorCounterButton:(id) sender;
+-(void) didClickSaveButton:(id) sender;
 -(void) loadNewModel:(Visit*)visit;
 
 @property(nonatomic, assign) UITableViewStyle tableViewStyle;
