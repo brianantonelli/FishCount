@@ -19,7 +19,6 @@
 		372C88BD15463F1B00A3C31B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110C7153E36C900FB43C8 /* main.m */; };
 		372C88BE15463F1B00A3C31B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110CB153E36C900FB43C8 /* AppDelegate.m */; };
 		372C88BF15463F1B00A3C31B /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110D1153E36C900FB43C8 /* MasterViewController.m */; };
-		372C88C015463F1B00A3C31B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110D4153E36C900FB43C8 /* DetailViewController.m */; };
 		372C88C115463F1B00A3C31B /* Visit.m in Sources */ = {isa = PBXBuildFile; fileRef = 37311103153E3AE000FB43C8 /* Visit.m */; };
 		372C88C215463F1B00A3C31B /* VisitFormDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 37311137153FAE9100FB43C8 /* VisitFormDataSource.m */; };
 		372C88C315463F1B00A3C31B /* StringToNumberTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D31D45153FD7D200769CAA /* StringToNumberTransformer.m */; };
@@ -59,7 +58,6 @@
 		373110CC153E36C900FB43C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110CB153E36C900FB43C8 /* AppDelegate.m */; };
 		373110CF153E36C900FB43C8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 373110CD153E36C900FB43C8 /* MainStoryboard.storyboard */; };
 		373110D2153E36C900FB43C8 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110D1153E36C900FB43C8 /* MasterViewController.m */; };
-		373110D5153E36C900FB43C8 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110D4153E36C900FB43C8 /* DetailViewController.m */; };
 		373110DC153E384100FB43C8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110DB153E384100FB43C8 /* CFNetwork.framework */; };
 		373110DE153E384800FB43C8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110DD153E384800FB43C8 /* CoreData.framework */; };
 		373110E0153E384E00FB43C8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110DF153E384E00FB43C8 /* Security.framework */; };
@@ -70,6 +68,9 @@
 		37311100153E38B900FB43C8 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110F5153E387800FB43C8 /* libRestKit.a */; };
 		37311104153E3AE000FB43C8 /* Visit.m in Sources */ = {isa = PBXBuildFile; fileRef = 37311103153E3AE000FB43C8 /* Visit.m */; };
 		37311138153FAE9100FB43C8 /* VisitFormDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 37311137153FAE9100FB43C8 /* VisitFormDataSource.m */; };
+		377BE1AE159CFCBC0020E6F6 /* ADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377BE1AD159CFCBC0020E6F6 /* ADetailViewController.m */; };
+		377BE1B1159CFCE10020E6F6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377BE1B0159CFCE10020E6F6 /* DetailViewController.m */; };
+		377BE1B2159CFCE10020E6F6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377BE1B0159CFCE10020E6F6 /* DetailViewController.m */; };
 		379DA49E154269710081D42F /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379DA49D154269710081D42F /* ScheduleViewController.m */; };
 		379DA4A115426BD80081D42F /* ScheduleFormDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 379DA4A015426BD80081D42F /* ScheduleFormDataSource.m */; };
 		37A2209315450060002E26CD /* iPhoneIcon_Medium.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A2209215450060002E26CD /* iPhoneIcon_Medium.png */; };
@@ -180,8 +181,6 @@
 		373110CE153E36C900FB43C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		373110D0153E36C900FB43C8 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		373110D1153E36C900FB43C8 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		373110D3153E36C900FB43C8 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		373110D4153E36C900FB43C8 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		373110DB153E384100FB43C8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		373110DD153E384800FB43C8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		373110DF153E384E00FB43C8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -197,6 +196,10 @@
 		37311129153FAAEB00FB43C8 /* IBAForms.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IBAForms.xcodeproj; path = IBAForms/library/IBAForms.xcodeproj; sourceTree = "<group>"; };
 		37311136153FAE9100FB43C8 /* VisitFormDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitFormDataSource.h; sourceTree = "<group>"; };
 		37311137153FAE9100FB43C8 /* VisitFormDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitFormDataSource.m; sourceTree = "<group>"; };
+		377BE1AC159CFCBC0020E6F6 /* ADetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADetailViewController.h; sourceTree = "<group>"; };
+		377BE1AD159CFCBC0020E6F6 /* ADetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADetailViewController.m; sourceTree = "<group>"; };
+		377BE1AF159CFCE10020E6F6 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		377BE1B0159CFCE10020E6F6 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		379DA49C154269710081D42F /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
 		379DA49D154269710081D42F /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
 		379DA49F15426BD80081D42F /* ScheduleFormDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleFormDataSource.h; sourceTree = "<group>"; };
@@ -381,8 +384,10 @@
 				371E295715433C0800ECCAEF /* JBSignatureController.m */,
 				373110D0153E36C900FB43C8 /* MasterViewController.h */,
 				373110D1153E36C900FB43C8 /* MasterViewController.m */,
-				373110D3153E36C900FB43C8 /* DetailViewController.h */,
-				373110D4153E36C900FB43C8 /* DetailViewController.m */,
+				377BE1AC159CFCBC0020E6F6 /* ADetailViewController.h */,
+				377BE1AD159CFCBC0020E6F6 /* ADetailViewController.m */,
+				377BE1AF159CFCE10020E6F6 /* DetailViewController.h */,
+				377BE1B0159CFCE10020E6F6 /* DetailViewController.m */,
 				379DA49C154269710081D42F /* ScheduleViewController.h */,
 				379DA49D154269710081D42F /* ScheduleViewController.m */,
 				37293A27154498F2007560A7 /* VisitorCounterViewController.h */,
@@ -566,7 +571,6 @@
 				372C88BD15463F1B00A3C31B /* main.m in Sources */,
 				372C88BE15463F1B00A3C31B /* AppDelegate.m in Sources */,
 				372C88BF15463F1B00A3C31B /* MasterViewController.m in Sources */,
-				372C88C015463F1B00A3C31B /* DetailViewController.m in Sources */,
 				372C88C115463F1B00A3C31B /* Visit.m in Sources */,
 				372C88C215463F1B00A3C31B /* VisitFormDataSource.m in Sources */,
 				372C88C315463F1B00A3C31B /* StringToNumberTransformer.m in Sources */,
@@ -576,6 +580,7 @@
 				372C88C715463F1B00A3C31B /* JBSignatureController.m in Sources */,
 				372C88C815463F1B00A3C31B /* VisitorCounterViewController.m in Sources */,
 				372C88C915463F1B00A3C31B /* Model.xcdatamodeld in Sources */,
+				377BE1B2159CFCE10020E6F6 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,7 +591,6 @@
 				373110C8153E36C900FB43C8 /* main.m in Sources */,
 				373110CC153E36C900FB43C8 /* AppDelegate.m in Sources */,
 				373110D2153E36C900FB43C8 /* MasterViewController.m in Sources */,
-				373110D5153E36C900FB43C8 /* DetailViewController.m in Sources */,
 				37311104153E3AE000FB43C8 /* Visit.m in Sources */,
 				37311138153FAE9100FB43C8 /* VisitFormDataSource.m in Sources */,
 				37D31D46153FD7D200769CAA /* StringToNumberTransformer.m in Sources */,
@@ -596,6 +600,8 @@
 				371E295815433C0800ECCAEF /* JBSignatureController.m in Sources */,
 				37293A29154498F3007560A7 /* VisitorCounterViewController.m in Sources */,
 				372C88B6154639A600A3C31B /* Model.xcdatamodeld in Sources */,
+				377BE1AE159CFCBC0020E6F6 /* ADetailViewController.m in Sources */,
+				377BE1B1159CFCE10020E6F6 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,6 +700,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -719,6 +726,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

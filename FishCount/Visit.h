@@ -14,6 +14,8 @@
     BOOL needsToBeSynced;
 }
 
+-(NSString*) formattedDate;
+
 @property(nonatomic, strong) NSNumber *identifier;
 @property(nonatomic, strong) NSNumber *order;
 @property(nonatomic, strong) NSString *school;

@@ -14,8 +14,13 @@
 
 @synthesize stateControl, countyControl, paymentTypeControl, theTypeControl, programControl, signatureImage;
 
-#pragma mark -
-#pragma mark Memory Management
-
+-(NSString*) formattedDate{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    [dateFormatter setDateFormat:@"EEE MMM d yyyy h:mm a"];
+    
+    return [dateFormatter stringFromDate:self.time];
+}
 
 @end

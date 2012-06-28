@@ -19,8 +19,12 @@
 
 @implementation DetailViewController
 
-@synthesize tableViewStyle, visit, sigImage, getSignatureButton, viewScheduleButton, visitorCounterButton, providedStudentCountLabel, providedChaperoneCountLabel, providedExtraChaperoneCountLabel;
-@synthesize masterPopoverController = _masterPopoverController;
+@synthesize visit = _visit,
+            sigImage = _sigImage,
+            getSignatureButton = _getSignatureButton,
+            viewScheduleButton = _viewScheduleButton,
+            visitorCounterButton = _visitorCounterButton,
+            masterPopoverController = _masterPopoverController;
 
 -(void) didClickScheduleButton:(id) sender{
     ScheduleFormDataSource *ds = [[ScheduleFormDataSource alloc] initWithModel:visit];
@@ -73,17 +77,9 @@
     
     self.title = @"Georgia Aquarium Educator Assistant";
 
-    // Setup view
-    UIView *view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-	[view setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
-    
-    // Setup table
-    UITableView *tableView = [[UITableView alloc] initWithFrame:[view bounds] style:UITableViewStyleGrouped];
-	[tableView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
-	[self setTableView:tableView];
-	
-	[view addSubview:tableView];
-	[self setView:view];
+    studentCount.keyboardType = UIKeyboardTypeNumberPad;
+    chapCount.keyboardType = UIKeyboardTypeNumberPad;
+    extChapCount.keyboardType = UIKeyboardTypeNumberPad;
     
     // Add signature button
     self.getSignatureButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -121,64 +117,42 @@
     // Add signature image
     self.sigImage = [[UIImageView alloc] initWithFrame:CGRectMake(40.0f, 740.0f, 300.f, 100.0f)];
     [self.sigImage setHidden:YES];
-    
-    // Provided Counter Labels
-    self.providedStudentCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(540.0f, 428.0f, 100.0f, 42.0f)];
-    self.providedStudentCountLabel.textAlignment = UITextAlignmentRight;
-    self.providedStudentCountLabel.font = [UIFont systemFontOfSize:12.0f];
-    self.providedStudentCountLabel.backgroundColor = [UIColor clearColor];
-    [self.providedStudentCountLabel setHidden:YES];
-    
-    self.providedChaperoneCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(540.0f, 470.0f, 100.0f, 42.0f)];
-    self.providedChaperoneCountLabel.textAlignment = UITextAlignmentRight;
-    self.providedChaperoneCountLabel.font = [UIFont systemFontOfSize:12.0f];
-    self.providedChaperoneCountLabel.backgroundColor = [UIColor clearColor];
-    [self.providedChaperoneCountLabel setHidden:YES];
-    
-    self.providedExtraChaperoneCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(540.0f, 515.0f, 100.0f, 42.0f)];
-    self.providedExtraChaperoneCountLabel.textAlignment = UITextAlignmentRight;
-    self.providedExtraChaperoneCountLabel.font = [UIFont systemFontOfSize:12.0f];
-    self.providedExtraChaperoneCountLabel.backgroundColor = [UIColor clearColor];
-    [self.providedExtraChaperoneCountLabel setHidden:YES];
-
 }
 
--(void) loadNewModel:(Visit*)_visit{
-    // TODO: Weird bug: if you click into a text field, then click another school then click back and click a text field it crashes!
-    // Setup datasource
-    VisitFormDataSource *vfds = [[VisitFormDataSource alloc] initWithModel:_visit];
-    vfds.delegate = self;
-    self.formDataSource = vfds;
-
+-(void) loadNewModel:(Visit*)visitModel{
     // Handle signature image
-    if(_visit.signatureImage != nil){
-        [self.sigImage setImage:_visit.signatureImage];
-        [self.sigImage setHidden:NO];
+    if(visitModel.signatureImage != nil){
+//        [self.sigImage setImage:_visit.signatureImage];
+//        [self.sigImage setHidden:NO];
     }
     else{
-        [self.sigImage setImage:nil];
-        [self.sigImage setHidden:YES];
+//        [self.sigImage setImage:nil];
+//        [self.sigImage setHidden:YES];
     }
     
     // Misc
-    [self.getSignatureButton setHidden:NO];
-    [self.viewScheduleButton setHidden:NO];
-    [self.visitorCounterButton setHidden:NO];
+//    [self.getSignatureButton setHidden:NO];
+//    [self.viewScheduleButton setHidden:NO];
+//    [self.visitorCounterButton setHidden:NO];
     
-    // Provided Counter Labels
-    // Height needs to be dynamic.. :(
-//    [self.providedStudentCountLabel setHidden:NO];
-//    [self.providedChaperoneCountLabel setHidden:NO];
-//    [self.providedExtraChaperoneCountLabel setHidden:NO];
-    
-    self.title = _visit.school;
-    self.visit = _visit;
+    self.title = visitModel.school;
+    time.text = [visitModel formattedDate];
+    schoolName.text = visitModel.school;
+    leadTeacher.text = visitModel.leadTeacher;
+    state.text = visitModel.state;
+    county.text = visitModel.county;
+    payment.text = visitModel.paymentType;
+    type.text = visitModel.theType;
+    program.text = visitModel.program;
+    curbNotes.text = visitModel.curbNotes;
+    studentCount.text = @"0";
+    chapCount.text = @"0";
+    extChapCount.text = @"0";
+    studentProjected.text = [NSString stringWithFormat:@"Projected: %@", visitModel.studentCount];
+    chapProjected.text = [NSString stringWithFormat:@"Projected: %@", visitModel.chaperoneCount];
+    extChapProjected.text = [NSString stringWithFormat:@"Projected: %@", visitModel.extraChaperoneCount];
 
-    self.providedStudentCountLabel.text = [NSString stringWithFormat:@"Est. %d", [self.visit.studentCount intValue]];
-    self.providedChaperoneCountLabel.text = [NSString stringWithFormat:@"Est. %d", [self.visit.chaperoneCount intValue]];
-    self.providedExtraChaperoneCountLabel.text = [NSString stringWithFormat:@"Est. %d", [self.visit.extraChaperoneCount intValue]];
-
-//    NSLog(@"table height is = %d", self.tableView.frame.size.height);
+    _visit = visitModel;
 }
 
 -(void) configureView{
@@ -187,32 +161,35 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self.tableView addSubview:self.getSignatureButton];
-    [self.getSignatureButton addTarget:self action:@selector(didClickSignatureButton:) forControlEvents:UIControlEventTouchUpInside];
-
-    [self.tableView addSubview:self.viewScheduleButton];
-    [self.viewScheduleButton addTarget:self action:@selector(didClickScheduleButton:) forControlEvents:UIControlEventTouchUpInside];
-
-    [self.tableView addSubview:self.visitorCounterButton];
-    [self.visitorCounterButton addTarget:self action:@selector(didClickVisitorCounterButton:) forControlEvents:UIControlEventTouchUpInside];
-
-    [self.tableView addSubview:self.sigImage];
-    
-    // Provided Counter Labels
-    [self.tableView addSubview:self.providedStudentCountLabel];
-    [self.tableView addSubview:self.providedChaperoneCountLabel];
-    [self.tableView addSubview:self.providedExtraChaperoneCountLabel];
+//    [self.getSignatureButton addTarget:self action:@selector(didClickSignatureButton:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.viewScheduleButton addTarget:self action:@selector(didClickScheduleButton:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.visitorCounterButton addTarget:self action:@selector(didClickVisitorCounterButton:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.tableView addSubview:self.sigImage];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    [self.sigImage setHidden:YES];
+//    [self.sigImage setHidden:YES];
 }
 
 - (void)viewDidUnload
 {
+    time = nil;
+    schoolName = nil;
+    leadTeacher = nil;
+    state = nil;
+    county = nil;
+    payment = nil;
+    type = nil;
+    program = nil;
+    curbNotes = nil;
+    studentCount = nil;
+    chapCount = nil;
+    extChapCount = nil;
+    studentProjected = nil;
+    chapProjected = nil;
+    extChapProjected = nil;
     [super viewDidUnload];
 }
 
@@ -271,22 +248,15 @@
 }
 
 #pragma mark -
-#pragma mark VisitFormDataSourceDelegate
-
-- (void)tableCellsHaveChanged{
-    [self.tableView reloadData];
-}
-
-#pragma mark -
 #pragma mark VisitorCounterViewControllerDelegate
 
 - (void)didDismissVisitorModalViewWithCounterData:(NSDictionary *)counterData{
-    Visit *model = (Visit*) self.formDataSource.model;
-    model.actualStudentCount = [counterData objectForKey:@"studentCount"];
-    model.actualChaperoneCount = [counterData objectForKey:@"chaperoneCount"];
-    model.actualExtraChaperoneCount = [counterData objectForKey:@"extraChaperoneCount"];
+//    Visit *model = (Visit*) self.formDataSource.model;
+//    model.actualStudentCount = [counterData objectForKey:@"studentCount"];
+//    model.actualChaperoneCount = [counterData objectForKey:@"chaperoneCount"];
+//    model.actualExtraChaperoneCount = [counterData objectForKey:@"extraChaperoneCount"];
 
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
     
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -302,8 +272,38 @@
 }
 
 #pragma mark -
-#pragma mark Memory Management
+#pragma mark Table Delegate
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.section == 0){
+        if(indexPath.row == 0) [time becomeFirstResponder];
+        else if(indexPath.row == 1) [schoolName becomeFirstResponder];
+        else if(indexPath.row == 2) [leadTeacher becomeFirstResponder];
+        else if(indexPath.row == 3) [state becomeFirstResponder];
+        else if(indexPath.row == 4) [county becomeFirstResponder];
+        else if(indexPath.row == 5) [payment becomeFirstResponder];
+        else if(indexPath.row == 6) [type becomeFirstResponder];
+        else if(indexPath.row == 7) [program becomeFirstResponder];
+        else if(indexPath.row == 8) [curbNotes becomeFirstResponder];
+    }
+    else{
+        if(indexPath.row == 0) [studentCount becomeFirstResponder];
+        else if(indexPath.row == 1) [chapCount becomeFirstResponder];
+        else if(indexPath.row == 2) [extChapCount becomeFirstResponder];
+    }
+}
 
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+//    return 2;
+//}
+
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+//    return section == 1 ? 9 : 3;
+//}
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellTime"];
+//    return cell;
+//}
 
 @end

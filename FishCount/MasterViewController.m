@@ -166,36 +166,36 @@
     if(self.detailViewController.visit == visit) return;
 
     // Move value into multiselect controls for new model
-    if(visit.state != nil) visit.stateControl = [NSSet setWithObject:visit.state];
-    if(visit.county != nil) visit.countyControl = [NSSet setWithObject:visit.county];
-    if(visit.program != nil) visit.programControl = [NSSet setWithObject:visit.program];
-    if(visit.paymentType != nil) visit.paymentTypeControl = [NSSet setWithObject:visit.paymentType];
-    if(visit.theType != nil) visit.theTypeControl = [NSSet setWithObject:visit.theType];
-    
+//    if(visit.state != nil) visit.stateControl = [NSSet setWithObject:visit.state];
+//    if(visit.county != nil) visit.countyControl = [NSSet setWithObject:visit.county];
+//    if(visit.program != nil) visit.programControl = [NSSet setWithObject:visit.program];
+//    if(visit.paymentType != nil) visit.paymentTypeControl = [NSSet setWithObject:visit.paymentType];
+//    if(visit.theType != nil) visit.theTypeControl = [NSSet setWithObject:visit.theType];
+//    
     // Copy out the value from the multiselect controls to the string value for old model
-    Visit *old = self.detailViewController.formDataSource.model;
-    if(old != nil){
-        old.state = [NSString stringWithFormat:@"%@", [old.stateControl anyObject]];
-        old.county = [NSString stringWithFormat:@"%@", [old.countyControl anyObject]];
-        old.program = [NSString stringWithFormat:@"%@", [old.programControl anyObject]];
-        old.paymentType = [NSString stringWithFormat:@"%@", [old.paymentTypeControl anyObject]];
-        old.theType = [NSString stringWithFormat:@"%@", [old.theTypeControl anyObject]];
-        
-        // Save to core data
-        RKManagedObjectStore *store = [RKObjectManager sharedManager].objectStore;
-        NSError *err = nil;
-        [store save:&err];
-        if(err != nil){
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error saving to the local database." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-            [alert show];
-            
-            NSLog(@"Error saving to store! %@", [err description]);
-        }
-        else {
-            NSLog(@"Successfully saved to store!");
-        }
-    }
-    
+//    Visit *old = self.detailViewController.formDataSource.model;
+//    if(old != nil){
+//        old.state = [NSString stringWithFormat:@"%@", [old.stateControl anyObject]];
+//        old.county = [NSString stringWithFormat:@"%@", [old.countyControl anyObject]];
+//        old.program = [NSString stringWithFormat:@"%@", [old.programControl anyObject]];
+//        old.paymentType = [NSString stringWithFormat:@"%@", [old.paymentTypeControl anyObject]];
+//        old.theType = [NSString stringWithFormat:@"%@", [old.theTypeControl anyObject]];
+//        
+//        // Save to core data
+//        RKManagedObjectStore *store = [RKObjectManager sharedManager].objectStore;
+//        NSError *err = nil;
+//        [store save:&err];
+//        if(err != nil){
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error saving to the local database." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+//            [alert show];
+//            
+//            NSLog(@"Error saving to store! %@", [err description]);
+//        }
+//        else {
+//            NSLog(@"Successfully saved to store!");
+//        }
+//    }
+//    
     [self.detailViewController loadNewModel:visit];
 }
 

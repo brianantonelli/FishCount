@@ -7,23 +7,30 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <IBAForms/IBAFormViewController.h>
+//#import <IBAForms/IBAFormViewController.h>
 #import "ScheduleViewController.h"
 #import "Visit.h"
 #import "JBSignatureController.h"
-#import "VisitFormDataSource.h"
+//#import "VisitFormDataSource.h"
 #import "VisitorCounterViewController.h"
 
-@interface DetailViewController : IBAFormViewController <UISplitViewControllerDelegate, ModalViewControllerDelegate, JBSignatureControllerDelegate, VisitFormDataSourceDelegate, VisitorCounterViewControllerDelegate, UIAlertViewDelegate>{
-    UITableViewStyle tableViewStyle;
+@interface DetailViewController : UITableViewController <UISplitViewControllerDelegate, ModalViewControllerDelegate, JBSignatureControllerDelegate, VisitorCounterViewControllerDelegate, UIAlertViewDelegate>{
     Visit *visit;
-    UIImageView *sigImage;    
-    UIButton *getSignatureButton;
-    UIButton *viewScheduleButton;
-    UIButton *visitorCounterButton;
-    UILabel *providedStudentCountLabel;
-    UILabel *providedChaperoneCountLabel;
-    UILabel *providedExtraChaperoneCountLabel;
+    IBOutlet UITextField *time;
+    IBOutlet UITextField *schoolName;
+    IBOutlet UITextField *leadTeacher;
+    IBOutlet UITextField *state;
+    IBOutlet UITextField *county;
+    IBOutlet UITextField *payment;
+    IBOutlet UITextField *type;
+    IBOutlet UITextField *program;
+    IBOutlet UITextField *curbNotes;
+    IBOutlet UITextField *studentCount;
+    IBOutlet UITextField *chapCount;
+    IBOutlet UITextField *extChapCount;
+    IBOutlet UILabel *studentProjected;
+    IBOutlet UILabel *chapProjected;
+    IBOutlet UILabel *extChapProjected;
 }
 
 -(void) didClickScheduleButton:(id) sender;
@@ -32,15 +39,10 @@
 -(void) didClickSaveButton:(id) sender;
 -(void) loadNewModel:(Visit*)visit;
 
-@property(nonatomic, assign) UITableViewStyle tableViewStyle;
 @property(nonatomic, strong) Visit *visit;
 @property(nonatomic, strong) UIImageView *sigImage;
 @property(nonatomic, strong) UIButton *getSignatureButton;
 @property(nonatomic, strong) UIButton *viewScheduleButton;
 @property(nonatomic, strong) UIButton *visitorCounterButton;
-@property(nonatomic, strong) UILabel *providedStudentCountLabel;
-@property(nonatomic, strong) UILabel *providedChaperoneCountLabel;
-@property(nonatomic, strong) UILabel *providedExtraChaperoneCountLabel;
-
 
 @end
