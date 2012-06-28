@@ -90,17 +90,17 @@ delegate = delegate_;
 	// Signature view
 	self.signatureView = [[JBSignatureView alloc] init];
 	
-    UIBarButtonItem *cancelButton = [[[UIBarButtonItem alloc] initWithTitle:@"Cancel" 
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" 
                                                                         style:UIBarButtonItemStylePlain 
                                                                        target:self
                                                                        action:@selector(didTapCancelButton)
-                                        ] autorelease];
+                                        ];
     [self.navigationItem setLeftBarButtonItem:cancelButton animated:YES];
     
-    UIBarButtonItem *saveButton = [[[UIBarButtonItem alloc] initWithTitle:@"Confirm"
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Confirm"
 																	style:UIBarButtonItemStyleDone 
 																   target:self 
-																   action:@selector(didTapCanfirmButton)] autorelease];
+																   action:@selector(didTapCanfirmButton)];
     [self.navigationItem setRightBarButtonItem:saveButton animated:YES];
 	
     self.title = @"Please Sign";

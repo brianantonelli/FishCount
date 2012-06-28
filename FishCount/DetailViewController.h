@@ -33,14 +33,14 @@
 -(void) loadNewModel:(Visit*)visit;
 
 @property(nonatomic, assign) UITableViewStyle tableViewStyle;
-@property(nonatomic, retain) Visit *visit;
-@property(nonatomic, retain) UIImageView *sigImage;
-@property(nonatomic, retain) UIButton *getSignatureButton;
-@property(nonatomic, retain) UIButton *viewScheduleButton;
-@property(nonatomic, retain) UIButton *visitorCounterButton;
-@property(nonatomic, retain) UILabel *providedStudentCountLabel;
-@property(nonatomic, retain) UILabel *providedChaperoneCountLabel;
-@property(nonatomic, retain) UILabel *providedExtraChaperoneCountLabel;
+@property(nonatomic, strong) Visit *visit;
+@property(nonatomic, strong) UIImageView *sigImage;
+@property(nonatomic, strong) UIButton *getSignatureButton;
+@property(nonatomic, strong) UIButton *viewScheduleButton;
+@property(nonatomic, strong) UIButton *visitorCounterButton;
+@property(nonatomic, strong) UILabel *providedStudentCountLabel;
+@property(nonatomic, strong) UILabel *providedChaperoneCountLabel;
+@property(nonatomic, strong) UILabel *providedExtraChaperoneCountLabel;
 
 
 @end

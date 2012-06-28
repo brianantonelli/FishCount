@@ -18,8 +18,6 @@
 @synthesize visits;
 
 -(void) loadObjectsFromDataStore{
-    [self.visits release];
-    
     NSFetchRequest* request = [Visit fetchRequest];
     NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:NO];
     [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
@@ -40,7 +38,6 @@
 	[alert addButtonWithTitle:@"No"];
 	[alert addButtonWithTitle:@"Yes"];
 	[alert show];
-	[alert release];
 }
 
 -(void) loadObjectsFromWeb{
@@ -66,7 +63,6 @@
     NSLog(@"TODO: syncItemsToWeb");
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TODO" message:@"-(void) syncObjectsToWeb{" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
     [alert show];
-    [alert release];
 }
 
 #pragma mark -
@@ -78,10 +74,10 @@
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
-	UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:@"Error" 
+	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" 
                                                      message:[error localizedDescription] 
                                                     delegate:nil 
-                                           cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
+                                           cancelButtonTitle:@"OK" otherButtonTitles:nil];
 	[alert show];
 	NSLog(@"objectLoader error: %@", error);
 }
@@ -102,16 +98,16 @@
 {
     [super viewDidLoad];
 
-    UIBarButtonItem *loadFromWebButton = [[[UIBarButtonItem alloc] initWithTitle:@"Load"
+    UIBarButtonItem *loadFromWebButton = [[UIBarButtonItem alloc] initWithTitle:@"Load"
 																	style:UIBarButtonItemStyleDone 
 																   target:self 
-																   action:@selector(loadObjectsFromWebPrompt)] autorelease];
+																   action:@selector(loadObjectsFromWebPrompt)];
     self.navigationItem.leftBarButtonItem = loadFromWebButton;
         
-    UIBarButtonItem *syncToWebButton = [[[UIBarButtonItem alloc] initWithTitle:@"Sync"
+    UIBarButtonItem *syncToWebButton = [[UIBarButtonItem alloc] initWithTitle:@"Sync"
                                                                            style:UIBarButtonItemStyleDone 
                                                                           target:self 
-                                                                          action:@selector(syncObjectsToWeb)] autorelease];
+                                                                          action:@selector(syncObjectsToWeb)];
     self.navigationItem.rightBarButtonItem = syncToWebButton;
 
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
@@ -140,12 +136,6 @@
 #pragma mark -
 #pragma mark Memory Management
 
-- (void)dealloc
-{
-    [_detailViewController release];
-    [visits release];
-    [super dealloc];
-}
 
 #pragma mark - UITableViewDelegate
 
@@ -198,7 +188,6 @@
         if(err != nil){
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error saving to the local database." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
             [alert show];
-            [alert release];
             
             NSLog(@"Error saving to store! %@", [err description]);
         }

@@ -73,10 +73,10 @@
 -(void)loadView {
 	self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
 	
-    UIBarButtonItem *saveButton = [[[UIBarButtonItem alloc] initWithTitle:@"Confirm"
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Confirm"
 																	style:UIBarButtonItemStyleDone 
 																   target:self 
-																   action:@selector(didClickConfirmButton:)] autorelease];
+																   action:@selector(didClickConfirmButton:)];
     [self.navigationItem setRightBarButtonItem:saveButton animated:YES];
 	
     self.title = @"Visitor Counter";
@@ -220,27 +220,5 @@
 #pragma mark -
 #pragma mark Memory Management
 
--(void) dealloc{
-    [studentCountTextField release];
-    [chaperoneCountTextField release];
-    [extraChaperoneCountTextField release];
-    [addStudentButton release];
-    [addChaperoneButton release];
-    [addExtraChaperoneButton release];
-    [studentCountLabel release];
-    [chaperoneCountLabel release];
-    [extraChaperoneCountLabel release];
-    [removeStudentButton release];
-    [removeChaperoneButton release];
-    [removeExtraChaperoneButton release];
-    [providedStudentCount release];
-    [providedChaperoneCount release];
-    [providedExtraChaperoneCount release];
-    [providedStudentCountLabel release];
-    [providedChaperoneCountLabel release];
-    [providedExtraChaperoneCount release];
-    
-    [super dealloc];
-}
 
 @end

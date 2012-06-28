@@ -737,6 +737,7 @@
 		373110D9153E36C900FB43C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FishCount/FishCount-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -757,6 +758,7 @@
 		373110DA153E36C900FB43C8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FishCount/FishCount-Prefix.pch";
 				HEADER_SEARCH_PATHS = (

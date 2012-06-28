@@ -19,12 +19,12 @@
 
 @interface ScheduleViewController : IBAFormViewController{
     UITableViewStyle tableViewStyle;
-    id<ModalViewControllerDelegate> delegate;
+    id<ModalViewControllerDelegate> __weak delegate;
 }
 
 -(void)dismissView:(id)sender;
 
 @property (nonatomic, assign) UITableViewStyle tableViewStyle;
-@property (nonatomic, assign) id<ModalViewControllerDelegate> delegate;
+@property (nonatomic, weak) id<ModalViewControllerDelegate> delegate;
 
 @end

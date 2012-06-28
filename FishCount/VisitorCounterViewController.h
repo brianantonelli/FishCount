@@ -45,7 +45,7 @@
     UIButton *removeChaperoneButton;
     UIButton *removeExtraChaperoneButton;
     
-    id<VisitorCounterViewControllerDelegate> delegate;
+    id<VisitorCounterViewControllerDelegate> __weak delegate;
 }
 
 -(void) setCountsForStudents:(int)studCount andChaps:(int)chapCount andExtraChaps:(int)extraChaps;
@@ -60,25 +60,25 @@
 -(void) chaperoneTextFieldChanged;
 -(void) extraChaperoneTextFieldChanged;
 
-@property(nonatomic, assign) id<VisitorCounterViewControllerDelegate> delegate;
-@property(nonatomic, retain) UILabel *studentCountLabel;
-@property(nonatomic, retain) UILabel *chaperoneCountLabel;
-@property(nonatomic, retain) UILabel *extraChaperoneCountLabel;
-@property(nonatomic, retain) UILabel *providedStudentCountLabel;
-@property(nonatomic, retain) UILabel *providedChaperoneCountLabel;
-@property(nonatomic, retain) UITextField *studentCountTextField;
-@property(nonatomic, retain) UITextField *chaperoneCountTextField;
-@property(nonatomic, retain) UITextField *extraChaperoneCountTextField;
-@property(nonatomic, retain) UILabel *providedExtraChaperoneCountLabel;
-@property(nonatomic, retain) UIButton *addStudentButton;
-@property(nonatomic, retain) UIButton *addChaperoneButton;
-@property(nonatomic, retain) UIButton *addExtraChaperoneButton;
-@property(nonatomic, retain) UIButton *removeStudentButton;
-@property(nonatomic, retain) UIButton *removeChaperoneButton;
-@property(nonatomic, retain) UIButton *removeExtraChaperoneButton;
-@property(nonatomic, retain) NSNumber *providedStudentCount;
-@property(nonatomic, retain) NSNumber *providedChaperoneCount;
-@property(nonatomic, retain) NSNumber *providedExtraChaperoneCount;
+@property(nonatomic, weak) id<VisitorCounterViewControllerDelegate> delegate;
+@property(nonatomic, strong) UILabel *studentCountLabel;
+@property(nonatomic, strong) UILabel *chaperoneCountLabel;
+@property(nonatomic, strong) UILabel *extraChaperoneCountLabel;
+@property(nonatomic, strong) UILabel *providedStudentCountLabel;
+@property(nonatomic, strong) UILabel *providedChaperoneCountLabel;
+@property(nonatomic, strong) UITextField *studentCountTextField;
+@property(nonatomic, strong) UITextField *chaperoneCountTextField;
+@property(nonatomic, strong) UITextField *extraChaperoneCountTextField;
+@property(nonatomic, strong) UILabel *providedExtraChaperoneCountLabel;
+@property(nonatomic, strong) UIButton *addStudentButton;
+@property(nonatomic, strong) UIButton *addChaperoneButton;
+@property(nonatomic, strong) UIButton *addExtraChaperoneButton;
+@property(nonatomic, strong) UIButton *removeStudentButton;
+@property(nonatomic, strong) UIButton *removeChaperoneButton;
+@property(nonatomic, strong) UIButton *removeExtraChaperoneButton;
+@property(nonatomic, strong) NSNumber *providedStudentCount;
+@property(nonatomic, strong) NSNumber *providedChaperoneCount;
+@property(nonatomic, strong) NSNumber *providedExtraChaperoneCount;
 
 
 @end

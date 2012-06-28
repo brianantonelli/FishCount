@@ -19,16 +19,16 @@
     NSArray *states;
     NSArray *counties;
     NSArray *programs;
-    id<VisitFormDataSourceDelegate> delegate;
+    id<VisitFormDataSourceDelegate> __weak delegate;
 }
 
 -(void) addCounty;
 -(void) addPrograms;
 -(void) removeCellInSection:(NSUInteger)sectionIndex withTitle:(NSString*)title;
 
-@property(nonatomic, retain) NSArray *states;
-@property(nonatomic, retain) NSArray *counties;
-@property(nonatomic, retain) NSArray *programs;
-@property (nonatomic, assign) id<VisitFormDataSourceDelegate> delegate;
+@property(nonatomic, strong) NSArray *states;
+@property(nonatomic, strong) NSArray *counties;
+@property(nonatomic, strong) NSArray *programs;
+@property (nonatomic, weak) id<VisitFormDataSourceDelegate> delegate;
 
 @end

@@ -28,49 +28,49 @@
 
 		IBAFormSection *basicFieldSection = [self addSectionWithHeaderTitle:@"School Information" footerTitle:nil];
         
-        NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 		[dateFormatter setDateStyle:NSDateFormatterShortStyle];
 		[dateFormatter setTimeStyle:NSDateFormatterNoStyle];
 		[dateFormatter setDateFormat:@"EEE MMM d yyyy h:mm a"];
-        [basicFieldSection addFormField:[[[IBADateFormField alloc] initWithKeyPath:@"time"
+        [basicFieldSection addFormField:[[IBADateFormField alloc] initWithKeyPath:@"time"
                                                                              title:@"Time"
                                                                       defaultValue:[NSDate date]
                                                                               type:IBADateFormFieldTypeDateTime
-                                                                     dateFormatter:dateFormatter] autorelease]];
-        [basicFieldSection addFormField:[[[IBATextFormField alloc] initWithKeyPath:@"school" title:@"School Name"] autorelease]];
-        [basicFieldSection addFormField:[[[IBATextFormField alloc] initWithKeyPath:@"leadTeacher" title:@"Lead Teacher"] autorelease]];
+                                                                     dateFormatter:dateFormatter]];
+        [basicFieldSection addFormField:[[IBATextFormField alloc] initWithKeyPath:@"school" title:@"School Name"]];
+        [basicFieldSection addFormField:[[IBATextFormField alloc] initWithKeyPath:@"leadTeacher" title:@"Lead Teacher"]];
 
 		NSArray *pickListOptions = [IBAPickListFormOption pickListOptionsForStrings:self.states];
-        IBAPickListFormOptionsStringTransformer *transformer = [[[IBAPickListFormOptionsStringTransformer alloc] initWithPickListOptions:pickListOptions] autorelease];
-		[basicFieldSection addFormField:[[[IBAPickListFormField alloc] initWithKeyPath:@"stateControl"
+        IBAPickListFormOptionsStringTransformer *transformer = [[IBAPickListFormOptionsStringTransformer alloc] initWithPickListOptions:pickListOptions];
+		[basicFieldSection addFormField:[[IBAPickListFormField alloc] initWithKeyPath:@"stateControl"
                                                                                  title:@"State"
                                                                       valueTransformer:transformer
                                                                          selectionMode:IBAPickListSelectionModeSingle
-                                                                               options:pickListOptions] autorelease]];
+                                                                               options:pickListOptions]];
 		
         if([@"Georgia" isEqualToString:visit.state]){
             [self addCounty];
         }
         
         NSArray *pickListOptions3 = [IBAPickListFormOption pickListOptionsForStrings:[NSArray arrayWithObjects:@"SEA", @"Paid", nil]];
-        IBAPickListFormOptionsStringTransformer *transformer3 = [[[IBAPickListFormOptionsStringTransformer alloc] initWithPickListOptions:pickListOptions3] autorelease];
-		[basicFieldSection addFormField:[[[IBAPickListFormField alloc] initWithKeyPath:@"paymentTypeControl"
+        IBAPickListFormOptionsStringTransformer *transformer3 = [[IBAPickListFormOptionsStringTransformer alloc] initWithPickListOptions:pickListOptions3];
+		[basicFieldSection addFormField:[[IBAPickListFormField alloc] initWithKeyPath:@"paymentTypeControl"
                                                                                  title:@"Payment"
                                                                       valueTransformer:transformer3
                                                                          selectionMode:IBAPickListSelectionModeSingle
-                                                                               options:pickListOptions3] autorelease]];
+                                                                               options:pickListOptions3]];
 
         NSArray *pickListOptions4 = [IBAPickListFormOption pickListOptionsForStrings:[NSArray arrayWithObjects:@"Instructor Lead", @"Aqua Adventure", nil]];
-        IBAPickListFormOptionsStringTransformer *transformer4 = [[[IBAPickListFormOptionsStringTransformer alloc] initWithPickListOptions:pickListOptions4] autorelease];
-		[basicFieldSection addFormField:[[[IBAPickListFormField alloc] initWithKeyPath:@"theTypeControl"
+        IBAPickListFormOptionsStringTransformer *transformer4 = [[IBAPickListFormOptionsStringTransformer alloc] initWithPickListOptions:pickListOptions4];
+		[basicFieldSection addFormField:[[IBAPickListFormField alloc] initWithKeyPath:@"theTypeControl"
                                                                                  title:@"Type"
                                                                       valueTransformer:transformer4
                                                                          selectionMode:IBAPickListSelectionModeSingle
-                                                                               options:pickListOptions4] autorelease]];
+                                                                               options:pickListOptions4]];
         
         [self addPrograms];
         
-        [basicFieldSection addFormField:[[[IBATextFormField alloc] initWithKeyPath:@"curbNotes" title:@"Curb Notes"] autorelease]];
+        [basicFieldSection addFormField:[[IBATextFormField alloc] initWithKeyPath:@"curbNotes" title:@"Curb Notes"]];
 
         /// -----
         
@@ -78,19 +78,19 @@
 		IBATextFormField *numberField = [[IBATextFormField alloc] initWithKeyPath:@"actualStudentCount"
 																			title:@"Student Count"
 																 valueTransformer:[StringToNumberTransformer instance]];
-		[countsSection addFormField:[numberField autorelease]];
+		[countsSection addFormField:numberField];
 		numberField.textFormFieldCell.textField.keyboardType = UIKeyboardTypeNumberPad;
 
 		IBATextFormField *numberField2 = [[IBATextFormField alloc] initWithKeyPath:@"actualChaperoneCount"
 																			title:@"Chaperon Count"
 																 valueTransformer:[StringToNumberTransformer instance]];
-		[countsSection addFormField:[numberField2 autorelease]];
+		[countsSection addFormField:numberField2];
 		numberField2.textFormFieldCell.textField.keyboardType = UIKeyboardTypeNumberPad;
 
 		IBATextFormField *numberField3 = [[IBATextFormField alloc] initWithKeyPath:@"actualExtraChaperoneCount"
 																			title:@"Extra Champ."
 																 valueTransformer:[StringToNumberTransformer instance]];
-		[countsSection addFormField:[numberField3 autorelease]];
+		[countsSection addFormField:numberField3];
 		numberField3.textFormFieldCell.textField.keyboardType = UIKeyboardTypeNumberPad;
         
         
@@ -118,12 +118,12 @@
     IBAFormSection *schoolSection = [self.sections objectAtIndex:0];
     
     NSArray *options = [IBAPickListFormOption pickListOptionsForStrings:self.counties];
-    IBAPickListFormOptionsStringTransformer *tx = [[[IBAPickListFormOptionsStringTransformer alloc] initWithPickListOptions:options] autorelease];
-    [schoolSection addFormField:[[[IBAPickListFormField alloc] initWithKeyPath:@"countyControl"
+    IBAPickListFormOptionsStringTransformer *tx = [[IBAPickListFormOptionsStringTransformer alloc] initWithPickListOptions:options];
+    [schoolSection addFormField:[[IBAPickListFormField alloc] initWithKeyPath:@"countyControl"
                                                                          title:@"County"
                                                               valueTransformer:tx
                                                                  selectionMode:IBAPickListSelectionModeSingle
-                                                                       options:options] autorelease] atIndex:4];
+                                                                       options:options] atIndex:4];
     
     [self.delegate tableCellsHaveChanged];
 }
@@ -132,12 +132,12 @@
     IBAFormSection *schoolSection = [self.sections objectAtIndex:0];
     
     NSArray *options = [IBAPickListFormOption pickListOptionsForStrings:self.programs];
-    IBAPickListFormOptionsStringTransformer *tx = [[[IBAPickListFormOptionsStringTransformer alloc] initWithPickListOptions:options] autorelease];
-    [schoolSection addFormField:[[[IBAPickListFormField alloc] initWithKeyPath:@"programControl"
+    IBAPickListFormOptionsStringTransformer *tx = [[IBAPickListFormOptionsStringTransformer alloc] initWithPickListOptions:options];
+    [schoolSection addFormField:[[IBAPickListFormField alloc] initWithKeyPath:@"programControl"
                                                                              title:@"Program"
                                                                   valueTransformer:tx
                                                                      selectionMode:IBAPickListSelectionModeSingle
-                                                                           options:options] autorelease]];
+                                                                           options:options]];
     
     [self.delegate tableCellsHaveChanged];
 }
@@ -158,11 +158,4 @@
     [self.delegate tableCellsHaveChanged];
 }
 
--(void) dealloc{
-    [states release];
-    [counties release];
-    [programs release];
-    
-    [super dealloc];
-}
 @end

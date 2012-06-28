@@ -14,38 +14,38 @@
     BOOL needsToBeSynced;
 }
 
-@property(nonatomic, retain) NSNumber *identifier;
-@property(nonatomic, retain) NSNumber *order;
-@property(nonatomic, retain) NSString *school;
-@property(nonatomic, retain) NSString *info;
-@property(nonatomic, retain) NSString *staff;
-@property(nonatomic, retain) NSDate *time;
-@property(nonatomic, retain) NSString *grade;
-@property(nonatomic, retain) NSNumber *studentCount;
-@property(nonatomic, retain) NSNumber *chaperoneCount;
-@property(nonatomic, retain) NSNumber *extraChaperoneCount;
-@property(nonatomic, retain) NSString *bus;
-@property(nonatomic, retain) NSString *theatre;
-@property(nonatomic, retain) NSString *lunch;
-@property(nonatomic, retain) NSString *dolphin;
-@property(nonatomic, retain) NSString *notes;
-@property(nonatomic, retain) NSString *curbNotes;
-@property(nonatomic, retain) NSString *county;
-@property(nonatomic, retain) NSNumber *actualStudentCount;
-@property(nonatomic, retain) NSNumber *actualChaperoneCount;
-@property(nonatomic, retain) NSNumber *actualExtraChaperoneCount;
-@property(nonatomic, retain) NSString *leadTeacher;
-@property(nonatomic, retain) NSString *state;
-@property(nonatomic, retain) NSString *paymentType;
-@property(nonatomic, retain) NSString *program;
-@property(nonatomic, retain) NSString *theType;
+@property(nonatomic, strong) NSNumber *identifier;
+@property(nonatomic, strong) NSNumber *order;
+@property(nonatomic, strong) NSString *school;
+@property(nonatomic, strong) NSString *info;
+@property(nonatomic, strong) NSString *staff;
+@property(nonatomic, strong) NSDate *time;
+@property(nonatomic, strong) NSString *grade;
+@property(nonatomic, strong) NSNumber *studentCount;
+@property(nonatomic, strong) NSNumber *chaperoneCount;
+@property(nonatomic, strong) NSNumber *extraChaperoneCount;
+@property(nonatomic, strong) NSString *bus;
+@property(nonatomic, strong) NSString *theatre;
+@property(nonatomic, strong) NSString *lunch;
+@property(nonatomic, strong) NSString *dolphin;
+@property(nonatomic, strong) NSString *notes;
+@property(nonatomic, strong) NSString *curbNotes;
+@property(nonatomic, strong) NSString *county;
+@property(nonatomic, strong) NSNumber *actualStudentCount;
+@property(nonatomic, strong) NSNumber *actualChaperoneCount;
+@property(nonatomic, strong) NSNumber *actualExtraChaperoneCount;
+@property(nonatomic, strong) NSString *leadTeacher;
+@property(nonatomic, strong) NSString *state;
+@property(nonatomic, strong) NSString *paymentType;
+@property(nonatomic, strong) NSString *program;
+@property(nonatomic, strong) NSString *theType;
 
 // control mappings
-@property(nonatomic, retain) NSSet *stateControl;
-@property(nonatomic, retain) NSSet *countyControl;
-@property(nonatomic, retain) NSSet *paymentTypeControl;
-@property(nonatomic, retain) NSSet *programControl;
-@property(nonatomic, retain) NSSet *theTypeControl;
-@property(nonatomic, retain) UIImage *signatureImage;
+@property(nonatomic, strong) NSSet *stateControl;
+@property(nonatomic, strong) NSSet *countyControl;
+@property(nonatomic, strong) NSSet *paymentTypeControl;
+@property(nonatomic, strong) NSSet *programControl;
+@property(nonatomic, strong) NSSet *theTypeControl;
+@property(nonatomic, strong) UIImage *signatureImage;
 
 @end

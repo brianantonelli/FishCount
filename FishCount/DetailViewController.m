@@ -23,7 +23,7 @@
 @synthesize masterPopoverController = _masterPopoverController;
 
 -(void) didClickScheduleButton:(id) sender{
-    ScheduleFormDataSource *ds = [[[ScheduleFormDataSource alloc] initWithModel:visit] autorelease];
+    ScheduleFormDataSource *ds = [[ScheduleFormDataSource alloc] initWithModel:visit];
     ScheduleViewController *schedule = [[ScheduleViewController alloc] initWithNibName:nil bundle:nil formDataSource:ds];
     schedule.delegate = self;
     
@@ -31,8 +31,6 @@
     ctrl.modalPresentationStyle = UIModalPresentationFormSheet;
     
     [self presentModalViewController:ctrl animated:YES];
-    [ctrl release];
-    [schedule release];
 }
 
 -(void) didClickSignatureButton:(id) sender{
@@ -43,8 +41,6 @@
     ctrl.modalPresentationStyle = UIModalPresentationFormSheet;
     
     [self presentModalViewController:ctrl animated:YES];
-    [ctrl release];
-    [signatureController release];
 }
 
 -(void) didClickVisitorCounterButton:(id) sender{
@@ -59,8 +55,6 @@
     ctrl.modalPresentationStyle = UIModalPresentationFormSheet;
     
     [self presentModalViewController:ctrl animated:YES];
-    [ctrl release];
-    [visitCounterController release];
 }
 
 -(void) didClickSaveButton:(id) sender{
@@ -71,7 +65,6 @@
 	[alert addButtonWithTitle:@"No"];
 	[alert addButtonWithTitle:@"Yes"];
 	[alert show];
-	[alert release];
 }
 
 - (void)loadView 
@@ -81,11 +74,11 @@
     self.title = @"Georgia Aquarium Educator Assistant";
 
     // Setup view
-    UIView *view = [[[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    UIView *view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	[view setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
     
     // Setup table
-    UITableView *tableView = [[[UITableView alloc] initWithFrame:[view bounds] style:UITableViewStyleGrouped] autorelease];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:[view bounds] style:UITableViewStyleGrouped];
 	[tableView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
 	[self setTableView:tableView];
 	
@@ -153,7 +146,7 @@
 -(void) loadNewModel:(Visit*)_visit{
     // TODO: Weird bug: if you click into a text field, then click another school then click back and click a text field it crashes!
     // Setup datasource
-    VisitFormDataSource *vfds = [[[VisitFormDataSource alloc] initWithModel:_visit] autorelease];
+    VisitFormDataSource *vfds = [[VisitFormDataSource alloc] initWithModel:_visit];
     vfds.delegate = self;
     self.formDataSource = vfds;
 
@@ -241,10 +234,10 @@
 {
     // Called when the view is shown again in the split view, invalidating the button and popover controller.
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
-    UIBarButtonItem *saveButton = [[[UIBarButtonItem alloc] initWithTitle:@"Finalize"
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Finalize"
 																	style:UIBarButtonItemStyleDone 
 																   target:self 
-																   action:@selector(didClickSaveButton:)] autorelease];
+																   action:@selector(didClickSaveButton:)];
     [self.navigationItem setRightBarButtonItem:saveButton animated:YES];
     
     
@@ -305,27 +298,12 @@
     if (buttonIndex == 1){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Todo" message:@"Flag record as dirty and in need of a sync!" delegate:nil cancelButtonTitle:@"Aight" otherButtonTitles:nil];
         [alert show];
-        [alert release];
     }
 }
 
 #pragma mark -
 #pragma mark Memory Management
 
-- (void)dealloc
-{
-    [_masterPopoverController release];
-    [visit release];
-    [sigImage release];
-    [getSignatureButton release];
-    [viewScheduleButton release];
-    [visitorCounterButton release];
-    [providedStudentCountLabel release];
-    [providedChaperoneCountLabel release];
-    [providedExtraChaperoneCountLabel release];
-    
-    [super dealloc];
-}
 
 
 @end

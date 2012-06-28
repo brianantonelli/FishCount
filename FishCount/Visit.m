@@ -17,15 +17,5 @@
 #pragma mark -
 #pragma mark Memory Management
 
--(void) dealloc{
-    [stateControl release];
-    [countyControl release];
-    [programControl release];
-    [paymentTypeControl release];
-    [theTypeControl release];
-    [signatureImage release];
-    
-    [super dealloc];
-}
 
 @end

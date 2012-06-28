@@ -21,6 +21,6 @@
 -(void) syncObjectsToWeb;
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
-@property(nonatomic, retain) NSArray *visits;
+@property(nonatomic, strong) NSArray *visits;
 
 @end
