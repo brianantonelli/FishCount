@@ -19,11 +19,9 @@
     IBOutlet UITextField *time;
     IBOutlet UITextField *schoolName;
     IBOutlet UITextField *leadTeacher;
-    IBOutlet UITextField *state;
-    IBOutlet UITextField *county;
+    IBOutlet UILabel *state; // TODO: county
     IBOutlet UITextField *payment;
-    IBOutlet UITextField *type;
-    IBOutlet UITextField *program;
+    IBOutlet UILabel *type; // TODO: program
     IBOutlet UITextField *curbNotes;
     IBOutlet UITextField *studentCount;
     IBOutlet UITextField *chapCount;

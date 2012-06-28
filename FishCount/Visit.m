@@ -12,7 +12,7 @@
 
 @dynamic identifier, order, school, info, staff, time, grade, studentCount, chaperoneCount, extraChaperoneCount, bus, theatre, lunch, dolphin, notes, curbNotes, county, actualStudentCount, actualChaperoneCount, actualExtraChaperoneCount, leadTeacher, state, paymentType, program, theType;
 
-@synthesize stateControl, countyControl, paymentTypeControl, theTypeControl, programControl, signatureImage;
+@synthesize signatureImage; // TODO: should we serialize this and store image incase they crash the app or the ipad battery dies?
 
 -(NSString*) formattedDate{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

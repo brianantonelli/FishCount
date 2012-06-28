@@ -19,6 +19,16 @@
 
 @implementation DetailViewController
 
+//self.states = [NSArray arrayWithObjects:@"Canda", @"Mexico", @"International", @"", @"Alabama", @"Alaska", @"Arizona", @"Arkansas", @"California", @"Colorado", @"Connecticut", @"Delaware", @"Florida", @"Georgia", @"Hawaii", @"Idaho", @"Illinois", @"Indiana", @"Iowa", @"Kansas", @"Kentucky", @"Louisiana", @"Maine", @"Maryland", @"Massachusetts", @"Michigan", @"Minnesota", @"Mississippi", @"Missouri", @"Montana", @"Nebraska", @"Nevada", @"New Hampshire", @"New Jersey", @"New Mexico", @"New York", @"North Carolina", @"North Dakota", @"Ohio", @"Oklahoma", @"Oregon", @"Pennsylvania", @"Rhode Island", @"South Carolina", @"South Dakota", @"Tennessee", @"Texas", @"Utah", @"Vermont", @"Virginia", @"Washington", @"West Virginia", @"Wisconsin", nil];
+//
+//self.counties = [NSArray arrayWithObjects: @"APS", @"Appling", @"Atkinson", @"Bacon", @"Baker", @"Baldwin", @"Banks", @"Barrow", @"Bartow", @"Ben Hill", @"Berrien", @"Bibb", @"Bleckley", @"Brantley", @"Brooks", @"Bryan", @"Bulloch", @"Burke", @"Butts", @"Calhoun", @"Camden", @"Candler", @"Carroll", @"Catoosa", @"Charlton", @"Chatham", @"Chattahoochee", @"Chattooga", @"Cherokee", @"Clarke", @"Clay", @"Clayton", @"Clinch", @"Cobb", @"Coffee", @"Colquitt", @"Columbia", @"Cook", @"Coweta", @"Crawford", @"Crisp", @"Dade", @"Dawson", @"Decatur", @"DeKalb", @"Dodge", @"Dooly", @"Dougherty", @"Douglas", @"Early", @"Echols", @"Effingham", @"Elbert", @"Emanuel", @"Evans", @"Fannin", @"Fayette", @"Floyd", @"Forsyth", @"Franklin", @"Fulton", @"Gilmer", @"Glascock", @"Glynn", @"Gordon", @"Grady", @"Greene", @"Gwinnett", @"Habersham", @"Hall", @"Hancock", @"Haralson", @"Harris", @"Hart", @"Heard", @"Henry", @"Houston", @"Irwin", @"Jackson", @"Jasper", @"Jeff Davis", @"Jefferson", @"Jenkins", @"Johnson", @"Jones", @"Lamar", @"Lanier", @"Laurens", @"Lee", @"Liberty", @"Lincoln", @"Long", @"Lowndes", @"Lumpkin", @"Macon", @"Madison", @"Marion", @"McDuffie", @"McIntosh", @"Meriwether", @"Miller", @"Mitchell", @"Monroe", @"Montgomery", @"Morgan", @"Murray", @"Muscogee", @"Newton", @"Oconee", @"Oglethorpe", @"Paulding", @"Peach", @"Pickens", @"Pierce", @"Pike", @"Polk", @"Pulaski", @"Putnam", @"Quitman", @"Rabun", @"Randolph", @"Richmond", @"Rockdale", @"Schley", @"Screven", @"Seminole", @"Spalding", @"Stephens", @"Stewart", @"Sumter", @"Talbot", @"Taliaferro", @"Tattnall", @"Taylor Webster", @"Telfair", @"Terrell", @"Thomas", @"Tift", @"Toombs", @"Towns", @"Treutlen", @"Troup", @"Turner", @"Twiggs", @"Union", @"Upson", @"Walker", @"Walton", @"Ware", @"Warren", @"Washington", @"Wayne", @"Wheeler", @"White", @"Whitfield", @"Wilcox", @"Wilkes", @"Wilkinson", @"Worth", nil];
+//
+//self.programs = [NSArray arrayWithObjects:@"Aqua Tales", @"Hide and Seek", @"Bite Sized Basics", @"Sea Life Safari", @"Weird and Wild", @"Snack Attack", @"Undersea Investigators", @"Sharks In Depth", @"Aquarium 101", @"Animal Behavior", @"Discovery Lab - Genetics", @"Discovery Lab - Senses", @"Behind the Waterworks", @"Beyond the Classroom", nil];
+//
+//NSArray *pickListOptions3 = [IBAPickListFormOption pickListOptionsForStrings:[NSArray arrayWithObjects:@"SEA", @"Paid", nil]];
+//NSArray *pickListOptions4 = [IBAPickListFormOption pickListOptionsForStrings:[NSArray arrayWithObjects:@"Instructor Lead", @"Aqua Adventure", nil]];
+
+
 @synthesize visit = _visit,
             sigImage = _sigImage,
             getSignatureButton = _getSignatureButton,
@@ -139,11 +149,9 @@
     time.text = [visitModel formattedDate];
     schoolName.text = visitModel.school;
     leadTeacher.text = visitModel.leadTeacher;
-    state.text = visitModel.state;
-    county.text = visitModel.county;
-    payment.text = visitModel.paymentType;
+    state.text = [@"Georgia" isEqualToString:visitModel.state] ? [NSString stringWithFormat:@"%@ (%@ County)", visitModel.state, visitModel.county] : visitModel.state;
+    payment.text = [@"SEA" isEqualToString:visitModel.paymentType] ? [NSString stringWithFormat:@"%@ (%@ Program)", visitModel.paymentType, visitModel.program] : visitModel.paymentType;
     type.text = visitModel.theType;
-    program.text = visitModel.program;
     curbNotes.text = visitModel.curbNotes;
     studentCount.text = @"0";
     chapCount.text = @"0";
@@ -179,10 +187,8 @@
     schoolName = nil;
     leadTeacher = nil;
     state = nil;
-    county = nil;
     payment = nil;
     type = nil;
-    program = nil;
     curbNotes = nil;
     studentCount = nil;
     chapCount = nil;
@@ -280,11 +286,9 @@
         else if(indexPath.row == 1) [schoolName becomeFirstResponder];
         else if(indexPath.row == 2) [leadTeacher becomeFirstResponder];
         else if(indexPath.row == 3) [state becomeFirstResponder];
-        else if(indexPath.row == 4) [county becomeFirstResponder];
-        else if(indexPath.row == 5) [payment becomeFirstResponder];
-        else if(indexPath.row == 6) [type becomeFirstResponder];
-        else if(indexPath.row == 7) [program becomeFirstResponder];
-        else if(indexPath.row == 8) [curbNotes becomeFirstResponder];
+        else if(indexPath.row == 4) [payment becomeFirstResponder];
+        else if(indexPath.row == 5) [type becomeFirstResponder];
+        else if(indexPath.row == 6) [curbNotes becomeFirstResponder];
     }
     else{
         if(indexPath.row == 0) [studentCount becomeFirstResponder];

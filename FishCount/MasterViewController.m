@@ -9,7 +9,6 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "Visit.h"
-#import "VisitFormDataSource.h"
 #import <RestKit/NSString+RKAdditions.h>
 
 @implementation MasterViewController

@@ -121,44 +121,19 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" text="" id="CaZ-kj-Qc2">
-                                                    <rect key="frame" x="138" y="6" width="459" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                </textField>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Use-d7-rZ4">
-                                        <rect key="frame" x="0.0" y="231" width="703" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="43" y="0.0" width="617" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="County" textAlignment="right" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="Oz8-aT-oEB">
-                                                    <rect key="frame" x="20" y="13" width="110" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="pkO-0d-eaF">
+                                                    <rect key="frame" x="138" y="13" width="459" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" text="" id="gvJ-9Q-Xok">
-                                                    <rect key="frame" x="138" y="6" width="459" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <textInputTraits key="textInputTraits"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                </textField>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="zIj-VM-i76">
-                                        <rect key="frame" x="0.0" y="275" width="703" height="44"/>
+                                        <rect key="frame" x="0.0" y="231" width="703" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="43" y="0.0" width="617" height="43"/>
@@ -183,7 +158,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="1VY-tu-yCS">
-                                        <rect key="frame" x="0.0" y="319" width="703" height="44"/>
+                                        <rect key="frame" x="0.0" y="275" width="703" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="43" y="0.0" width="617" height="43"/>
@@ -196,44 +171,19 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" text="" id="Rzl-AV-Xop">
-                                                    <rect key="frame" x="138" y="6" width="459" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                </textField>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="NkN-5V-wHV">
-                                        <rect key="frame" x="0.0" y="363" width="703" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="43" y="0.0" width="617" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Program" textAlignment="right" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="gjz-53-jMW">
-                                                    <rect key="frame" x="20" y="13" width="110" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="RCd-dp-Hst">
+                                                    <rect key="frame" x="138" y="13" width="459" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" text="" id="QXV-TS-NTP">
-                                                    <rect key="frame" x="138" y="6" width="459" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <textInputTraits key="textInputTraits"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                </textField>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ydt-wY-HCm">
-                                        <rect key="frame" x="0.0" y="407" width="703" height="45"/>
+                                        <rect key="frame" x="0.0" y="319" width="703" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="43" y="0.0" width="617" height="43"/>
@@ -262,7 +212,7 @@
                             <tableViewSection headerTitle="Visitor Counts" id="tVc-xY-qML">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="eEv-OO-YNM">
-                                        <rect key="frame" x="0.0" y="496" width="703" height="45"/>
+                                        <rect key="frame" x="0.0" y="408" width="703" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="43" y="1" width="617" height="43"/>
@@ -294,7 +244,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="FBA-nP-6Ms">
-                                        <rect key="frame" x="0.0" y="541" width="703" height="44"/>
+                                        <rect key="frame" x="0.0" y="453" width="703" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="43" y="0.0" width="617" height="43"/>
@@ -326,7 +276,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="QFz-Xa-d1e">
-                                        <rect key="frame" x="0.0" y="585" width="703" height="45"/>
+                                        <rect key="frame" x="0.0" y="497" width="703" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="43" y="0.0" width="617" height="43"/>
@@ -369,19 +319,17 @@
                     <connections>
                         <outlet property="chapCount" destination="Yi5-v8-cdE" id="MdG-V9-rHL"/>
                         <outlet property="chapProjected" destination="p1N-hy-scl" id="xIw-8b-kFO"/>
-                        <outlet property="county" destination="gvJ-9Q-Xok" id="t69-Fc-dZD"/>
                         <outlet property="curbNotes" destination="0gv-iU-gXr" id="n8V-1y-ypJ"/>
                         <outlet property="extChapCount" destination="6eE-ZK-zF2" id="FZK-Bl-RMu"/>
                         <outlet property="extChapProjected" destination="WbF-q3-LBC" id="FjQ-kP-nBT"/>
                         <outlet property="leadTeacher" destination="5xZ-SM-fsV" id="ZZM-oG-GIn"/>
                         <outlet property="payment" destination="2oE-ZE-ERN" id="B3l-DF-Sis"/>
-                        <outlet property="program" destination="QXV-TS-NTP" id="niR-na-DNq"/>
                         <outlet property="schoolName" destination="sst-AN-FEr" id="rvN-U1-sgh"/>
-                        <outlet property="state" destination="CaZ-kj-Qc2" id="cXB-5J-pxh"/>
+                        <outlet property="state" destination="pkO-0d-eaF" id="Wct-Pq-mxe"/>
                         <outlet property="studentCount" destination="Ck9-pi-3Y5" id="vle-7A-Jzd"/>
                         <outlet property="studentProjected" destination="o8b-G2-qrX" id="ZQv-pN-sNe"/>
                         <outlet property="time" destination="TGI-1c-KtN" id="pw5-tt-D2m"/>
-                        <outlet property="type" destination="Rzl-AV-Xop" id="yRE-0o-xv0"/>
+                        <outlet property="type" destination="RCd-dp-Hst" id="6aQ-db-s7L"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TR3-OX-bga" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -462,31 +410,6 @@
             <point key="canvasLocation" x="-366" y="248"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="DetailViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="chapCount" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="chapProjected" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="county" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="curbNotes" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="extChapCount" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="extChapProjected" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="leadTeacher" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="payment" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="program" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="schoolName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="state" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="studentCount" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="studentProjected" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="time" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="type" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="MasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

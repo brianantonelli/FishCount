@@ -42,12 +42,6 @@
 @property(nonatomic, strong) NSString *program;
 @property(nonatomic, strong) NSString *theType;
 
-// control mappings
-@property(nonatomic, strong) NSSet *stateControl;
-@property(nonatomic, strong) NSSet *countyControl;
-@property(nonatomic, strong) NSSet *paymentTypeControl;
-@property(nonatomic, strong) NSSet *programControl;
-@property(nonatomic, strong) NSSet *theTypeControl;
 @property(nonatomic, strong) UIImage *signatureImage;
 
 @end
