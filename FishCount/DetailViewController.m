@@ -20,6 +20,7 @@
 @implementation DetailViewController
 
 @synthesize visit = _visit,
+            tempVisit = _tempVisit,
             sigImage = _sigImage,
             getSignatureButton = _getSignatureButton,
             viewScheduleButton = _viewScheduleButton,
@@ -70,8 +71,8 @@
 
 -(void) didClickSaveButton:(id) sender{
     UIAlertView *alert = [[UIAlertView alloc] init];
-	[alert setTitle:@"Finalize Record"];
-	[alert setMessage:@"Do you want to finalize this record? By finalizing a record it will be saved to the database upon syncing the iPad. Only finalize if you are responsible for this school!"];
+	[alert setTitle:@"Save Record"];
+	[alert setMessage:@"Do you want to save this record? The record will be saved to the database upon syncing the iPad. Only save if you are responsible for this school!"];
 	[alert setDelegate:self];
 	[alert addButtonWithTitle:@"No"];
 	[alert addButtonWithTitle:@"Yes"];
@@ -186,9 +187,16 @@
 
     _types = [NSArray arrayWithObjects:@"SEA", @"Paid", nil];
     _huh = [NSArray arrayWithObjects:@"Instructor Lead", @"Aqua Adventure", nil];
+    
+    selectSchool.hidden = NO;
+    // TODO: Figure out how to move label to the top and hide the other parts of the table
+//    CGRect f = selectSchool.frame;
+//    [selectSchool setFrame:CGRectMake(10.0f, 10.0f, f.size.width, f.size.height)];
+
 }
 
 -(void) loadNewModel:(Visit*)visitModel{
+    selectSchool.hidden = YES;
     // Handle signature image
     if(visitModel.signatureImage != nil){
 //        [self.sigImage setImage:_visit.signatureImage];
@@ -220,6 +228,7 @@
     extChapProjected.text = [NSString stringWithFormat:@"Projected: %@", visitModel.extraChaperoneCount];
 
     _visit = visitModel;
+    _tempVisit = [[Visit alloc] init];
 }
 
 -(void) configureView{
@@ -255,6 +264,7 @@
     studentProjected = nil;
     chapProjected = nil;
     extChapProjected = nil;
+    selectSchool = nil;
     [super viewDidUnload];
 }
 
@@ -317,7 +327,8 @@
 {
     // Called when the view is shown again in the split view, invalidating the button and popover controller.
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
-    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Finalize"
+    // TODO: This only shows in landscape, why not portrait?
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save"
 																	style:UIBarButtonItemStyleDone 
 																   target:self 
 																   action:@selector(didClickSaveButton:)];
@@ -409,5 +420,17 @@
 //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellTime"];
 //    return cell;
 //}
+
+#pragma mark -
+#pragma mark UITextFieldDelegate
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    // TODO: deal with time
+    if(textField == schoolName && ![textField.text isEqualToString:_visit.school]){
+        _visit.school = nil;
+        _tempVisit.school = textField.text;
+        NSLog(@"changing temp school to %@", textField.text);
+    }
+}
 
 @end

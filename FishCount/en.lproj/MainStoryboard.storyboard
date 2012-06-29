@@ -29,6 +29,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <label key="tableFooterView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Please Select A School" textAlignment="center" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="cNr-77-Wu4">
+                            <rect key="frame" x="0.0" y="552" width="703" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <nil key="highlightedColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        </label>
                         <sections>
                             <tableViewSection headerTitle="School Information" id="OzW-7N-7GK">
                                 <cells>
@@ -77,6 +84,9 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="k3v-61-VNQ" id="YUE-EW-lNd"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -102,6 +112,9 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="k3v-61-VNQ" id="162-jr-a3d"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -152,6 +165,9 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="k3v-61-VNQ" id="KEZ-Ux-HVU"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -202,6 +218,9 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="k3v-61-VNQ" id="IKB-zD-o7u"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -231,6 +250,9 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="k3v-61-VNQ" id="xkl-j8-zOf"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Projected: 0" textAlignment="right" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="o8b-G2-qrX">
                                                     <rect key="frame" x="477" y="13" width="120" height="21"/>
@@ -263,6 +285,9 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="k3v-61-VNQ" id="vK0-v7-5gx"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Projected: 0" textAlignment="right" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="p1N-hy-scl">
                                                     <rect key="frame" x="477" y="13" width="120" height="21"/>
@@ -295,6 +320,9 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="k3v-61-VNQ" id="IWO-cP-lQp"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Projected: 0" textAlignment="right" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="WbF-q3-LBC">
                                                     <rect key="frame" x="477" y="13" width="120" height="21"/>
@@ -325,6 +353,7 @@
                         <outlet property="leadTeacher" destination="5xZ-SM-fsV" id="ZZM-oG-GIn"/>
                         <outlet property="payment" destination="2oE-ZE-ERN" id="B3l-DF-Sis"/>
                         <outlet property="schoolName" destination="sst-AN-FEr" id="rvN-U1-sgh"/>
+                        <outlet property="selectSchool" destination="cNr-77-Wu4" id="1mB-Ga-yQ8"/>
                         <outlet property="state" destination="pkO-0d-eaF" id="Wct-Pq-mxe"/>
                         <outlet property="studentCount" destination="Ck9-pi-3Y5" id="vle-7A-Jzd"/>
                         <outlet property="studentProjected" destination="o8b-G2-qrX" id="ZQv-pN-sNe"/>
@@ -410,6 +439,30 @@
             <point key="canvasLocation" x="-366" y="248"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="DetailViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="chapCount" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="chapProjected" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="curbNotes" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="extChapCount" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="extChapProjected" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="leadTeacher" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="payment" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="schoolName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="selectSchool" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="state" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="studentCount" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="studentProjected" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="time" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="type" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

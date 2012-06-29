@@ -19,8 +19,10 @@ typedef enum {
     kTypeProgram
 } PickerType;
 
-@interface DetailViewController : UITableViewController <UISplitViewControllerDelegate, ModalViewControllerDelegate, JBSignatureControllerDelegate, VisitorCounterViewControllerDelegate, UIAlertViewDelegate, UIPopoverControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>{
+@interface DetailViewController : UITableViewController <UISplitViewControllerDelegate, ModalViewControllerDelegate, JBSignatureControllerDelegate, VisitorCounterViewControllerDelegate, UIAlertViewDelegate, UIPopoverControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>{
     Visit *visit;
+    Visit *tempVisit;
+    IBOutlet UILabel *selectSchool;
     IBOutlet UITextField *time;
     IBOutlet UITextField *schoolName;
     IBOutlet UITextField *leadTeacher;
@@ -56,6 +58,7 @@ typedef enum {
 -(void) cancelButtonPressed;
 
 @property(nonatomic, strong) Visit *visit;
+@property(nonatomic, strong) Visit *tempVisit;
 @property(nonatomic, strong) UIImageView *sigImage;
 @property(nonatomic, strong) UIButton *getSignatureButton;
 @property(nonatomic, strong) UIButton *viewScheduleButton;
