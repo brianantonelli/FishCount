@@ -14,7 +14,12 @@
 //#import "VisitFormDataSource.h"
 #import "VisitorCounterViewController.h"
 
-@interface DetailViewController : UITableViewController <UISplitViewControllerDelegate, ModalViewControllerDelegate, JBSignatureControllerDelegate, VisitorCounterViewControllerDelegate, UIAlertViewDelegate>{
+typedef enum {
+    kStateCounty,
+    kTypeProgram
+} PickerType;
+
+@interface DetailViewController : UITableViewController <UISplitViewControllerDelegate, ModalViewControllerDelegate, JBSignatureControllerDelegate, VisitorCounterViewControllerDelegate, UIAlertViewDelegate, UIPopoverControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>{
     Visit *visit;
     IBOutlet UITextField *time;
     IBOutlet UITextField *schoolName;
@@ -29,6 +34,13 @@
     IBOutlet UILabel *studentProjected;
     IBOutlet UILabel *chapProjected;
     IBOutlet UILabel *extChapProjected;
+    UIPopoverController *pickerPopoverController;
+    PickerType pickerType;
+    NSArray *states;
+    NSArray *counties;
+    NSArray *programs;
+    NSArray *types;
+    NSArray *huh;
 }
 
 -(void) didClickScheduleButton:(id) sender;
@@ -37,10 +49,21 @@
 -(void) didClickSaveButton:(id) sender;
 -(void) loadNewModel:(Visit*)visit;
 
+-(void) presentStatePicker;
+-(void) presentTypePicker;
+-(void) displayPicker;
+-(void) okayButtonPressed;
+-(void) cancelButtonPressed;
+
 @property(nonatomic, strong) Visit *visit;
 @property(nonatomic, strong) UIImageView *sigImage;
 @property(nonatomic, strong) UIButton *getSignatureButton;
 @property(nonatomic, strong) UIButton *viewScheduleButton;
 @property(nonatomic, strong) UIButton *visitorCounterButton;
-
+@property(nonatomic, strong) UIPopoverController *pickerPopoverController;
+@property(nonatomic, strong) NSArray *states;
+@property(nonatomic, strong) NSArray *counties;
+@property(nonatomic, strong) NSArray *programs;
+@property(nonatomic, strong) NSArray *types;
+@property(nonatomic, strong) NSArray *huh;
 @end

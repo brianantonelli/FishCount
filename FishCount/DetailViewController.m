@@ -19,22 +19,19 @@
 
 @implementation DetailViewController
 
-//self.states = [NSArray arrayWithObjects:@"Canda", @"Mexico", @"International", @"", @"Alabama", @"Alaska", @"Arizona", @"Arkansas", @"California", @"Colorado", @"Connecticut", @"Delaware", @"Florida", @"Georgia", @"Hawaii", @"Idaho", @"Illinois", @"Indiana", @"Iowa", @"Kansas", @"Kentucky", @"Louisiana", @"Maine", @"Maryland", @"Massachusetts", @"Michigan", @"Minnesota", @"Mississippi", @"Missouri", @"Montana", @"Nebraska", @"Nevada", @"New Hampshire", @"New Jersey", @"New Mexico", @"New York", @"North Carolina", @"North Dakota", @"Ohio", @"Oklahoma", @"Oregon", @"Pennsylvania", @"Rhode Island", @"South Carolina", @"South Dakota", @"Tennessee", @"Texas", @"Utah", @"Vermont", @"Virginia", @"Washington", @"West Virginia", @"Wisconsin", nil];
-//
-//self.counties = [NSArray arrayWithObjects: @"APS", @"Appling", @"Atkinson", @"Bacon", @"Baker", @"Baldwin", @"Banks", @"Barrow", @"Bartow", @"Ben Hill", @"Berrien", @"Bibb", @"Bleckley", @"Brantley", @"Brooks", @"Bryan", @"Bulloch", @"Burke", @"Butts", @"Calhoun", @"Camden", @"Candler", @"Carroll", @"Catoosa", @"Charlton", @"Chatham", @"Chattahoochee", @"Chattooga", @"Cherokee", @"Clarke", @"Clay", @"Clayton", @"Clinch", @"Cobb", @"Coffee", @"Colquitt", @"Columbia", @"Cook", @"Coweta", @"Crawford", @"Crisp", @"Dade", @"Dawson", @"Decatur", @"DeKalb", @"Dodge", @"Dooly", @"Dougherty", @"Douglas", @"Early", @"Echols", @"Effingham", @"Elbert", @"Emanuel", @"Evans", @"Fannin", @"Fayette", @"Floyd", @"Forsyth", @"Franklin", @"Fulton", @"Gilmer", @"Glascock", @"Glynn", @"Gordon", @"Grady", @"Greene", @"Gwinnett", @"Habersham", @"Hall", @"Hancock", @"Haralson", @"Harris", @"Hart", @"Heard", @"Henry", @"Houston", @"Irwin", @"Jackson", @"Jasper", @"Jeff Davis", @"Jefferson", @"Jenkins", @"Johnson", @"Jones", @"Lamar", @"Lanier", @"Laurens", @"Lee", @"Liberty", @"Lincoln", @"Long", @"Lowndes", @"Lumpkin", @"Macon", @"Madison", @"Marion", @"McDuffie", @"McIntosh", @"Meriwether", @"Miller", @"Mitchell", @"Monroe", @"Montgomery", @"Morgan", @"Murray", @"Muscogee", @"Newton", @"Oconee", @"Oglethorpe", @"Paulding", @"Peach", @"Pickens", @"Pierce", @"Pike", @"Polk", @"Pulaski", @"Putnam", @"Quitman", @"Rabun", @"Randolph", @"Richmond", @"Rockdale", @"Schley", @"Screven", @"Seminole", @"Spalding", @"Stephens", @"Stewart", @"Sumter", @"Talbot", @"Taliaferro", @"Tattnall", @"Taylor Webster", @"Telfair", @"Terrell", @"Thomas", @"Tift", @"Toombs", @"Towns", @"Treutlen", @"Troup", @"Turner", @"Twiggs", @"Union", @"Upson", @"Walker", @"Walton", @"Ware", @"Warren", @"Washington", @"Wayne", @"Wheeler", @"White", @"Whitfield", @"Wilcox", @"Wilkes", @"Wilkinson", @"Worth", nil];
-//
-//self.programs = [NSArray arrayWithObjects:@"Aqua Tales", @"Hide and Seek", @"Bite Sized Basics", @"Sea Life Safari", @"Weird and Wild", @"Snack Attack", @"Undersea Investigators", @"Sharks In Depth", @"Aquarium 101", @"Animal Behavior", @"Discovery Lab - Genetics", @"Discovery Lab - Senses", @"Behind the Waterworks", @"Beyond the Classroom", nil];
-//
-//NSArray *pickListOptions3 = [IBAPickListFormOption pickListOptionsForStrings:[NSArray arrayWithObjects:@"SEA", @"Paid", nil]];
-//NSArray *pickListOptions4 = [IBAPickListFormOption pickListOptionsForStrings:[NSArray arrayWithObjects:@"Instructor Lead", @"Aqua Adventure", nil]];
-
-
 @synthesize visit = _visit,
             sigImage = _sigImage,
             getSignatureButton = _getSignatureButton,
             viewScheduleButton = _viewScheduleButton,
             visitorCounterButton = _visitorCounterButton,
-            masterPopoverController = _masterPopoverController;
+            masterPopoverController = _masterPopoverController,
+            pickerPopoverController = _pickerPopoverController,
+            states = _states,
+            counties = _counties,
+            programs = _programs,
+            types = _types,
+            huh = _huh;
+
 
 -(void) didClickScheduleButton:(id) sender{
     ScheduleFormDataSource *ds = [[ScheduleFormDataSource alloc] initWithModel:visit];
@@ -81,7 +78,60 @@
 	[alert show];
 }
 
-- (void)loadView 
+-(void) presentStatePicker{
+    // TODO: set type
+    pickerType = kStateCounty;
+    [self displayPicker];
+}
+
+-(void) presentTypePicker{
+    pickerType = kTypeProgram;
+    [self displayPicker];
+}
+
+-(void) displayPicker{
+    UIViewController* popoverContent = [[UIViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:popoverContent];
+    
+    UIView *popoverView = [[UIView alloc] init];
+    popoverView.backgroundColor = [UIColor blackColor];
+    
+    popoverContent.view = popoverView;
+    
+    UIPickerView *picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 320, 264)];
+    picker.delegate = self;
+    picker.dataSource = self;
+    picker.showsSelectionIndicator = YES;
+    [popoverView addSubview:picker];
+    
+    pickerPopoverController = [[UIPopoverController alloc] initWithContentViewController:navigationController];
+    pickerPopoverController.delegate = self;
+    [pickerPopoverController setPopoverContentSize:CGSizeMake(320, 264) animated:YES];
+    
+    UIBarButtonItem *okButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(okayButtonPressed)];
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelButtonPressed)];
+    navigationController.navigationBar.topItem.leftBarButtonItem = cancelButton;
+    navigationController.navigationBar.topItem.rightBarButtonItem = okButton;
+    
+    CGRect f = [self.tableView convertRect:extChapCount.frame fromView:self.view];
+    
+    NSLog(@"%f %f", f.origin.x, f.origin.y);
+    
+    [pickerPopoverController presentPopoverFromRect:state.frame inView:self.tableView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES]; // TODO: Fix position
+}
+
+-(void) okayButtonPressed{
+    // TODO: save value
+    [self.tableView reloadData];
+
+    [pickerPopoverController dismissPopoverAnimated:YES];
+}
+
+-(void) cancelButtonPressed{
+    [pickerPopoverController dismissPopoverAnimated:YES];
+}
+
+- (void)loadView
 {
 	[super loadView];
     
@@ -127,6 +177,15 @@
     // Add signature image
     self.sigImage = [[UIImageView alloc] initWithFrame:CGRectMake(40.0f, 740.0f, 300.f, 100.0f)];
     [self.sigImage setHidden:YES];
+    
+    _states = [NSArray arrayWithObjects:@"Canda", @"Mexico", @"International", @"", @"Alabama", @"Alaska", @"Arizona", @"Arkansas", @"California", @"Colorado", @"Connecticut", @"Delaware", @"Florida", @"Georgia", @"Hawaii", @"Idaho", @"Illinois", @"Indiana", @"Iowa", @"Kansas", @"Kentucky", @"Louisiana", @"Maine", @"Maryland", @"Massachusetts", @"Michigan", @"Minnesota", @"Mississippi", @"Missouri", @"Montana", @"Nebraska", @"Nevada", @"New Hampshire", @"New Jersey", @"New Mexico", @"New York", @"North Carolina", @"North Dakota", @"Ohio", @"Oklahoma", @"Oregon", @"Pennsylvania", @"Rhode Island", @"South Carolina", @"South Dakota", @"Tennessee", @"Texas", @"Utah", @"Vermont", @"Virginia", @"Washington", @"West Virginia", @"Wisconsin", nil];
+
+    _counties = [NSArray arrayWithObjects: @"APS", @"Appling", @"Atkinson", @"Bacon", @"Baker", @"Baldwin", @"Banks", @"Barrow", @"Bartow", @"Ben Hill", @"Berrien", @"Bibb", @"Bleckley", @"Brantley", @"Brooks", @"Bryan", @"Bulloch", @"Burke", @"Butts", @"Calhoun", @"Camden", @"Candler", @"Carroll", @"Catoosa", @"Charlton", @"Chatham", @"Chattahoochee", @"Chattooga", @"Cherokee", @"Clarke", @"Clay", @"Clayton", @"Clinch", @"Cobb", @"Coffee", @"Colquitt", @"Columbia", @"Cook", @"Coweta", @"Crawford", @"Crisp", @"Dade", @"Dawson", @"Decatur", @"DeKalb", @"Dodge", @"Dooly", @"Dougherty", @"Douglas", @"Early", @"Echols", @"Effingham", @"Elbert", @"Emanuel", @"Evans", @"Fannin", @"Fayette", @"Floyd", @"Forsyth", @"Franklin", @"Fulton", @"Gilmer", @"Glascock", @"Glynn", @"Gordon", @"Grady", @"Greene", @"Gwinnett", @"Habersham", @"Hall", @"Hancock", @"Haralson", @"Harris", @"Hart", @"Heard", @"Henry", @"Houston", @"Irwin", @"Jackson", @"Jasper", @"Jeff Davis", @"Jefferson", @"Jenkins", @"Johnson", @"Jones", @"Lamar", @"Lanier", @"Laurens", @"Lee", @"Liberty", @"Lincoln", @"Long", @"Lowndes", @"Lumpkin", @"Macon", @"Madison", @"Marion", @"McDuffie", @"McIntosh", @"Meriwether", @"Miller", @"Mitchell", @"Monroe", @"Montgomery", @"Morgan", @"Murray", @"Muscogee", @"Newton", @"Oconee", @"Oglethorpe", @"Paulding", @"Peach", @"Pickens", @"Pierce", @"Pike", @"Polk", @"Pulaski", @"Putnam", @"Quitman", @"Rabun", @"Randolph", @"Richmond", @"Rockdale", @"Schley", @"Screven", @"Seminole", @"Spalding", @"Stephens", @"Stewart", @"Sumter", @"Talbot", @"Taliaferro", @"Tattnall", @"Taylor Webster", @"Telfair", @"Terrell", @"Thomas", @"Tift", @"Toombs", @"Towns", @"Treutlen", @"Troup", @"Turner", @"Twiggs", @"Union", @"Upson", @"Walker", @"Walton", @"Ware", @"Warren", @"Washington", @"Wayne", @"Wheeler", @"White", @"Whitfield", @"Wilcox", @"Wilkes", @"Wilkinson", @"Worth", nil];
+    
+    _programs = [NSArray arrayWithObjects:@"Aqua Tales", @"Hide and Seek", @"Bite Sized Basics", @"Sea Life Safari", @"Weird and Wild", @"Snack Attack", @"Undersea Investigators", @"Sharks In Depth", @"Aquarium 101", @"Animal Behavior", @"Discovery Lab - Genetics", @"Discovery Lab - Senses", @"Behind the Waterworks", @"Beyond the Classroom", nil];
+
+    _types = [NSArray arrayWithObjects:@"SEA", @"Paid", nil];
+    _huh = [NSArray arrayWithObjects:@"Instructor Lead", @"Aqua Adventure", nil];
 }
 
 -(void) loadNewModel:(Visit*)visitModel{
@@ -202,6 +261,47 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
+}
+
+#pragma mark -
+#pragma mark UIPickerViewDataSource
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    if(pickerType == kStateCounty || pickerType == kTypeProgram) return 2;
+    else return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    if(pickerType == kStateCounty){
+        return component == 0 ? [_states count] : [_counties count];
+    }
+    else if(pickerType == kTypeProgram){
+        return component == 0 ? [_types count] : [_programs count];
+    }
+    else{
+        // TODO
+    }
+}
+
+#pragma mark -
+#pragma mark UIPickerViewDelegate
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    if(pickerType == kStateCounty){
+        return component == 0 ? [_states objectAtIndex:row] : [pickerView selectedRowInComponent:0] == 13 ? [_counties objectAtIndex:row] : @"";
+    }
+    else if(pickerType == kTypeProgram){
+        return component == 0 ? [_types objectAtIndex:row] : [pickerView selectedRowInComponent:0] == 0 ? [_programs objectAtIndex:row] : @"";
+    }
+    else{
+        // TODO
+    }
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    if(pickerType == kStateCounty || pickerType == kTypeProgram){
+        [pickerView reloadComponent:1];
+    }
 }
 
 #pragma mark - Split view
@@ -285,9 +385,9 @@
         if(indexPath.row == 0) [time becomeFirstResponder];
         else if(indexPath.row == 1) [schoolName becomeFirstResponder];
         else if(indexPath.row == 2) [leadTeacher becomeFirstResponder];
-        else if(indexPath.row == 3) [state becomeFirstResponder];
+        else if(indexPath.row == 3) [self presentStatePicker];
         else if(indexPath.row == 4) [payment becomeFirstResponder];
-        else if(indexPath.row == 5) [type becomeFirstResponder];
+        else if(indexPath.row == 5) [self presentTypePicker];
         else if(indexPath.row == 6) [curbNotes becomeFirstResponder];
     }
     else{
