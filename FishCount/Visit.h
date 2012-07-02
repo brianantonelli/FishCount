@@ -15,6 +15,8 @@
 }
 
 -(NSString*) formattedDate;
+-(void) flagAsDirty;
+-(BOOL) isDirty;
 
 @property(nonatomic, strong) NSNumber *identifier;
 @property(nonatomic, strong) NSNumber *order;

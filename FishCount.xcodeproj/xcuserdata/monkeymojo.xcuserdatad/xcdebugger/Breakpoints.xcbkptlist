@@ -21,12 +21,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "FishCount/DetailViewController.m"
-         timestampString = "362632804.521992"
+         timestampString = "362957282.421599"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "313"
-         endingLineNumber = "313"
+         startingLineNumber = "351"
+         endingLineNumber = "351"
          landmarkName = "-pickerView:didSelectRow:inComponent:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "FishCount/DetailViewController.m"
+         timestampString = "362957282.421599"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "474"
+         endingLineNumber = "474"
+         landmarkName = "-textFieldDidEndEditing:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -159,16 +159,13 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" text="" id="2oE-ZE-ERN">
-                                                    <rect key="frame" x="138" y="6" width="459" height="31"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="Znp-Z8-kQb">
+                                                    <rect key="frame" x="138" y="13" width="459" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="k3v-61-VNQ" id="KEZ-Ux-HVU"/>
-                                                    </connections>
-                                                </textField>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -351,7 +348,7 @@
                         <outlet property="extChapCount" destination="6eE-ZK-zF2" id="FZK-Bl-RMu"/>
                         <outlet property="extChapProjected" destination="WbF-q3-LBC" id="FjQ-kP-nBT"/>
                         <outlet property="leadTeacher" destination="5xZ-SM-fsV" id="ZZM-oG-GIn"/>
-                        <outlet property="payment" destination="2oE-ZE-ERN" id="B3l-DF-Sis"/>
+                        <outlet property="payment" destination="Znp-Z8-kQb" id="M2j-8O-dxj"/>
                         <outlet property="schoolName" destination="sst-AN-FEr" id="rvN-U1-sgh"/>
                         <outlet property="selectSchool" destination="cNr-77-Wu4" id="1mB-Ga-yQ8"/>
                         <outlet property="state" destination="pkO-0d-eaF" id="Wct-Pq-mxe"/>

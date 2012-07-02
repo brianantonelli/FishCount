@@ -16,7 +16,8 @@
 
 typedef enum {
     kStateCounty,
-    kTypeProgram
+    kTypeProgram,
+    kPayment
 } PickerType;
 
 @interface DetailViewController : UITableViewController <UISplitViewControllerDelegate, ModalViewControllerDelegate, JBSignatureControllerDelegate, VisitorCounterViewControllerDelegate, UIAlertViewDelegate, UIPopoverControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>{
@@ -26,9 +27,9 @@ typedef enum {
     IBOutlet UITextField *time;
     IBOutlet UITextField *schoolName;
     IBOutlet UITextField *leadTeacher;
-    IBOutlet UILabel *state; // TODO: county
-    IBOutlet UITextField *payment;
-    IBOutlet UILabel *type; // TODO: program
+    IBOutlet UILabel *state;
+    IBOutlet UILabel *payment;
+    IBOutlet UILabel *type;
     IBOutlet UITextField *curbNotes;
     IBOutlet UITextField *studentCount;
     IBOutlet UITextField *chapCount;
@@ -37,12 +38,13 @@ typedef enum {
     IBOutlet UILabel *chapProjected;
     IBOutlet UILabel *extChapProjected;
     UIPopoverController *pickerPopoverController;
+    UIPickerView *pickerView;
     PickerType pickerType;
     NSArray *states;
     NSArray *counties;
-    NSArray *programs;
+    NSArray *payments;
     NSArray *types;
-    NSArray *huh;
+    NSArray *programs;
 }
 
 -(void) didClickScheduleButton:(id) sender;
@@ -63,10 +65,11 @@ typedef enum {
 @property(nonatomic, strong) UIButton *getSignatureButton;
 @property(nonatomic, strong) UIButton *viewScheduleButton;
 @property(nonatomic, strong) UIButton *visitorCounterButton;
+@property(nonatomic, strong) UIPickerView *pickerView;
 @property(nonatomic, strong) UIPopoverController *pickerPopoverController;
 @property(nonatomic, strong) NSArray *states;
 @property(nonatomic, strong) NSArray *counties;
 @property(nonatomic, strong) NSArray *programs;
 @property(nonatomic, strong) NSArray *types;
-@property(nonatomic, strong) NSArray *huh;
+@property(nonatomic, strong) NSArray *payments;
 @end

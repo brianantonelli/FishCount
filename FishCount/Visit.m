@@ -23,4 +23,12 @@
     return [dateFormatter stringFromDate:self.time];
 }
 
+-(void) flagAsDirty{
+    needsToBeSynced = YES;
+}
+
+-(BOOL) isDirty{
+    return needsToBeSynced;
+}
+
 @end
