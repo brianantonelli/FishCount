@@ -14,6 +14,8 @@
 
 #define GEORGIA_INDEX 13;
 
+// TODO: Prompt them if dirty flag is set that they need to save, if they decline can we reload the record from the server?
+
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
@@ -85,16 +87,64 @@
 -(void) presentPaymentPicker{
     pickerType = kPayment;
     [self displayPicker];
+    
+    for(int i=0; i<[_payments count]; i++){
+        NSString *pymt = [_payments objectAtIndex:i];
+        if([pymt isEqualToString:_visit.paymentType]){
+            [pickerView selectRow:i inComponent:0 animated:YES];
+            break;
+        }
+    }
 }
 
 -(void) presentStatePicker{
     pickerType = kStateCounty;
     [self displayPicker];
+
+    for(int i=0; i<[_states count]; i++){
+        NSString *st = [_states objectAtIndex:i];
+        if([st isEqualToString:_visit.state]){
+            [pickerView selectRow:i inComponent:0 animated:YES];
+            
+            if(i == 13){
+                for(int x=0; x<[_counties count]; x++){
+                    NSString *cnty = [_counties objectAtIndex:x];
+                    if([cnty isEqualToString:_visit.county]){
+                        [pickerView selectRow:x inComponent:1 animated:YES];
+                        break;
+                    }
+                }
+            }
+            break;
+        }
+    }
 }
 
 -(void) presentTypePicker{
     pickerType = kTypeProgram;
     [self displayPicker];
+    
+    for(int i=0; i<[_types count]; i++){
+        NSString *typ = [_types objectAtIndex:i];
+        if([typ isEqualToString:_visit.theType]){
+            [pickerView selectRow:i inComponent:0 animated:YES];
+            
+            if(i == 0){
+                for(int x=0; x<[_programs count]; x++){
+                    NSString *prgm = [_programs objectAtIndex:x];
+                    if([prgm isEqualToString:_visit.program]){
+                        [pickerView selectRow:x inComponent:1 animated:YES];
+                        break;
+                    }
+                }
+            }
+            // special edge case, if aqua adv is picked it displays the programs
+            else{
+                [pickerView reloadComponent:1];
+            }
+            break;
+        }
+    }
 }
 
 -(void) displayPicker{
@@ -106,7 +156,7 @@
     
     popoverContent.view = popoverView;
     
-    pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 320, 264)];
+    pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 360, 264)];
     pickerView.delegate = self;
     pickerView.dataSource = self;
     pickerView.showsSelectionIndicator = YES;
@@ -114,44 +164,54 @@
     
     pickerPopoverController = [[UIPopoverController alloc] initWithContentViewController:navigationController];
     pickerPopoverController.delegate = self;
-    [pickerPopoverController setPopoverContentSize:CGSizeMake(320, 264) animated:YES];
+    [pickerPopoverController setPopoverContentSize:CGSizeMake(360, 264) animated:YES];
     
     UIBarButtonItem *okButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(okayButtonPressed)];
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelButtonPressed)];
     navigationController.navigationBar.topItem.leftBarButtonItem = cancelButton;
     navigationController.navigationBar.topItem.rightBarButtonItem = okButton;
     
-    CGRect f = [self.tableView convertRect:extChapCount.frame fromView:self.view];
+    CGRect rectInTableView;
+    if(pickerType == kStateCounty){
+        rectInTableView = [self.tableView rectForRowAtIndexPath:[NSIndexPath indexPathForItem:3 inSection:0]];
+    }
+    else if(pickerType == kTypeProgram){
+        rectInTableView = [self.tableView rectForRowAtIndexPath:[NSIndexPath indexPathForItem:5 inSection:0]];
+    }
+    else{
+        rectInTableView = [self.tableView rectForRowAtIndexPath:[NSIndexPath indexPathForItem:4 inSection:0]];
+    }
     
-    NSLog(@"%f %f", f.origin.x, f.origin.y);
-    
-    [pickerPopoverController presentPopoverFromRect:state.frame inView:self.tableView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES]; // TODO: Fix position
+    CGRect rectInSuperview = [self.tableView convertRect:rectInTableView toView:[self.tableView superview]];
+
+
+    [pickerPopoverController presentPopoverFromRect:rectInSuperview inView:self.tableView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES]; // TODO: Fix position
 }
 
 -(void) okayButtonPressed{
     if(pickerType == kStateCounty){
-        _tempVisit.state = [_states objectAtIndex:[pickerView selectedRowInComponent:0]];
-        state.text = _tempVisit.state;
+        _visit.state = [_states objectAtIndex:[pickerView selectedRowInComponent:0]];
+        state.text = _visit.state;
         if([pickerView selectedRowInComponent:0] == 13){
-            _tempVisit.county = [_counties objectAtIndex:[pickerView selectedRowInComponent:1]];
-            state.text = [NSString stringWithFormat:@"%@ (%@ County)", _tempVisit.state, _tempVisit.county];
+            _visit.county = [_counties objectAtIndex:[pickerView selectedRowInComponent:1]];
+            state.text = [NSString stringWithFormat:@"%@ (%@ County)", _visit.state, _visit.county];
         }
-        [_tempVisit flagAsDirty];
+        [_visit flagAsDirty];
     }
     else if(pickerType == kTypeProgram){
-        _tempVisit.theType = [_types objectAtIndex:[pickerView selectedRowInComponent:0]];
-        type.text = _tempVisit.theType;
+        _visit.theType = [_types objectAtIndex:[pickerView selectedRowInComponent:0]];
+        type.text = _visit.theType;
         if([pickerView selectedRowInComponent:0] == 0){
-            _tempVisit.program = [_programs objectAtIndex:[pickerView selectedRowInComponent:1]];
-            type.text = [NSString stringWithFormat:@"%@ (%@ Program)", _tempVisit.theType, _tempVisit.program];
+            _visit.program = [_programs objectAtIndex:[pickerView selectedRowInComponent:1]];
+            type.text = [NSString stringWithFormat:@"%@ (%@ Program)", _visit.theType, _visit.program];
             
         }
-        [_tempVisit flagAsDirty];
+        [_visit flagAsDirty];
     }
     else if(pickerType == kPayment){
-        _tempVisit.paymentType = [_payments objectAtIndex:[pickerView selectedRowInComponent:0]];
-        payment.text = _tempVisit.paymentType;
-        [_tempVisit flagAsDirty];
+        _visit.paymentType = [_payments objectAtIndex:[pickerView selectedRowInComponent:0]];
+        payment.text = _visit.paymentType;
+        [_visit flagAsDirty];
     }
     
     [self.tableView reloadData];
@@ -468,40 +528,28 @@
 
     // TODO: deal with time
     if(textField == schoolName && ![textField.text isEqualToString:_visit.school]){
-        _visit.school = nil;
-        _tempVisit.school = textField.text;
+        _visit.school = textField.text;
         [_tempVisit flagAsDirty];
-        NSLog(@"changing temp school to %@", textField.text);
     }
     else if(textField == leadTeacher && ![textField.text isEqualToString:_visit.leadTeacher]){
-        _visit.leadTeacher = nil;
-        _tempVisit.leadTeacher = textField.text;
+        _visit.leadTeacher = textField.text;
         [_tempVisit flagAsDirty];
-        NSLog(@"changing lead to %@", textField.text);
     }
     else if(textField == curbNotes && ![textField.text isEqualToString:_visit.curbNotes]){
-        _visit.curbNotes = nil;
-        _tempVisit.curbNotes = textField.text;
+        _visit.curbNotes = textField.text;
         [_tempVisit flagAsDirty];
-        NSLog(@"changing curb notes to %@", textField.text);
     }
     else if(textField == studentCount && (_visit.studentCount == nil || ![[numberFormatter numberFromString:textField.text] isEqualToNumber:_visit.studentCount])){
-        _visit.studentCount = [NSNumber numberWithInt:0];
-        _tempVisit.studentCount = [numberFormatter numberFromString:textField.text];
+        _visit.studentCount = [numberFormatter numberFromString:textField.text];
         [_tempVisit flagAsDirty];
-        NSLog(@"changing student count to %@", textField.text);
     }
     else if(textField == chapCount && (_visit.chaperoneCount == nil || ![[numberFormatter numberFromString:textField.text] isEqualToNumber:_visit.chaperoneCount])){
-        _visit.chaperoneCount = [NSNumber numberWithInt:0];
-        _tempVisit.chaperoneCount = [numberFormatter numberFromString:textField.text];
+        _visit.chaperoneCount = [numberFormatter numberFromString:textField.text];
         [_tempVisit flagAsDirty];
-        NSLog(@"changing chap count to %@", textField.text);
     }
     else if(textField == extChapCount && (_visit.extraChaperoneCount == nil || ![[numberFormatter numberFromString:textField.text] isEqualToNumber:_visit.extraChaperoneCount])){
-        _visit.extraChaperoneCount = [NSNumber numberWithInt:0];
-        _tempVisit.extraChaperoneCount = [numberFormatter numberFromString:textField.text];
+        _visit.extraChaperoneCount = [numberFormatter numberFromString:textField.text];
         [_tempVisit flagAsDirty];
-        NSLog(@"changing ext chap count to %@", textField.text);
     }
 }
 
