@@ -23,7 +23,6 @@ typedef enum {
 @interface DetailViewController : UITableViewController <UISplitViewControllerDelegate, ModalViewControllerDelegate, JBSignatureControllerDelegate, VisitorCounterViewControllerDelegate, UIAlertViewDelegate, UIPopoverControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>{
     Visit *visit;
     Visit *tempVisit;
-    IBOutlet UILabel *selectSchool;
     IBOutlet UITextField *time;
     IBOutlet UITextField *schoolName;
     IBOutlet UITextField *leadTeacher;
@@ -37,6 +36,10 @@ typedef enum {
     IBOutlet UILabel *studentProjected;
     IBOutlet UILabel *chapProjected;
     IBOutlet UILabel *extChapProjected;
+    IBOutlet UITableViewCell *buttonsCell;
+    IBOutlet UIButton *getSignatureButton;
+    IBOutlet UIButton *viewScheduleButton;
+    IBOutlet UIButton *visitorCounterButton;
     UIPopoverController *pickerPopoverController;
     UIPickerView *pickerView;
     PickerType pickerType;
@@ -47,9 +50,9 @@ typedef enum {
     NSArray *programs;
 }
 
--(void) didClickScheduleButton:(id) sender;
--(void) didClickSignatureButton:(id) sender;
--(void) didClickVisitorCounterButton:(id) sender;
+-(IBAction) didClickScheduleButton:(id) sender;
+-(IBAction) didClickSignatureButton:(id) sender;
+-(IBAction) didClickVisitorCounterButton:(id) sender;
 -(void) didClickSaveButton:(id) sender;
 -(void) loadNewModel:(Visit*)visit;
 
@@ -62,9 +65,6 @@ typedef enum {
 @property(nonatomic, strong) Visit *visit;
 @property(nonatomic, strong) Visit *tempVisit;
 @property(nonatomic, strong) UIImageView *sigImage;
-@property(nonatomic, strong) UIButton *getSignatureButton;
-@property(nonatomic, strong) UIButton *viewScheduleButton;
-@property(nonatomic, strong) UIButton *visitorCounterButton;
 @property(nonatomic, strong) UIPickerView *pickerView;
 @property(nonatomic, strong) UIPopoverController *pickerPopoverController;
 @property(nonatomic, strong) NSArray *states;

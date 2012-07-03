@@ -26,9 +26,6 @@
 @synthesize visit = _visit,
             tempVisit = _tempVisit,
             sigImage = _sigImage,
-            getSignatureButton = _getSignatureButton,
-            viewScheduleButton = _viewScheduleButton,
-            visitorCounterButton = _visitorCounterButton,
             masterPopoverController = _masterPopoverController,
             pickerPopoverController = _pickerPopoverController,
             pickerView = _pickerView,
@@ -39,7 +36,7 @@
             payments = _payments;
 
 
--(void) didClickScheduleButton:(id) sender{
+-(IBAction) didClickScheduleButton:(id) sender{
     ScheduleFormDataSource *ds = [[ScheduleFormDataSource alloc] initWithModel:visit];
     ScheduleViewController *schedule = [[ScheduleViewController alloc] initWithNibName:nil bundle:nil formDataSource:ds];
     schedule.delegate = self;
@@ -50,7 +47,7 @@
     [self presentModalViewController:ctrl animated:YES];
 }
 
--(void) didClickSignatureButton:(id) sender{
+-(IBAction) didClickSignatureButton:(id) sender{
     JBSignatureController *signatureController = [[JBSignatureController alloc] init];
 	signatureController.delegate = self;
     
@@ -60,7 +57,7 @@
     [self presentModalViewController:ctrl animated:YES];
 }
 
--(void) didClickVisitorCounterButton:(id) sender{
+-(IBAction) didClickVisitorCounterButton:(id) sender{
     VisitorCounterViewController *visitCounterController = [[VisitorCounterViewController alloc] init];
     visitCounterController.delegate = self;
     visitCounterController.providedStudentCount = self.visit.studentCount;
@@ -184,8 +181,7 @@
     
     CGRect rectInSuperview = [self.tableView convertRect:rectInTableView toView:[self.tableView superview]];
 
-
-    [pickerPopoverController presentPopoverFromRect:rectInSuperview inView:self.tableView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES]; // TODO: Fix position
+    [pickerPopoverController presentPopoverFromRect:rectInSuperview inView:self.tableView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 -(void) okayButtonPressed{
@@ -232,39 +228,6 @@
     studentCount.keyboardType = UIKeyboardTypeNumberPad;
     chapCount.keyboardType = UIKeyboardTypeNumberPad;
     extChapCount.keyboardType = UIKeyboardTypeNumberPad;
-    
-    // Add signature button
-    self.getSignatureButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[self.getSignatureButton setTitle:@"Add Signature" forState:UIControlStateNormal];
-	[self.getSignatureButton sizeToFit];
-	[self.getSignatureButton setFrame:CGRectMake(40.0f, 
-										   640.0f, 
-										   self.getSignatureButton.frame.size.width, 
-										   self.getSignatureButton.frame.size.height)];
-	[self.getSignatureButton setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
-    [self.getSignatureButton setHidden:YES];
-
-    // Add schedule button
-    self.viewScheduleButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[self.viewScheduleButton setTitle:@"View Schedule" forState:UIControlStateNormal];
-	[self.viewScheduleButton sizeToFit];
-	[self.viewScheduleButton setFrame:CGRectMake(200.0f, 
-                                                 640.0f, 
-                                                 self.viewScheduleButton.frame.size.width, 
-                                                 self.viewScheduleButton.frame.size.height)];
-	[self.viewScheduleButton setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
-    [self.viewScheduleButton setHidden:YES];
-
-    // Add visitor counter button
-    self.visitorCounterButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[self.visitorCounterButton setTitle:@"Visitor Counter" forState:UIControlStateNormal];
-	[self.visitorCounterButton sizeToFit];
-	[self.visitorCounterButton setFrame:CGRectMake(360.0f, 
-                                                 640.0f, 
-                                                 self.visitorCounterButton.frame.size.width, 
-                                                 self.visitorCounterButton.frame.size.height)];
-	[self.visitorCounterButton setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
-    [self.visitorCounterButton setHidden:YES];
 
     // Add signature image
     self.sigImage = [[UIImageView alloc] initWithFrame:CGRectMake(40.0f, 740.0f, 300.f, 100.0f)];
@@ -279,16 +242,23 @@
     _types = [NSArray arrayWithObjects:@"Instructor Lead", @"Aqua Adventure", nil];
 
     _programs = [NSArray arrayWithObjects:@"Aqua Tales", @"Hide and Seek", @"Bite Sized Basics", @"Sea Life Safari", @"Weird and Wild", @"Snack Attack", @"Undersea Investigators", @"Sharks In Depth", @"Aquarium 101", @"Animal Behavior", @"Discovery Lab - Genetics", @"Discovery Lab - Senses", @"Behind the Waterworks", @"Beyond the Classroom", nil];
+        
+    // anyway to do this in IB?
+    buttonsCell.backgroundColor = [UIColor clearColor];
+    buttonsCell.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    selectSchool.hidden = NO;
-    // TODO: Figure out how to move label to the top and hide the other parts of the table
-//    CGRect f = selectSchool.frame;
-//    [selectSchool setFrame:CGRectMake(10.0f, 10.0f, f.size.width, f.size.height)];
+    UIImage *buttonImage = [[UIImage imageNamed:@"blueButton.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    UIImage *buttonImageHighlight = [[UIImage imageNamed:@"blueButtonHighlight.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    [getSignatureButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [getSignatureButton setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+    [viewScheduleButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [viewScheduleButton setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+    [visitorCounterButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [visitorCounterButton setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
 
 }
 
 -(void) loadNewModel:(Visit*)visitModel{
-    selectSchool.hidden = YES;
     // Handle signature image
     if(visitModel.signatureImage != nil){
 //        [self.sigImage setImage:_visit.signatureImage];
@@ -298,12 +268,7 @@
 //        [self.sigImage setImage:nil];
 //        [self.sigImage setHidden:YES];
     }
-    
-    // Misc
-//    [self.getSignatureButton setHidden:NO];
-//    [self.viewScheduleButton setHidden:NO];
-//    [self.visitorCounterButton setHidden:NO];
-    
+        
     _visit = visitModel;
     _tempVisit = [Visit object];
 
@@ -329,10 +294,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    [self.getSignatureButton addTarget:self action:@selector(didClickSignatureButton:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.viewScheduleButton addTarget:self action:@selector(didClickScheduleButton:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.visitorCounterButton addTarget:self action:@selector(didClickVisitorCounterButton:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.tableView addSubview:self.sigImage];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -356,7 +317,10 @@
     studentProjected = nil;
     chapProjected = nil;
     extChapProjected = nil;
-    selectSchool = nil;
+    buttonsCell = nil;
+    getSignatureButton = nil;
+    viewScheduleButton = nil;
+    visitorCounterButton = nil;
     [super viewDidUnload];
 }
 

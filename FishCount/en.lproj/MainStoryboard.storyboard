@@ -29,13 +29,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                        <label key="tableFooterView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Please Select A School" textAlignment="center" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="cNr-77-Wu4">
-                            <rect key="frame" x="0.0" y="552" width="703" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <nil key="highlightedColor"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                        </label>
                         <sections>
                             <tableViewSection headerTitle="School Information" id="OzW-7N-7GK">
                                 <cells>
@@ -334,6 +327,66 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="RwC-T2-qKQ">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" shouldIndentWhileEditing="NO" rowHeight="81" id="Uxf-rQ-PUy">
+                                        <rect key="frame" x="0.0" y="562" width="703" height="83"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="43" y="1" width="617" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="d8P-aC-X5W">
+                                                    <rect key="frame" x="17" y="20" width="150" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Visitor Counter">
+                                                        <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didClickVisitorCounterButton:" destination="k3v-61-VNQ" eventType="touchUpInside" id="O96-kH-Tkg"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="6Mo-hq-5Hi">
+                                                    <rect key="frame" x="233" y="20" width="150" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="View Schedule">
+                                                        <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didClickScheduleButton:" destination="k3v-61-VNQ" eventType="touchUpInside" id="4n0-tN-hKd"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" hasAttributedTitle="NO" lineBreakMode="middleTruncation" id="S1N-wr-4hr">
+                                                    <rect key="frame" x="447" y="20" width="150" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Add Signature">
+                                                        <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didClickSignatureButton:" destination="k3v-61-VNQ" eventType="touchUpInside" id="6iK-a2-cSf"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="k3v-61-VNQ" id="NK0-G3-vmJ"/>
@@ -342,20 +395,23 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="RCH-jk-fM6"/>
                     <connections>
+                        <outlet property="buttonsCell" destination="Uxf-rQ-PUy" id="ipE-wd-ULm"/>
                         <outlet property="chapCount" destination="Yi5-v8-cdE" id="MdG-V9-rHL"/>
                         <outlet property="chapProjected" destination="p1N-hy-scl" id="xIw-8b-kFO"/>
                         <outlet property="curbNotes" destination="0gv-iU-gXr" id="n8V-1y-ypJ"/>
                         <outlet property="extChapCount" destination="6eE-ZK-zF2" id="FZK-Bl-RMu"/>
                         <outlet property="extChapProjected" destination="WbF-q3-LBC" id="FjQ-kP-nBT"/>
+                        <outlet property="getSignatureButton" destination="S1N-wr-4hr" id="7xf-Nz-gNi"/>
                         <outlet property="leadTeacher" destination="5xZ-SM-fsV" id="ZZM-oG-GIn"/>
                         <outlet property="payment" destination="Znp-Z8-kQb" id="M2j-8O-dxj"/>
                         <outlet property="schoolName" destination="sst-AN-FEr" id="rvN-U1-sgh"/>
-                        <outlet property="selectSchool" destination="cNr-77-Wu4" id="1mB-Ga-yQ8"/>
                         <outlet property="state" destination="pkO-0d-eaF" id="Wct-Pq-mxe"/>
                         <outlet property="studentCount" destination="Ck9-pi-3Y5" id="vle-7A-Jzd"/>
                         <outlet property="studentProjected" destination="o8b-G2-qrX" id="ZQv-pN-sNe"/>
                         <outlet property="time" destination="TGI-1c-KtN" id="pw5-tt-D2m"/>
                         <outlet property="type" destination="RCd-dp-Hst" id="6aQ-db-s7L"/>
+                        <outlet property="viewScheduleButton" destination="6Mo-hq-5Hi" id="Nc2-8O-Wtc"/>
+                        <outlet property="visitorCounterButton" destination="d8P-aC-X5W" id="GyX-rI-VRT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TR3-OX-bga" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -440,20 +496,26 @@
         <class className="DetailViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
             <relationships>
+                <relationship kind="action" name="didClickScheduleButton:"/>
+                <relationship kind="action" name="didClickSignatureButton:"/>
+                <relationship kind="action" name="didClickVisitorCounterButton:"/>
+                <relationship kind="outlet" name="buttonsCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="chapCount" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="chapProjected" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="curbNotes" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="extChapCount" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="extChapProjected" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="getSignatureButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="leadTeacher" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="payment" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="payment" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="schoolName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="selectSchool" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="state" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="studentCount" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="studentProjected" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="time" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="type" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="viewScheduleButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="visitorCounterButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="MasterViewController" superclassName="UITableViewController">
