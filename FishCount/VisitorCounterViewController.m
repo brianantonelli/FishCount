@@ -73,8 +73,8 @@
     [super loadView];
     
     studentInput.text = [NSString stringWithFormat:@"%d", studentCount];
-    chapInput.text = [NSString stringWithFormat:@"%d", extraChaperoneCount];
-    extraChapInput.text = [NSString stringWithFormat:@"%d", chaperoneCount];
+    chapInput.text = [NSString stringWithFormat:@"%d", chaperoneCount];
+    extraChapInput.text = [NSString stringWithFormat:@"%d", extraChaperoneCount];
     studentEst.text = [NSString stringWithFormat:@"Est. %d", [providedStudentCount intValue]];
     chapEst.text = [NSString stringWithFormat:@"Est. %d", [providedChaperoneCount intValue]];
     extChapEst.text = [NSString stringWithFormat:@"Est. %d", [providedExtraChaperoneCount intValue]];

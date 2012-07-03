@@ -9,10 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
 
+@class Visit;
 @class DetailViewController;
+
+typedef enum {
+    kAlertTypeLoad,
+    kAlertTypeSync,
+    kAlertTypeDirty
+} AlertType;
 
 @interface MasterViewController : UITableViewController <RKObjectLoaderDelegate, UIAlertViewDelegate>{
     NSArray *visits;
+    NSIndexPath *lastSelectedIndex;
+    AlertType alertType;
 }
 
 -(void) loadObjectsFromDataStore;
@@ -22,5 +31,6 @@
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 @property(nonatomic, strong) NSArray *visits;
+@property(nonatomic, strong) NSIndexPath *lastSelectedIndex;
 
 @end

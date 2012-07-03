@@ -13,7 +13,8 @@
 
 @implementation MasterViewController
 
-@synthesize detailViewController = _detailViewController;
+@synthesize detailViewController = _detailViewController,
+            lastSelectedIndex = _lastSelectedIndex;
 @synthesize visits;
 
 -(void) loadObjectsFromDataStore{
@@ -30,6 +31,7 @@
         return;
     }
     
+    alertType = kAlertTypeLoad;
 	UIAlertView *alert = [[UIAlertView alloc] init];
 	[alert setTitle:@"Load New Data"];
 	[alert setMessage:@"Do you want to load the latest data from the server? All existing data will be deleted. This cannot be undone!"];
@@ -85,8 +87,25 @@
 #pragma mark UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 1){
-        [self loadObjectsFromWeb];
+    if(alertType == kAlertTypeLoad){
+        if (buttonIndex == 1){
+            [self loadObjectsFromWeb];
+        }
+    }
+    else if(alertType == kAlertTypeSync){
+    
+    }
+    else if(alertType == kAlertTypeDirty){
+        if(buttonIndex == 1){
+            Visit *nextVisit = [visits objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+            [self.detailViewController loadNewModel:nextVisit];
+            Visit *currentVisit = [visits objectAtIndex:_lastSelectedIndex.row];
+            [[currentVisit managedObjectContext] refreshObject:currentVisit mergeChanges:NO];
+            [currentVisit flagAsDirty:NO];
+        }
+        else{
+            [self.tableView selectRowAtIndexPath:_lastSelectedIndex animated:NO scrollPosition:UITableViewScrollPositionNone];
+        }
     }
 }
 
@@ -160,42 +179,23 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Visit *visit = [visits objectAtIndex:indexPath.row];
-
-    if(self.detailViewController.visit == visit) return;
-
-    // Move value into multiselect controls for new model
-//    if(visit.state != nil) visit.stateControl = [NSSet setWithObject:visit.state];
-//    if(visit.county != nil) visit.countyControl = [NSSet setWithObject:visit.county];
-//    if(visit.program != nil) visit.programControl = [NSSet setWithObject:visit.program];
-//    if(visit.paymentType != nil) visit.paymentTypeControl = [NSSet setWithObject:visit.paymentType];
-//    if(visit.theType != nil) visit.theTypeControl = [NSSet setWithObject:visit.theType];
-//    
-    // Copy out the value from the multiselect controls to the string value for old model
-//    Visit *old = self.detailViewController.formDataSource.model;
-//    if(old != nil){
-//        old.state = [NSString stringWithFormat:@"%@", [old.stateControl anyObject]];
-//        old.county = [NSString stringWithFormat:@"%@", [old.countyControl anyObject]];
-//        old.program = [NSString stringWithFormat:@"%@", [old.programControl anyObject]];
-//        old.paymentType = [NSString stringWithFormat:@"%@", [old.paymentTypeControl anyObject]];
-//        old.theType = [NSString stringWithFormat:@"%@", [old.theTypeControl anyObject]];
-//        
-//        // Save to core data
-//        RKManagedObjectStore *store = [RKObjectManager sharedManager].objectStore;
-//        NSError *err = nil;
-//        [store save:&err];
-//        if(err != nil){
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error saving to the local database." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-//            [alert show];
-//            
-//            NSLog(@"Error saving to store! %@", [err description]);
-//        }
-//        else {
-//            NSLog(@"Successfully saved to store!");
-//        }
-//    }
-//    
-    [self.detailViewController loadNewModel:visit];
+    Visit *currentVisit = self.detailViewController.visit;
+    Visit *nextVisit = [visits objectAtIndex:indexPath.row];
+    
+    if(currentVisit == nextVisit) return;
+    if([currentVisit isDirty]){
+        alertType = kAlertTypeDirty;
+    	UIAlertView *alert = [[UIAlertView alloc] init];
+        [alert setTitle:@"Are you sure you want to load this record? The changes made to the current record will be lost."];
+        [alert setDelegate:self];
+        [alert addButtonWithTitle:@"No"];
+        [alert addButtonWithTitle:@"Yes"];
+        [alert show];
+    }
+    else{
+        _lastSelectedIndex = indexPath;
+        [self.detailViewController loadNewModel:nextVisit];
+    }
 }
 
 @end

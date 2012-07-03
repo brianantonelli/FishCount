@@ -14,8 +14,6 @@
 
 #define GEORGIA_INDEX 13;
 
-// TODO: Prompt them if dirty flag is set that they need to save, if they decline can we reload the record from the server?
-
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
@@ -57,19 +55,6 @@
 }
 
 -(IBAction) didClickVisitorCounterButton:(id) sender{
-//    VisitorCounterViewController *visitCounterController = [[VisitorCounterViewController alloc] init];
-//    visitCounterController.delegate = self;
-//    visitCounterController.providedStudentCount = self.visit.studentCount;
-//    visitCounterController.providedChaperoneCount = self.visit.chaperoneCount;
-//    visitCounterController.providedExtraChaperoneCount = self.visit.extraChaperoneCount;
-//    [visitCounterController setCountsForStudents:[self.visit.actualStudentCount intValue] andChaps:[self.visit.actualChaperoneCount intValue] andExtraChaps:[self.visit.actualExtraChaperoneCount intValue]];
-//    
-//    UINavigationController *ctrl = [[UINavigationController alloc] initWithRootViewController:visitCounterController];
-//    ctrl.modalPresentationStyle = UIModalPresentationFormSheet;
-    
-//    [self presentModalViewController:ctrl animated:YES];
-    
-    
     [self performSegueWithIdentifier:@"modalVisitorCounterSegue" sender:self];
 }
 
@@ -194,7 +179,7 @@
             _visit.county = [_counties objectAtIndex:[pickerView selectedRowInComponent:1]];
             state.text = [NSString stringWithFormat:@"%@ (%@ County)", _visit.state, _visit.county];
         }
-        [_visit flagAsDirty];
+        [_visit flagAsDirty:YES];
     }
     else if(pickerType == kTypeProgram){
         _visit.theType = [_types objectAtIndex:[pickerView selectedRowInComponent:0]];
@@ -204,12 +189,12 @@
             type.text = [NSString stringWithFormat:@"%@ (%@ Program)", _visit.theType, _visit.program];
             
         }
-        [_visit flagAsDirty];
+        [_visit flagAsDirty:YES];
     }
     else if(pickerType == kPayment){
         _visit.paymentType = [_payments objectAtIndex:[pickerView selectedRowInComponent:0]];
         payment.text = _visit.paymentType;
-        [_visit flagAsDirty];
+        [_visit flagAsDirty:YES];
     }
     
     [self.tableView reloadData];
@@ -278,7 +263,7 @@
     schoolName.text = _visit.school;
     leadTeacher.text = _visit.leadTeacher;
     state.text = [@"Georgia" isEqualToString:_visit.state] ? [NSString stringWithFormat:@"%@ (%@ County)", _visit.state, _visit.county] : _visit.state;
-    type.text = [@"Instructor Lead" isEqualToString:_visit.theType] ? [NSString stringWithFormat:@"%@ (%@ Program)",_visit.theType, _visit.program] : _visit.paymentType;
+    type.text = [@"Instructor Lead" isEqualToString:_visit.theType] ? [NSString stringWithFormat:@"%@ (%@ Program)",_visit.theType, _visit.program] : _visit.theType;
     payment.text = _visit.paymentType;
     curbNotes.text = _visit.curbNotes;
     studentCount.text = [_visit.actualStudentCount stringValue];
@@ -431,10 +416,23 @@
 #pragma mark VisitorCounterViewControllerDelegate
 
 - (void)didDismissVisitorModalViewWithCounterData:(NSDictionary *)counterData{
-    _visit.actualStudentCount = [counterData objectForKey:@"studentCount"];
-    _visit.actualChaperoneCount = [counterData objectForKey:@"chaperoneCount"];
-    _visit.actualExtraChaperoneCount = [counterData objectForKey:@"extraChaperoneCount"];
-
+    NSNumber *asc = [counterData objectForKey:@"studentCount"];
+    NSNumber *acc = [counterData objectForKey:@"chaperoneCount"];
+    NSNumber *ecc = [counterData objectForKey:@"extraChaperoneCount"];
+    
+    if(![asc isEqualToNumber:_visit.actualStudentCount]){
+        _visit.actualStudentCount = asc;
+        [_visit flagAsDirty:YES];
+    }
+    if(![acc isEqualToNumber:_visit.actualChaperoneCount]){
+        _visit.actualChaperoneCount = acc;
+        [_visit flagAsDirty:YES];
+    }
+    if(![ecc isEqualToNumber:_visit.actualExtraChaperoneCount]){
+        _visit.actualExtraChaperoneCount = ecc;
+        [_visit flagAsDirty:YES];
+    }
+    
     [self loadNewModel:_visit]; // resyncs the fields
     
     [self dismissModalViewControllerAnimated:YES];
@@ -445,8 +443,21 @@
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 1){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Todo" message:@"Flag record as dirty and in need of a sync!" delegate:nil cancelButtonTitle:@"Aight" otherButtonTitles:nil];
-        [alert show];
+        RKManagedObjectStore *store = [RKObjectManager sharedManager].objectStore;
+        NSError *err = nil;
+        [store save:&err];
+        
+        if(err != nil){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error saving to the local database. Please try again." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            [alert show];
+        
+            NSLog(@"Error saving to store! %@", [err description]);
+        }
+        else {
+            NSLog(@"Successfully saved to store!");
+        }
+        
+        [_visit flagAsDirty:NO];
     }
 }
 
@@ -493,27 +504,27 @@
     // TODO: deal with time
     if(textField == schoolName && ![textField.text isEqualToString:_visit.school]){
         _visit.school = textField.text;
-        [_visit flagAsDirty];
+        [_visit flagAsDirty:YES];
     }
     else if(textField == leadTeacher && ![textField.text isEqualToString:_visit.leadTeacher]){
         _visit.leadTeacher = textField.text;
-        [_visit flagAsDirty];
+        [_visit flagAsDirty:YES];
     }
     else if(textField == curbNotes && ![textField.text isEqualToString:_visit.curbNotes]){
         _visit.curbNotes = textField.text;
-        [_visit flagAsDirty];
+        [_visit flagAsDirty:YES];
     }
     else if(textField == studentCount && (_visit.studentCount == nil || ![[numberFormatter numberFromString:textField.text] isEqualToNumber:_visit.studentCount])){
         _visit.studentCount = [numberFormatter numberFromString:textField.text];
-        [_visit flagAsDirty];
+        [_visit flagAsDirty:YES];
     }
     else if(textField == chapCount && (_visit.chaperoneCount == nil || ![[numberFormatter numberFromString:textField.text] isEqualToNumber:_visit.chaperoneCount])){
         _visit.chaperoneCount = [numberFormatter numberFromString:textField.text];
-        [_visit flagAsDirty];
+        [_visit flagAsDirty:YES];
     }
     else if(textField == extChapCount && (_visit.extraChaperoneCount == nil || ![[numberFormatter numberFromString:textField.text] isEqualToNumber:_visit.extraChaperoneCount])){
         _visit.extraChaperoneCount = [numberFormatter numberFromString:textField.text];
-        [_visit flagAsDirty];
+        [_visit flagAsDirty:YES];
     }
 }
 
