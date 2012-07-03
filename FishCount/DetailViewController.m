@@ -24,7 +24,6 @@
 @implementation DetailViewController
 
 @synthesize visit = _visit,
-            tempVisit = _tempVisit,
             sigImage = _sigImage,
             masterPopoverController = _masterPopoverController,
             pickerPopoverController = _pickerPopoverController,
@@ -58,17 +57,20 @@
 }
 
 -(IBAction) didClickVisitorCounterButton:(id) sender{
-    VisitorCounterViewController *visitCounterController = [[VisitorCounterViewController alloc] init];
-    visitCounterController.delegate = self;
-    visitCounterController.providedStudentCount = self.visit.studentCount;
-    visitCounterController.providedChaperoneCount = self.visit.chaperoneCount;
-    visitCounterController.providedExtraChaperoneCount = self.visit.extraChaperoneCount;
-    [visitCounterController setCountsForStudents:[self.visit.actualStudentCount intValue] andChaps:[self.visit.actualChaperoneCount intValue] andExtraChaps:[self.visit.actualExtraChaperoneCount intValue]];
+//    VisitorCounterViewController *visitCounterController = [[VisitorCounterViewController alloc] init];
+//    visitCounterController.delegate = self;
+//    visitCounterController.providedStudentCount = self.visit.studentCount;
+//    visitCounterController.providedChaperoneCount = self.visit.chaperoneCount;
+//    visitCounterController.providedExtraChaperoneCount = self.visit.extraChaperoneCount;
+//    [visitCounterController setCountsForStudents:[self.visit.actualStudentCount intValue] andChaps:[self.visit.actualChaperoneCount intValue] andExtraChaps:[self.visit.actualExtraChaperoneCount intValue]];
+//    
+//    UINavigationController *ctrl = [[UINavigationController alloc] initWithRootViewController:visitCounterController];
+//    ctrl.modalPresentationStyle = UIModalPresentationFormSheet;
     
-    UINavigationController *ctrl = [[UINavigationController alloc] initWithRootViewController:visitCounterController];
-    ctrl.modalPresentationStyle = UIModalPresentationFormSheet;
+//    [self presentModalViewController:ctrl animated:YES];
     
-    [self presentModalViewController:ctrl animated:YES];
+    
+    [self performSegueWithIdentifier:@"modalVisitorCounterSegue" sender:self];
 }
 
 -(void) didClickSaveButton:(id) sender{
@@ -270,7 +272,6 @@
     }
         
     _visit = visitModel;
-    _tempVisit = [Visit object];
 
     self.title = _visit.school;
     time.text = [_visit formattedDate];
@@ -280,9 +281,9 @@
     type.text = [@"Instructor Lead" isEqualToString:_visit.theType] ? [NSString stringWithFormat:@"%@ (%@ Program)",_visit.theType, _visit.program] : _visit.paymentType;
     payment.text = _visit.paymentType;
     curbNotes.text = _visit.curbNotes;
-    studentCount.text = @"0";
-    chapCount.text = @"0";
-    extChapCount.text = @"0";
+    studentCount.text = [_visit.actualStudentCount stringValue];
+    chapCount.text = [_visit.actualChaperoneCount stringValue];
+    extChapCount.text = [_visit.actualExtraChaperoneCount stringValue];
     studentProjected.text = [NSString stringWithFormat:@"Projected: %@", _visit.studentCount];
     chapProjected.text = [NSString stringWithFormat:@"Projected: %@", _visit.chaperoneCount];
     extChapProjected.text = [NSString stringWithFormat:@"Projected: %@", _visit.extraChaperoneCount];
@@ -430,12 +431,11 @@
 #pragma mark VisitorCounterViewControllerDelegate
 
 - (void)didDismissVisitorModalViewWithCounterData:(NSDictionary *)counterData{
-//    Visit *model = (Visit*) self.formDataSource.model;
-//    model.actualStudentCount = [counterData objectForKey:@"studentCount"];
-//    model.actualChaperoneCount = [counterData objectForKey:@"chaperoneCount"];
-//    model.actualExtraChaperoneCount = [counterData objectForKey:@"extraChaperoneCount"];
+    _visit.actualStudentCount = [counterData objectForKey:@"studentCount"];
+    _visit.actualChaperoneCount = [counterData objectForKey:@"chaperoneCount"];
+    _visit.actualExtraChaperoneCount = [counterData objectForKey:@"extraChaperoneCount"];
 
-//    [self.tableView reloadData];
+    [self loadNewModel:_visit]; // resyncs the fields
     
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -493,27 +493,39 @@
     // TODO: deal with time
     if(textField == schoolName && ![textField.text isEqualToString:_visit.school]){
         _visit.school = textField.text;
-        [_tempVisit flagAsDirty];
+        [_visit flagAsDirty];
     }
     else if(textField == leadTeacher && ![textField.text isEqualToString:_visit.leadTeacher]){
         _visit.leadTeacher = textField.text;
-        [_tempVisit flagAsDirty];
+        [_visit flagAsDirty];
     }
     else if(textField == curbNotes && ![textField.text isEqualToString:_visit.curbNotes]){
         _visit.curbNotes = textField.text;
-        [_tempVisit flagAsDirty];
+        [_visit flagAsDirty];
     }
     else if(textField == studentCount && (_visit.studentCount == nil || ![[numberFormatter numberFromString:textField.text] isEqualToNumber:_visit.studentCount])){
         _visit.studentCount = [numberFormatter numberFromString:textField.text];
-        [_tempVisit flagAsDirty];
+        [_visit flagAsDirty];
     }
     else if(textField == chapCount && (_visit.chaperoneCount == nil || ![[numberFormatter numberFromString:textField.text] isEqualToNumber:_visit.chaperoneCount])){
         _visit.chaperoneCount = [numberFormatter numberFromString:textField.text];
-        [_tempVisit flagAsDirty];
+        [_visit flagAsDirty];
     }
     else if(textField == extChapCount && (_visit.extraChaperoneCount == nil || ![[numberFormatter numberFromString:textField.text] isEqualToNumber:_visit.extraChaperoneCount])){
         _visit.extraChaperoneCount = [numberFormatter numberFromString:textField.text];
-        [_tempVisit flagAsDirty];
+        [_visit flagAsDirty];
+    }
+}
+
+#pragma mark -
+#pragma mark Segue Delegate
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"modalVisitorCounterSegue"]){
+        VisitorCounterViewController *vc = (VisitorCounterViewController*) segue.destinationViewController;
+        vc.delegate = self;
+        [vc setCountsForStudents:[_visit.actualStudentCount intValue] andChaps:[_visit.actualChaperoneCount intValue] andExtraChaps:[_visit.actualExtraChaperoneCount intValue]];
+        [vc setProvidedCountsForStudents:_visit.studentCount andChaps:_visit.chaperoneCount andExtraChaps:_visit.extraChaperoneCount];
     }
 }
 

@@ -412,6 +412,7 @@
                         <outlet property="type" destination="RCd-dp-Hst" id="6aQ-db-s7L"/>
                         <outlet property="viewScheduleButton" destination="6Mo-hq-5Hi" id="Nc2-8O-Wtc"/>
                         <outlet property="visitorCounterButton" destination="d8P-aC-X5W" id="GyX-rI-VRT"/>
+                        <segue destination="KE0-1L-07U" kind="modal" identifier="modalVisitorCounterSegue" customClass="FormSheetSegue" modalPresentationStyle="formSheet" id="MB5-29-s4s"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TR3-OX-bga" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -474,7 +475,141 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="859" y="-631"/>
+            <point key="canvasLocation" x="865" y="-630"/>
+        </scene>
+        <!--Visitor Counter View Controller-->
+        <scene sceneID="jHw-Ub-MWL">
+            <objects>
+                <viewController modalPresentationStyle="formSheet" id="KE0-1L-07U" customClass="VisitorCounterViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CU0-VN-eYB">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Student" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="MF9-GV-5Xn">
+                                <rect key="frame" x="27" y="201" width="94" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Chaperone" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="aAf-nw-amM">
+                                <rect key="frame" x="205" y="201" width="131" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Extra Chap." adjustsFontSizeToFit="NO" autoshrinkMode="none" id="E1c-k5-gMR">
+                                <rect key="frame" x="406" y="201" width="139" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                            </label>
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="1000" id="sqe-qM-3Qs">
+                                <rect key="frame" x="20" y="352" width="94" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <action selector="studentStepperChanged:forEvent:" destination="KE0-1L-07U" eventType="valueChanged" id="2Fy-YM-UsM"/>
+                                </connections>
+                            </stepper>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="32" text="0" textAlignment="center" id="EUn-29-ewJ">
+                                <rect key="frame" x="19" y="261" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <color key="textColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <connections>
+                                    <action selector="studentTextFieldChanged" destination="KE0-1L-07U" eventType="editingDidEnd" id="UDB-P6-ste"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Est. 0" textAlignment="right" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="8vW-uf-yIe">
+                                <rect key="frame" x="20" y="291" width="101" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            </label>
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="1000" id="MQm-Kp-eBa">
+                                <rect key="frame" x="215" y="352" width="94" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <action selector="chapStepperChanged:forEvent:" destination="KE0-1L-07U" eventType="valueChanged" id="LL4-9I-XDf"/>
+                                </connections>
+                            </stepper>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="32" text="0" textAlignment="center" id="pl6-FW-qMa">
+                                <rect key="frame" x="214" y="261" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <color key="textColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <connections>
+                                    <action selector="chaperoneTextFieldChanged" destination="KE0-1L-07U" eventType="editingDidEnd" id="Alk-ed-vgF"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Est. 0" textAlignment="right" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="rWO-F7-3HA">
+                                <rect key="frame" x="215" y="295" width="101" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            </label>
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="1000" id="0dI-rH-EB9">
+                                <rect key="frame" x="413" y="352" width="94" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <action selector="extraChapStepperChanged:forEvent:" destination="KE0-1L-07U" eventType="valueChanged" id="gPf-mR-bgs"/>
+                                </connections>
+                            </stepper>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="32" text="0" textAlignment="center" id="iXV-yv-sVd">
+                                <rect key="frame" x="412" y="261" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <color key="textColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <connections>
+                                    <action selector="extraChaperoneTextFieldChanged" destination="KE0-1L-07U" eventType="editingDidEnd" id="7df-iv-0Ad"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="Est. 0" textAlignment="right" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="vb8-5n-SP5">
+                                <rect key="frame" x="413" y="295" width="101" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" id="xxj-68-Ise">
+                                <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Visitor Counter" id="Kyn-Yu-s3j">
+                                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="Sa2-EA-bou">
+                                            <connections>
+                                                <action selector="didClickConfirmButton:" destination="KE0-1L-07U" id="j9c-Tn-2Js"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <connections>
+                        <outlet property="chapEst" destination="rWO-F7-3HA" id="xOm-Zb-5N0"/>
+                        <outlet property="chapInput" destination="pl6-FW-qMa" id="jMh-3M-NfH"/>
+                        <outlet property="chapStepper" destination="MQm-Kp-eBa" id="SSJ-D8-5iT"/>
+                        <outlet property="extChapEst" destination="vb8-5n-SP5" id="PFr-LN-OkN"/>
+                        <outlet property="extraChapInput" destination="iXV-yv-sVd" id="ScA-QA-6CA"/>
+                        <outlet property="extraChapStepper" destination="0dI-rH-EB9" id="7J1-rf-HpX"/>
+                        <outlet property="studentEst" destination="8vW-uf-yIe" id="ZfZ-gN-fZl"/>
+                        <outlet property="studentInput" destination="EUn-29-ewJ" id="bCZ-6z-3zp"/>
+                        <outlet property="studentStepper" destination="sqe-qM-3Qs" id="grg-8m-LqM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iZR-6L-LMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1358" y="248"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="50">
@@ -520,6 +655,27 @@
         </class>
         <class className="MasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
+        </class>
+        <class className="VisitorCounterViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VisitorCounterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="chapStepperChanged:forEvent:"/>
+                <relationship kind="action" name="chaperoneTextFieldChanged"/>
+                <relationship kind="action" name="didClickConfirmButton:"/>
+                <relationship kind="action" name="extraChapStepperChanged:forEvent:"/>
+                <relationship kind="action" name="extraChaperoneTextFieldChanged"/>
+                <relationship kind="action" name="studentStepperChanged:forEvent:"/>
+                <relationship kind="action" name="studentTextFieldChanged"/>
+                <relationship kind="outlet" name="chapEst" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="chapInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="chapStepper" candidateClass="UIStepper"/>
+                <relationship kind="outlet" name="extChapEst" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="extraChapInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="extraChapStepper" candidateClass="UIStepper"/>
+                <relationship kind="outlet" name="studentEst" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="studentInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="studentStepper" candidateClass="UIStepper"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

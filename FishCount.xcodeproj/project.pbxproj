@@ -66,7 +66,6 @@
 		373110E8153E386600FB43C8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110E7153E386600FB43C8 /* QuartzCore.framework */; };
 		37311100153E38B900FB43C8 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110F5153E387800FB43C8 /* libRestKit.a */; };
 		37311104153E3AE000FB43C8 /* Visit.m in Sources */ = {isa = PBXBuildFile; fileRef = 37311103153E3AE000FB43C8 /* Visit.m */; };
-		377BE1AE159CFCBC0020E6F6 /* ADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377BE1AD159CFCBC0020E6F6 /* ADetailViewController.m */; };
 		377BE1B1159CFCE10020E6F6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377BE1B0159CFCE10020E6F6 /* DetailViewController.m */; };
 		377BE1B2159CFCE10020E6F6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377BE1B0159CFCE10020E6F6 /* DetailViewController.m */; };
 		379DA49E154269710081D42F /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379DA49D154269710081D42F /* ScheduleViewController.m */; };
@@ -221,8 +220,6 @@
 		37311126153E473F00FB43C8 /* FishCount copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "FishCount copy-Info.plist"; path = "/Users/monkeymojo/Dev/FishCount/FishCount copy-Info.plist"; sourceTree = "<absolute>"; };
 		37311127153E475600FB43C8 /* visits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = visits.json; sourceTree = "<group>"; };
 		37311129153FAAEB00FB43C8 /* IBAForms.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IBAForms.xcodeproj; path = IBAForms/library/IBAForms.xcodeproj; sourceTree = "<group>"; };
-		377BE1AC159CFCBC0020E6F6 /* ADetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADetailViewController.h; sourceTree = "<group>"; };
-		377BE1AD159CFCBC0020E6F6 /* ADetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADetailViewController.m; sourceTree = "<group>"; };
 		377BE1AF159CFCE10020E6F6 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		377BE1B0159CFCE10020E6F6 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		379DA49C154269710081D42F /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
@@ -437,8 +434,6 @@
 				371E295715433C0800ECCAEF /* JBSignatureController.m */,
 				373110D0153E36C900FB43C8 /* MasterViewController.h */,
 				373110D1153E36C900FB43C8 /* MasterViewController.m */,
-				377BE1AC159CFCBC0020E6F6 /* ADetailViewController.h */,
-				377BE1AD159CFCBC0020E6F6 /* ADetailViewController.m */,
 				377BE1AF159CFCE10020E6F6 /* DetailViewController.h */,
 				377BE1B0159CFCE10020E6F6 /* DetailViewController.m */,
 				379DA49C154269710081D42F /* ScheduleViewController.h */,
@@ -716,7 +711,6 @@
 				371E295815433C0800ECCAEF /* JBSignatureController.m in Sources */,
 				37293A29154498F3007560A7 /* VisitorCounterViewController.m in Sources */,
 				372C88B6154639A600A3C31B /* Model.xcdatamodeld in Sources */,
-				377BE1AE159CFCBC0020E6F6 /* ADetailViewController.m in Sources */,
 				377BE1B1159CFCE10020E6F6 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

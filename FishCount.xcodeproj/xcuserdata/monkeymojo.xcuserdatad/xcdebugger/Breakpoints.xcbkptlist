@@ -21,12 +21,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "FishCount/DetailViewController.m"
-         timestampString = "362982191.441042"
+         timestampString = "363038729.95014"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "375"
-         endingLineNumber = "375"
-         landmarkName = "-pickerView:didSelectRow:inComponent:"
+         startingLineNumber = "373"
+         endingLineNumber = "373"
+         landmarkName = "@implementation DetailViewController"
+         landmarkType = "3">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "FishCount/DetailViewController.m"
+         timestampString = "363038729.95014"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "529"
+         endingLineNumber = "529"
+         landmarkName = "-prepareForSegue:sender:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "FishCount/VisitorCounterViewController.m"
+         timestampString = "363036836.309554"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "26"
+         endingLineNumber = "26"
+         landmarkName = "-setCountsForStudents:andChaps:andExtraChaps:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
