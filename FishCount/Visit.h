@@ -11,10 +11,11 @@
 
 
 @interface Visit : NSManagedObject{
-    BOOL needsToBeSynced;
+    BOOL dirty;
 }
 
 -(NSString*) formattedDate;
+-(void) flagAsNeedingDBUpdate;
 -(void) flagAsDirty:(BOOL)yup;
 -(BOOL) isDirty;
 
@@ -43,7 +44,7 @@
 @property(nonatomic, strong) NSString *paymentType;
 @property(nonatomic, strong) NSString *program;
 @property(nonatomic, strong) NSString *theType;
-
+@property(nonatomic, strong) NSNumber *updateDatabase;
 @property(nonatomic, strong) UIImage *signatureImage;
 
 @end

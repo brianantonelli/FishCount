@@ -61,9 +61,19 @@
 }
 
 -(void) syncObjectsToWeb{
-    NSLog(@"TODO: syncItemsToWeb");
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TODO" message:@"-(void) syncObjectsToWeb{" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-    [alert show];
+    BOOL needsSync = NO;
+    for (Visit *aVisit in self.visits) {
+        if([aVisit.updateDatabase boolValue]){
+            needsSync = YES;
+
+            [[RKObjectManager sharedManager] putObject:aVisit delegate:self];
+        }
+    }
+    
+    if(!needsSync){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You haven't saved any records so there's nothing to sync." message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 #pragma mark -
@@ -172,7 +182,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 
     Visit *visit = [visits objectAtIndex:indexPath.row];
-    cell.textLabel.text = [visit school];
+    cell.textLabel.text = visit.school;
     
     return cell;
 }

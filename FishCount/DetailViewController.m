@@ -436,6 +436,7 @@
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 1){
+        [_visit flagAsNeedingDBUpdate];
         RKManagedObjectStore *store = [RKObjectManager sharedManager].objectStore;
         NSError *err = nil;
         [store save:&err];

@@ -69,10 +69,10 @@
     [objectManager.mappingProvider setSerializationMapping:[visitMapping inverseMapping] forClass:[Visit class]];
     
     // Setup routing
-    [objectManager.router routeClass:[Visit class] toResourcePath:@"/visits/:identifier.json"];
+    [objectManager.router routeClass:[Visit class] toResourcePath:@"/visits/:identifier"];
     [objectManager.router routeClass:[Visit class] toResourcePath:@"/visits.json" forMethod:RKRequestMethodGET];
     [objectManager.router routeClass:[Visit class] toResourcePath:@"/visits.json" forMethod:RKRequestMethodPOST];
-    [objectManager.router routeClass:[Visit class] toResourcePath:@"/visits/:identifier.json" forMethod:RKRequestMethodPUT];
+    [objectManager.router routeClass:[Visit class] toResourcePath:@"/visits/:identifier" forMethod:RKRequestMethodPUT];
 
 #ifdef RESTKIT_GENERATE_SEED_DB
     RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelInfo);

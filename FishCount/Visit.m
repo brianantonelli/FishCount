@@ -10,7 +10,7 @@
 
 @implementation Visit
 
-@dynamic identifier, order, school, info, staff, time, grade, studentCount, chaperoneCount, extraChaperoneCount, bus, theatre, lunch, dolphin, notes, curbNotes, county, actualStudentCount, actualChaperoneCount, actualExtraChaperoneCount, leadTeacher, state, paymentType, program, theType;
+@dynamic identifier, order, school, info, staff, time, grade, studentCount, chaperoneCount, extraChaperoneCount, bus, theatre, lunch, dolphin, notes, curbNotes, county, actualStudentCount, actualChaperoneCount, actualExtraChaperoneCount, leadTeacher, state, paymentType, program, theType, updateDatabase;
 
 @synthesize signatureImage; // TODO: should we serialize this and store image incase they crash the app or the ipad battery dies?
 
@@ -23,12 +23,16 @@
     return [dateFormatter stringFromDate:self.time];
 }
 
+-(void) flagAsNeedingDBUpdate{
+    self.updateDatabase = [NSNumber numberWithBool:YES];
+}
+
 -(void) flagAsDirty:(BOOL)yup{
-    needsToBeSynced = yup;
+    dirty = yup;
 }
 
 -(BOOL) isDirty{
-    return needsToBeSynced;
+    return dirty;
 }
 
 @end
