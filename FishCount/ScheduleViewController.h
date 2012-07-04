@@ -17,14 +17,23 @@
 
 @end
 
-@interface ScheduleViewController : IBAFormViewController{
-    UITableViewStyle tableViewStyle;
+@class Visit;
+
+@interface ScheduleViewController : UITableViewController{
     id<ModalViewControllerDelegate> __weak delegate;
+    Visit *visit;
+    IBOutlet UILabel *school;
+    IBOutlet UILabel *grade;
+    IBOutlet UILabel *theatre;
+    IBOutlet UILabel *lunch;
+    IBOutlet UILabel *dolphin;
+    IBOutlet UILabel *bus;
+    IBOutlet UILabel *notes;
 }
 
--(void)dismissView:(id)sender;
+-(IBAction)dismissView:(id)sender;
 
-@property (nonatomic, assign) UITableViewStyle tableViewStyle;
 @property (nonatomic, weak) id<ModalViewControllerDelegate> delegate;
+@property(nonatomic, strong) Visit *visit;
 
 @end

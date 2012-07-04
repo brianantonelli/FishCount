@@ -7,43 +7,54 @@
 //
 
 #import "ScheduleViewController.h"
+#import "Visit.h"
 
 @implementation ScheduleViewController
-@synthesize tableViewStyle, delegate;
+@synthesize delegate,
+            visit = _visit;
 
-- (void)loadView {
-	[super loadView];
-    
-    self.title = @"Schedule";
-
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                               initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                               target:self
-                                               action:@selector(dismissView:)];
-
-    UIView *view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-	[view setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
-    
-    UITableView *tableView = [[UITableView alloc] initWithFrame:[view bounds] style:UITableViewStyleGrouped];
-	[tableView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
-	[self setTableView:tableView];
-	
-	[view addSubview:tableView];
-	[self setView:view];
-}
-
-- (void)dismissView:(id)sender {
+- (IBAction)dismissView:(id)sender {
     
     // Call the delegate to dismiss the modal view
     [delegate didDismissModalView];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation { 
-    // Return YES for supported orientations. 
-    return YES;//UIInterfaceOrientationIsLandscape(interfaceOrientation); 
+-(void)viewDidLoad {
+    [super viewDidLoad];
 }
-    
+
+-(void)viewWillAppear:(BOOL)animated{
+    school.text = _visit.school;
+    grade.text = _visit.grade;
+    theatre.text = _visit.theatre;
+    lunch.text = _visit.lunch;
+    dolphin.text = _visit.dolphin;
+    bus.text = _visit.bus;
+    notes.text = _visit.notes;
+
+    [super viewWillAppear:animated];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+}
+
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+	return YES;
+}
 
 
 
+
+
+- (void)viewDidUnload {
+    school = nil;
+    grade = nil;
+    theatre = nil;
+    lunch = nil;
+    dolphin = nil;
+    bus = nil;
+    notes = nil;
+    [super viewDidUnload];
+}
 @end

@@ -9,7 +9,6 @@
 #import "DetailViewController.h"
 #import <RestKit/RestKit.h>
 #import "ScheduleViewController.h"
-#import "ScheduleFormDataSource.h"
 #import "Visit.h"
 
 #define GEORGIA_INDEX 13;
@@ -22,7 +21,6 @@
 @implementation DetailViewController
 
 @synthesize visit = _visit,
-            sigImage = _sigImage,
             masterPopoverController = _masterPopoverController,
             pickerPopoverController = _pickerPopoverController,
             pickerView = _pickerView,
@@ -34,14 +32,16 @@
 
 
 -(IBAction) didClickScheduleButton:(id) sender{
-    ScheduleFormDataSource *ds = [[ScheduleFormDataSource alloc] initWithModel:visit];
-    ScheduleViewController *schedule = [[ScheduleViewController alloc] initWithNibName:nil bundle:nil formDataSource:ds];
-    schedule.delegate = self;
-    
-    UINavigationController *ctrl = [[UINavigationController alloc] initWithRootViewController:schedule];
-    ctrl.modalPresentationStyle = UIModalPresentationFormSheet;
-    
-    [self presentModalViewController:ctrl animated:YES];
+//    ScheduleFormDataSource *ds = [[ScheduleFormDataSource alloc] initWithModel:visit];
+//    ScheduleViewController *schedule = [[ScheduleViewController alloc] initWithNibName:nil bundle:nil formDataSource:ds];
+//    schedule.delegate = self;
+//    
+//    UINavigationController *ctrl = [[UINavigationController alloc] initWithRootViewController:schedule];
+//    ctrl.modalPresentationStyle = UIModalPresentationFormSheet;
+//    
+//    [self presentModalViewController:ctrl animated:YES];
+
+    [self performSegueWithIdentifier:@"scheduleSegue" sender:self];
 }
 
 -(IBAction) didClickSignatureButton:(id) sender{
@@ -58,7 +58,7 @@
     [self performSegueWithIdentifier:@"modalVisitorCounterSegue" sender:self];
 }
 
--(void) didClickSaveButton:(id) sender{
+-(IBAction) didClickSaveButton:(id) sender{
     UIAlertView *alert = [[UIAlertView alloc] init];
 	[alert setTitle:@"Save Record"];
 	[alert setMessage:@"Do you want to save this record? The record will be saved to the database upon syncing the iPad. Only save if you are responsible for this school!"];
@@ -211,14 +211,6 @@
 	[super loadView];
     
     self.title = @"Georgia Aquarium Educator Assistant";
-
-    studentCount.keyboardType = UIKeyboardTypeNumberPad;
-    chapCount.keyboardType = UIKeyboardTypeNumberPad;
-    extChapCount.keyboardType = UIKeyboardTypeNumberPad;
-
-    // Add signature image
-    self.sigImage = [[UIImageView alloc] initWithFrame:CGRectMake(40.0f, 740.0f, 300.f, 100.0f)];
-    [self.sigImage setHidden:YES];
     
     _states = [NSArray arrayWithObjects:@"Canda", @"Mexico", @"International", @"", @"Alabama", @"Alaska", @"Arizona", @"Arkansas", @"California", @"Colorado", @"Connecticut", @"Delaware", @"Florida", @"Georgia", @"Hawaii", @"Idaho", @"Illinois", @"Indiana", @"Iowa", @"Kansas", @"Kentucky", @"Louisiana", @"Maine", @"Maryland", @"Massachusetts", @"Michigan", @"Minnesota", @"Mississippi", @"Missouri", @"Montana", @"Nebraska", @"Nevada", @"New Hampshire", @"New Jersey", @"New Mexico", @"New York", @"North Carolina", @"North Dakota", @"Ohio", @"Oklahoma", @"Oregon", @"Pennsylvania", @"Rhode Island", @"South Carolina", @"South Dakota", @"Tennessee", @"Texas", @"Utah", @"Vermont", @"Virginia", @"Washington", @"West Virginia", @"Wisconsin", nil];
 
@@ -233,6 +225,8 @@
     // anyway to do this in IB?
     buttonsCell.backgroundColor = [UIColor clearColor];
     buttonsCell.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
+    sigCell.backgroundColor = [UIColor clearColor];
+    sigCell.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
     
     UIImage *buttonImage = [[UIImage imageNamed:@"blueButton.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
     UIImage *buttonImageHighlight = [[UIImage imageNamed:@"blueButtonHighlight.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
@@ -248,12 +242,12 @@
 -(void) loadNewModel:(Visit*)visitModel{
     // Handle signature image
     if(visitModel.signatureImage != nil){
-//        [self.sigImage setImage:_visit.signatureImage];
-//        [self.sigImage setHidden:NO];
+        [sigImage setImage:_visit.signatureImage];
+        [sigCell setHidden:NO];
     }
     else{
-//        [self.sigImage setImage:nil];
-//        [self.sigImage setHidden:YES];
+        [sigImage setImage:nil];
+        [sigCell setHidden:YES];
     }
         
     _visit = visitModel;
@@ -272,6 +266,9 @@
     studentProjected.text = [NSString stringWithFormat:@"Projected: %@", _visit.studentCount];
     chapProjected.text = [NSString stringWithFormat:@"Projected: %@", _visit.chaperoneCount];
     extChapProjected.text = [NSString stringWithFormat:@"Projected: %@", _visit.extraChaperoneCount];
+    
+    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+
 }
 
 -(void) configureView{
@@ -285,7 +282,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-//    [self.sigImage setHidden:YES];
+    [sigCell setHidden:YES];
 }
 
 - (void)viewDidUnload
@@ -307,6 +304,8 @@
     getSignatureButton = nil;
     viewScheduleButton = nil;
     visitorCounterButton = nil;
+    sigImage = nil;
+    sigCell = nil;
     [super viewDidUnload];
 }
 
@@ -375,13 +374,6 @@
 {
     // Called when the view is shown again in the split view, invalidating the button and popover controller.
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
-    // TODO: This only shows in landscape, why not portrait?
-    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save"
-																	style:UIBarButtonItemStyleDone 
-																   target:self 
-																   action:@selector(didClickSaveButton:)];
-    [self.navigationItem setRightBarButtonItem:saveButton animated:YES];
-    
     
     self.masterPopoverController = nil;
 }
@@ -398,10 +390,11 @@
 
 -(void)signatureConfirmed:(UIImage *)signatureImage signatureController:(JBSignatureController *)sender
 {
-    [self.sigImage setImage:signatureImage];
-    [self.sigImage setHidden:NO];
+    [sigImage setImage:signatureImage];
+    [sigCell setHidden:NO];
     
-    visit.signatureImage = signatureImage;
+    _visit.signatureImage = signatureImage;
+    [_visit flagAsDirty:YES];
     
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -474,25 +467,12 @@
         else if(indexPath.row == 5) [self presentTypePicker];
         else if(indexPath.row == 6) [curbNotes becomeFirstResponder];
     }
-    else{
+    else if(indexPath.section == 1){
         if(indexPath.row == 0) [studentCount becomeFirstResponder];
         else if(indexPath.row == 1) [chapCount becomeFirstResponder];
         else if(indexPath.row == 2) [extChapCount becomeFirstResponder];
     }
 }
-
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-//    return 2;
-//}
-
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    return section == 1 ? 9 : 3;
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellTime"];
-//    return cell;
-//}
 
 #pragma mark -
 #pragma mark UITextFieldDelegate
@@ -514,16 +494,16 @@
         _visit.curbNotes = textField.text;
         [_visit flagAsDirty:YES];
     }
-    else if(textField == studentCount && (_visit.studentCount == nil || ![[numberFormatter numberFromString:textField.text] isEqualToNumber:_visit.studentCount])){
-        _visit.studentCount = [numberFormatter numberFromString:textField.text];
+    else if(textField == studentCount && (_visit.actualStudentCount == nil || ![[numberFormatter numberFromString:textField.text] isEqualToNumber:_visit.actualStudentCount])){
+        _visit.actualStudentCount = [numberFormatter numberFromString:textField.text];
         [_visit flagAsDirty:YES];
     }
-    else if(textField == chapCount && (_visit.chaperoneCount == nil || ![[numberFormatter numberFromString:textField.text] isEqualToNumber:_visit.chaperoneCount])){
-        _visit.chaperoneCount = [numberFormatter numberFromString:textField.text];
+    else if(textField == chapCount && (_visit.actualChaperoneCount == nil || ![[numberFormatter numberFromString:textField.text] isEqualToNumber:_visit.actualChaperoneCount])){
+        _visit.actualChaperoneCount = [numberFormatter numberFromString:textField.text];
         [_visit flagAsDirty:YES];
     }
-    else if(textField == extChapCount && (_visit.extraChaperoneCount == nil || ![[numberFormatter numberFromString:textField.text] isEqualToNumber:_visit.extraChaperoneCount])){
-        _visit.extraChaperoneCount = [numberFormatter numberFromString:textField.text];
+    else if(textField == extChapCount && (_visit.actualExtraChaperoneCount == nil || ![[numberFormatter numberFromString:textField.text] isEqualToNumber:_visit.actualExtraChaperoneCount])){
+        _visit.actualExtraChaperoneCount = [numberFormatter numberFromString:textField.text];
         [_visit flagAsDirty:YES];
     }
 }
@@ -537,6 +517,12 @@
         vc.delegate = self;
         [vc setCountsForStudents:[_visit.actualStudentCount intValue] andChaps:[_visit.actualChaperoneCount intValue] andExtraChaps:[_visit.actualExtraChaperoneCount intValue]];
         [vc setProvidedCountsForStudents:_visit.studentCount andChaps:_visit.chaperoneCount andExtraChaps:_visit.extraChaperoneCount];
+    }
+    else if([segue.identifier isEqualToString:@"scheduleSegue"]){
+        ScheduleViewController *vc = (ScheduleViewController*) segue.destinationViewController;
+        vc.delegate = self;
+        vc.visit = _visit;
+        [vc.navigationController.navigationBar setHidden:NO];
     }
 }
 

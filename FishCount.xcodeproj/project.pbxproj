@@ -20,14 +20,11 @@
 		372C88BE15463F1B00A3C31B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110CB153E36C900FB43C8 /* AppDelegate.m */; };
 		372C88BF15463F1B00A3C31B /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 373110D1153E36C900FB43C8 /* MasterViewController.m */; };
 		372C88C115463F1B00A3C31B /* Visit.m in Sources */ = {isa = PBXBuildFile; fileRef = 37311103153E3AE000FB43C8 /* Visit.m */; };
-		372C88C315463F1B00A3C31B /* StringToNumberTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D31D45153FD7D200769CAA /* StringToNumberTransformer.m */; };
 		372C88C415463F1B00A3C31B /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379DA49D154269710081D42F /* ScheduleViewController.m */; };
-		372C88C515463F1B00A3C31B /* ScheduleFormDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 379DA4A015426BD80081D42F /* ScheduleFormDataSource.m */; };
 		372C88C615463F1B00A3C31B /* JBSignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 371E295415433BFE00ECCAEF /* JBSignatureView.m */; };
 		372C88C715463F1B00A3C31B /* JBSignatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = 371E295715433C0800ECCAEF /* JBSignatureController.m */; };
 		372C88C815463F1B00A3C31B /* VisitorCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37293A28154498F2007560A7 /* VisitorCounterViewController.m */; };
 		372C88C915463F1B00A3C31B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 372C88B4154639A600A3C31B /* Model.xcdatamodeld */; };
-		372C88CB15463F1B00A3C31B /* libIBAForms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37311131153FAAEB00FB43C8 /* libIBAForms.a */; };
 		372C88CC15463F1B00A3C31B /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110F5153E387800FB43C8 /* libRestKit.a */; };
 		372C88CD15463F1B00A3C31B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110E7153E386600FB43C8 /* QuartzCore.framework */; };
 		372C88CE15463F1B00A3C31B /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 373110E5153E386100FB43C8 /* libxml2.dylib */; };
@@ -69,7 +66,6 @@
 		377BE1B1159CFCE10020E6F6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377BE1B0159CFCE10020E6F6 /* DetailViewController.m */; };
 		377BE1B2159CFCE10020E6F6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377BE1B0159CFCE10020E6F6 /* DetailViewController.m */; };
 		379DA49E154269710081D42F /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379DA49D154269710081D42F /* ScheduleViewController.m */; };
-		379DA4A115426BD80081D42F /* ScheduleFormDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 379DA4A015426BD80081D42F /* ScheduleFormDataSource.m */; };
 		37A2209315450060002E26CD /* iPhoneIcon_Medium.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A2209215450060002E26CD /* iPhoneIcon_Medium.png */; };
 		37A2209515450089002E26CD /* iPhoneIcon_Big.png in Resources */ = {isa = PBXBuildFile; fileRef = 37A2209415450089002E26CD /* iPhoneIcon_Big.png */; };
 		37B9A22215A2AD8800B0C0EF /* blackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 37B9A20515A2AD8800B0C0EF /* blackButton.png */; };
@@ -101,18 +97,9 @@
 		37B9A23C15A2AD8800B0C0EF /* whiteButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37B9A21F15A2AD8800B0C0EF /* whiteButton@2x.png */; };
 		37B9A23D15A2AD8800B0C0EF /* whiteButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 37B9A22015A2AD8800B0C0EF /* whiteButtonHighlight.png */; };
 		37B9A23E15A2AD8800B0C0EF /* whiteButtonHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37B9A22115A2AD8800B0C0EF /* whiteButtonHighlight@2x.png */; };
-		37D31D46153FD7D200769CAA /* StringToNumberTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D31D45153FD7D200769CAA /* StringToNumberTransformer.m */; };
-		37FE0A1C153FBC3400DDB24E /* libIBAForms.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37311131153FAAEB00FB43C8 /* libIBAForms.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		372C88B915463F1B00A3C31B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 37311129153FAAEB00FB43C8 /* IBAForms.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = IBAForms;
-		};
 		372C88BB15463F1B00A3C31B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 373110E9153E387700FB43C8 /* RestKit.xcodeproj */;
@@ -162,20 +149,6 @@
 			remoteGlobalIDString = 25160D1514564E810060A5C5;
 			remoteInfo = RestKit;
 		};
-		37311130153FAAEB00FB43C8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 37311129153FAAEB00FB43C8 /* IBAForms.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D;
-			remoteInfo = IBAForms;
-		};
-		37FE0A1A153FBC2F00DDB24E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 37311129153FAAEB00FB43C8 /* IBAForms.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = IBAForms;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -219,13 +192,10 @@
 		37311103153E3AE000FB43C8 /* Visit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Visit.m; sourceTree = "<group>"; };
 		37311126153E473F00FB43C8 /* FishCount copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "FishCount copy-Info.plist"; path = "/Users/monkeymojo/Dev/FishCount/FishCount copy-Info.plist"; sourceTree = "<absolute>"; };
 		37311127153E475600FB43C8 /* visits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = visits.json; sourceTree = "<group>"; };
-		37311129153FAAEB00FB43C8 /* IBAForms.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IBAForms.xcodeproj; path = IBAForms/library/IBAForms.xcodeproj; sourceTree = "<group>"; };
 		377BE1AF159CFCE10020E6F6 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		377BE1B0159CFCE10020E6F6 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		379DA49C154269710081D42F /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
 		379DA49D154269710081D42F /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
-		379DA49F15426BD80081D42F /* ScheduleFormDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleFormDataSource.h; sourceTree = "<group>"; };
-		379DA4A015426BD80081D42F /* ScheduleFormDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleFormDataSource.m; sourceTree = "<group>"; };
 		37A2209215450060002E26CD /* iPhoneIcon_Medium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPhoneIcon_Medium.png; path = ../iPhoneIcon_Medium.png; sourceTree = "<group>"; };
 		37A2209415450089002E26CD /* iPhoneIcon_Big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPhoneIcon_Big.png; path = ../iPhoneIcon_Big.png; sourceTree = "<group>"; };
 		37B9A20515A2AD8800B0C0EF /* blackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackButton.png; sourceTree = "<group>"; };
@@ -257,8 +227,6 @@
 		37B9A21F15A2AD8800B0C0EF /* whiteButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteButton@2x.png"; sourceTree = "<group>"; };
 		37B9A22015A2AD8800B0C0EF /* whiteButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteButtonHighlight.png; sourceTree = "<group>"; };
 		37B9A22115A2AD8800B0C0EF /* whiteButtonHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteButtonHighlight@2x.png"; sourceTree = "<group>"; };
-		37D31D44153FD7D100769CAA /* StringToNumberTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringToNumberTransformer.h; sourceTree = "<group>"; };
-		37D31D45153FD7D200769CAA /* StringToNumberTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringToNumberTransformer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,7 +234,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				372C88CB15463F1B00A3C31B /* libIBAForms.a in Frameworks */,
 				372C88CC15463F1B00A3C31B /* libRestKit.a in Frameworks */,
 				372C88CD15463F1B00A3C31B /* QuartzCore.framework in Frameworks */,
 				372C88CE15463F1B00A3C31B /* libxml2.dylib in Frameworks */,
@@ -285,7 +252,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37FE0A1C153FBC3400DDB24E /* libIBAForms.a in Frameworks */,
 				37311100153E38B900FB43C8 /* libRestKit.a in Frameworks */,
 				373110E8153E386600FB43C8 /* QuartzCore.framework in Frameworks */,
 				373110E6153E386100FB43C8 /* libxml2.dylib in Frameworks */,
@@ -336,7 +302,6 @@
 		373110BA153E36C900FB43C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				37311129153FAAEB00FB43C8 /* IBAForms.xcodeproj */,
 				373110E9153E387700FB43C8 /* RestKit.xcodeproj */,
 				373110E5153E386100FB43C8 /* libxml2.dylib */,
 				373110E7153E386600FB43C8 /* QuartzCore.framework */,
@@ -357,8 +322,6 @@
 			children = (
 				371E294E15433BCF00ECCAEF /* views */,
 				379DA49B154269390081D42F /* controllers */,
-				37D31D47153FD7D800769CAA /* transformers */,
-				37311135153FAE6900FB43C8 /* datasources */,
 				37311101153E3A0000FB43C8 /* models */,
 				373110CA153E36C900FB43C8 /* AppDelegate.h */,
 				373110CB153E36C900FB43C8 /* AppDelegate.m */,
@@ -408,23 +371,6 @@
 				37311103153E3AE000FB43C8 /* Visit.m */,
 			);
 			name = models;
-			sourceTree = "<group>";
-		};
-		3731112A153FAAEB00FB43C8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				37311131153FAAEB00FB43C8 /* libIBAForms.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		37311135153FAE6900FB43C8 /* datasources */ = {
-			isa = PBXGroup;
-			children = (
-				379DA49F15426BD80081D42F /* ScheduleFormDataSource.h */,
-				379DA4A015426BD80081D42F /* ScheduleFormDataSource.m */,
-			);
-			name = datasources;
 			sourceTree = "<group>";
 		};
 		379DA49B154269390081D42F /* controllers */ = {
@@ -480,15 +426,6 @@
 			path = buttons;
 			sourceTree = "<group>";
 		};
-		37D31D47153FD7D800769CAA /* transformers */ = {
-			isa = PBXGroup;
-			children = (
-				37D31D44153FD7D100769CAA /* StringToNumberTransformer.h */,
-				37D31D45153FD7D200769CAA /* StringToNumberTransformer.m */,
-			);
-			name = transformers;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -503,7 +440,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				372C88B815463F1B00A3C31B /* PBXTargetDependency */,
 				372C88BA15463F1B00A3C31B /* PBXTargetDependency */,
 			);
 			name = "Seed Database";
@@ -522,7 +458,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				37FE0A1B153FBC2F00DDB24E /* PBXTargetDependency */,
 				373110FF153E38AF00FB43C8 /* PBXTargetDependency */,
 			);
 			name = FishCount;
@@ -549,10 +484,6 @@
 			productRefGroup = 373110B8153E36C900FB43C8 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
-				{
-					ProductGroup = 3731112A153FAAEB00FB43C8 /* Products */;
-					ProjectRef = 37311129153FAAEB00FB43C8 /* IBAForms.xcodeproj */;
-				},
 				{
 					ProductGroup = 373110EA153E387700FB43C8 /* Products */;
 					ProjectRef = 373110E9153E387700FB43C8 /* RestKit.xcodeproj */;
@@ -600,13 +531,6 @@
 			fileType = wrapper.cfbundle;
 			path = RestKitResources.bundle;
 			remoteRef = 373110FC153E387800FB43C8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		37311131153FAAEB00FB43C8 /* libIBAForms.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libIBAForms.a;
-			remoteRef = 37311130153FAAEB00FB43C8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -685,9 +609,7 @@
 				372C88BE15463F1B00A3C31B /* AppDelegate.m in Sources */,
 				372C88BF15463F1B00A3C31B /* MasterViewController.m in Sources */,
 				372C88C115463F1B00A3C31B /* Visit.m in Sources */,
-				372C88C315463F1B00A3C31B /* StringToNumberTransformer.m in Sources */,
 				372C88C415463F1B00A3C31B /* ScheduleViewController.m in Sources */,
-				372C88C515463F1B00A3C31B /* ScheduleFormDataSource.m in Sources */,
 				372C88C615463F1B00A3C31B /* JBSignatureView.m in Sources */,
 				372C88C715463F1B00A3C31B /* JBSignatureController.m in Sources */,
 				372C88C815463F1B00A3C31B /* VisitorCounterViewController.m in Sources */,
@@ -704,9 +626,7 @@
 				373110CC153E36C900FB43C8 /* AppDelegate.m in Sources */,
 				373110D2153E36C900FB43C8 /* MasterViewController.m in Sources */,
 				37311104153E3AE000FB43C8 /* Visit.m in Sources */,
-				37D31D46153FD7D200769CAA /* StringToNumberTransformer.m in Sources */,
 				379DA49E154269710081D42F /* ScheduleViewController.m in Sources */,
-				379DA4A115426BD80081D42F /* ScheduleFormDataSource.m in Sources */,
 				371E295515433BFE00ECCAEF /* JBSignatureView.m in Sources */,
 				371E295815433C0800ECCAEF /* JBSignatureController.m in Sources */,
 				37293A29154498F3007560A7 /* VisitorCounterViewController.m in Sources */,
@@ -718,11 +638,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		372C88B815463F1B00A3C31B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = IBAForms;
-			targetProxy = 372C88B915463F1B00A3C31B /* PBXContainerItemProxy */;
-		};
 		372C88BA15463F1B00A3C31B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RestKit;
@@ -732,11 +647,6 @@
 			isa = PBXTargetDependency;
 			name = RestKit;
 			targetProxy = 373110FE153E38AF00FB43C8 /* PBXContainerItemProxy */;
-		};
-		37FE0A1B153FBC2F00DDB24E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = IBAForms;
-			targetProxy = 37FE0A1A153FBC2F00DDB24E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
