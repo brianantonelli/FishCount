@@ -14,6 +14,14 @@
 //#import "VisitFormDataSource.h"
 #import "VisitorCounterViewController.h"
 
+@protocol DetailViewControllerDelegate <NSObject>
+
+@required
+
+- (void)didSave;
+
+@end
+
 typedef enum {
     kStateCounty,
     kTypeProgram,
@@ -49,6 +57,7 @@ typedef enum {
     NSArray *payments;
     NSArray *types;
     NSArray *programs;
+    id<DetailViewControllerDelegate> __weak delegate;
 }
 
 -(IBAction) didClickScheduleButton:(id) sender;
@@ -71,4 +80,5 @@ typedef enum {
 @property(nonatomic, strong) NSArray *programs;
 @property(nonatomic, strong) NSArray *types;
 @property(nonatomic, strong) NSArray *payments;
+@property(nonatomic, weak) id<DetailViewControllerDelegate> delegate;
 @end

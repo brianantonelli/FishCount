@@ -10,6 +10,7 @@
 #import <RestKit/RestKit.h>
 #import "ScheduleViewController.h"
 #import "Visit.h"
+#import "MasterViewController.h"
 
 #define GEORGIA_INDEX 13;
 
@@ -28,19 +29,11 @@
             counties = _counties,
             programs = _programs,
             types = _types,
-            payments = _payments;
+            payments = _payments,
+            delegate;
 
 
 -(IBAction) didClickScheduleButton:(id) sender{
-//    ScheduleFormDataSource *ds = [[ScheduleFormDataSource alloc] initWithModel:visit];
-//    ScheduleViewController *schedule = [[ScheduleViewController alloc] initWithNibName:nil bundle:nil formDataSource:ds];
-//    schedule.delegate = self;
-//    
-//    UINavigationController *ctrl = [[UINavigationController alloc] initWithRootViewController:schedule];
-//    ctrl.modalPresentationStyle = UIModalPresentationFormSheet;
-//    
-//    [self presentModalViewController:ctrl animated:YES];
-
     [self performSegueWithIdentifier:@"scheduleSegue" sender:self];
 }
 
@@ -65,6 +58,7 @@
 	[alert setDelegate:self];
 	[alert addButtonWithTitle:@"No"];
 	[alert addButtonWithTitle:@"Yes"];
+    [self.view endEditing:TRUE];
 	[alert show];
 }
 
@@ -443,12 +437,16 @@
         
         if(err != nil){
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error saving to the local database. Please try again." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            [self.view endEditing:TRUE];
             [alert show];
         
             NSLog(@"Error saving to store! %@", [err description]);
         }
         else {
             NSLog(@"Successfully saved to store!");
+            if(self.delegate != nil){
+                [self.delegate didSave];
+            }
         }
         
         [_visit flagAsDirty:NO];

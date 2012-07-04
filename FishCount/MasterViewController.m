@@ -38,6 +38,7 @@
 	[alert setDelegate:self];
 	[alert addButtonWithTitle:@"No"];
 	[alert addButtonWithTitle:@"Yes"];
+    [self.view endEditing:TRUE];
 	[alert show];
 }
 
@@ -61,6 +62,7 @@
 }
 
 -(void) syncObjectsToWeb{
+    saving = YES;
     BOOL needsSync = NO;
     for (Visit *aVisit in self.visits) {
         if([aVisit.updateDatabase boolValue]){
@@ -70,8 +72,12 @@
         }
     }
     
-    if(!needsSync){
+    if(needsSync){
+        [self loadObjectsFromWeb];
+    }
+    else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You haven't saved any records so there's nothing to sync." message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [self.view endEditing:TRUE];
         [alert show];
     }
 }
@@ -80,8 +86,14 @@
 #pragma mark RKObjectLoaderDelegate methods
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
-    self.visits = objects;
-    [self.tableView reloadData];
+    if(!saving){
+        self.visits = objects;
+        [self.tableView reloadData];
+    }
+    else{
+        NSLog(@"we be savin");
+        saving = NO;
+    }
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
@@ -89,7 +101,8 @@
                                                      message:[error localizedDescription] 
                                                     delegate:nil 
                                            cancelButtonTitle:@"OK" otherButtonTitles:nil];
-	[alert show];
+	[self.view endEditing:TRUE];
+    [alert show];
 	NSLog(@"objectLoader error: %@", error);
 }
 
@@ -139,6 +152,7 @@
     self.navigationItem.rightBarButtonItem = syncToWebButton;
 
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    self.detailViewController.delegate = self;
     
     [self loadObjectsFromDataStore];
 }
@@ -183,6 +197,14 @@
 
     Visit *visit = [visits objectAtIndex:indexPath.row];
     cell.textLabel.text = visit.school;
+    NSLog(@"----cellForRowAtIndexPath");
+    if([visit.updateDatabase boolValue]){
+        UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checkmark.png"]];
+        cell.accessoryView = imgView;
+    }
+    else{
+        cell.accessoryView = nil;
+    }
     
     return cell;
 }
@@ -200,12 +222,21 @@
         [alert setDelegate:self];
         [alert addButtonWithTitle:@"No"];
         [alert addButtonWithTitle:@"Yes"];
+        [self.view endEditing:TRUE];
         [alert show];
     }
     else{
         _lastSelectedIndex = indexPath;
         [self.detailViewController loadNewModel:nextVisit];
     }
+}
+
+#pragma mark -
+#pragma mark DetailViewControllerDelegate
+
+-(void) didSave{
+    NSLog(@"sizaved");
+    [self.tableView reloadData];
 }
 
 @end
