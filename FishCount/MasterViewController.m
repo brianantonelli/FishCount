@@ -68,7 +68,16 @@
         if([aVisit.updateDatabase boolValue]){
             needsSync = YES;
 
-            [[RKObjectManager sharedManager] putObject:aVisit delegate:self];
+            [[RKObjectManager sharedManager] putObject:aVisit usingBlock:^(RKObjectLoader* loader){
+                NSData *sigData = UIImagePNGRepresentation(aVisit.signatureImage);    
+                RKObjectMapping* serializationMapping = [[[RKObjectManager sharedManager] mappingProvider] serializationMappingForClass:[Visit class]];
+                NSError* error = nil;
+                NSDictionary* dictionary = [[RKObjectSerializer serializerWithObject:aVisit mapping:serializationMapping] serializedObject:&error];
+                RKParams* params = [RKParams paramsWithDictionary:dictionary];
+                [params setData:sigData MIMEType:@"image/png" forParam:@"sigImage"];
+                loader.params = params;
+                loader.delegate = self;
+            }];
         }
     }
     
