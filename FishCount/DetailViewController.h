@@ -23,6 +23,7 @@
 @end
 
 typedef enum {
+    kTime,
     kStateCounty,
     kTypeProgram,
     kPayment
@@ -30,7 +31,7 @@ typedef enum {
 
 @interface DetailViewController : UITableViewController <UISplitViewControllerDelegate, ModalViewControllerDelegate, JBSignatureControllerDelegate, VisitorCounterViewControllerDelegate, UIAlertViewDelegate, UIPopoverControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>{
     Visit *visit;
-    IBOutlet UITextField *time;
+    IBOutlet UILabel *time;
     IBOutlet UITextField *schoolName;
     IBOutlet UITextField *leadTeacher;
     IBOutlet UILabel *state;
@@ -51,6 +52,7 @@ typedef enum {
     IBOutlet UIImageView *sigImage;
     UIPopoverController *pickerPopoverController;
     UIPickerView *pickerView;
+    UIDatePicker *datePickerView;
     PickerType pickerType;
     NSArray *states;
     NSArray *counties;
@@ -68,12 +70,15 @@ typedef enum {
 
 -(void) presentStatePicker;
 -(void) presentTypePicker;
+-(void) displayDatePicker;
 -(void) displayPicker;
+-(void) displayPickerPopOverForPickerView:(UIView*)thePickerView;
 -(void) okayButtonPressed;
 -(void) cancelButtonPressed;
 
 @property(nonatomic, strong) Visit *visit;
 @property(nonatomic, strong) UIPickerView *pickerView;
+@property(nonatomic, strong) UIDatePicker *datePickerView;
 @property(nonatomic, strong) UIPopoverController *pickerPopoverController;
 @property(nonatomic, strong) NSArray *states;
 @property(nonatomic, strong) NSArray *counties;

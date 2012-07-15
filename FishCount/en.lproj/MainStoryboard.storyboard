@@ -46,13 +46,13 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" text="" id="TGI-1c-KtN">
-                                                    <rect key="frame" x="138" y="6" width="459" height="31"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" text="" adjustsFontSizeToFit="NO" autoshrinkMode="none" id="AFH-TN-msz">
+                                                    <rect key="frame" x="138" y="13" width="459" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                </textField>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -431,7 +431,7 @@
                         <outlet property="state" destination="pkO-0d-eaF" id="Wct-Pq-mxe"/>
                         <outlet property="studentCount" destination="Ck9-pi-3Y5" id="vle-7A-Jzd"/>
                         <outlet property="studentProjected" destination="o8b-G2-qrX" id="ZQv-pN-sNe"/>
-                        <outlet property="time" destination="TGI-1c-KtN" id="pw5-tt-D2m"/>
+                        <outlet property="time" destination="AFH-TN-msz" id="9kW-VN-h3V"/>
                         <outlet property="type" destination="RCd-dp-Hst" id="6aQ-db-s7L"/>
                         <outlet property="viewScheduleButton" destination="6Mo-hq-5Hi" id="Nc2-8O-Wtc"/>
                         <outlet property="visitorCounterButton" destination="d8P-aC-X5W" id="GyX-rI-VRT"/>
@@ -895,73 +895,6 @@
             <point key="canvasLocation" x="-366" y="248"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="DetailViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didClickSaveButton:"/>
-                <relationship kind="action" name="didClickScheduleButton:"/>
-                <relationship kind="action" name="didClickSignatureButton:"/>
-                <relationship kind="action" name="didClickVisitorCounterButton:"/>
-                <relationship kind="outlet" name="buttonsCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="chapCount" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="chapProjected" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="curbNotes" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="extChapCount" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="extChapProjected" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="getSignatureButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="leadTeacher" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="payment" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="schoolName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="sigCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="sigImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="state" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="studentCount" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="studentProjected" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="time" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="type" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="viewScheduleButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="visitorCounterButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="MasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-        </class>
-        <class className="ScheduleViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScheduleViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="dismissView:"/>
-                <relationship kind="outlet" name="bus" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dolphin" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="grade" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lunch" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="notes" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="school" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="theatre" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="VisitorCounterViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VisitorCounterViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="chapStepperChanged:forEvent:"/>
-                <relationship kind="action" name="chaperoneTextFieldChanged"/>
-                <relationship kind="action" name="didClickConfirmButton:"/>
-                <relationship kind="action" name="extraChapStepperChanged:forEvent:"/>
-                <relationship kind="action" name="extraChaperoneTextFieldChanged"/>
-                <relationship kind="action" name="studentStepperChanged:forEvent:"/>
-                <relationship kind="action" name="studentTextFieldChanged"/>
-                <relationship kind="outlet" name="chapEst" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="chapInput" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="chapStepper" candidateClass="UIStepper"/>
-                <relationship kind="outlet" name="extChapEst" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="extraChapInput" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="extraChapStepper" candidateClass="UIStepper"/>
-                <relationship kind="outlet" name="studentEst" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="studentInput" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="studentStepper" candidateClass="UIStepper"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

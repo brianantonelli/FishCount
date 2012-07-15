@@ -25,6 +25,7 @@
             masterPopoverController = _masterPopoverController,
             pickerPopoverController = _pickerPopoverController,
             pickerView = _pickerView,
+            datePickerView = _datePickerView,
             states = _states,
             counties = _counties,
             programs = _programs,
@@ -52,13 +53,23 @@
 }
 
 -(IBAction) didClickSaveButton:(id) sender{
+    if(sigImage.image == nil){
+        UIAlertView *alert = [[UIAlertView alloc] init];
+        [alert setTitle:@"The signature is missing. Please obtain a signature prior to saving."];
+        [alert addButtonWithTitle:@"Ok"];
+        [self.view endEditing:YES];
+        [alert show];
+        
+        return;
+    }
+    
     UIAlertView *alert = [[UIAlertView alloc] init];
 	[alert setTitle:@"Save Record"];
 	[alert setMessage:@"Do you want to save this record? The record will be saved to the database upon syncing the iPad. Only save if you are responsible for this school!"];
 	[alert setDelegate:self];
 	[alert addButtonWithTitle:@"No"];
 	[alert addButtonWithTitle:@"Yes"];
-    [self.view endEditing:TRUE];
+    [self.view endEditing:YES];
 	[alert show];
 }
 
@@ -125,7 +136,24 @@
     }
 }
 
+-(void) displayDatePicker{
+    datePickerView = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, 360, 264)];
+    datePickerView.datePickerMode = UIDatePickerModeDateAndTime;
+    datePickerView.date = _visit.time;
+    
+    [self displayPickerPopOverForPickerView:datePickerView];
+}
+
 -(void) displayPicker{
+    pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 360, 264)];
+    pickerView.delegate = self;
+    pickerView.dataSource = self;
+    pickerView.showsSelectionIndicator = YES;
+    
+    [self displayPickerPopOverForPickerView:pickerView];
+}
+
+-(void) displayPickerPopOverForPickerView:(UIView*)thePickerView;{
     UIViewController* popoverContent = [[UIViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:popoverContent];
     
@@ -134,11 +162,7 @@
     
     popoverContent.view = popoverView;
     
-    pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 360, 264)];
-    pickerView.delegate = self;
-    pickerView.dataSource = self;
-    pickerView.showsSelectionIndicator = YES;
-    [popoverView addSubview:pickerView];
+    [popoverView addSubview:thePickerView];
     
     pickerPopoverController = [[UIPopoverController alloc] initWithContentViewController:navigationController];
     pickerPopoverController.delegate = self;
@@ -150,7 +174,10 @@
     navigationController.navigationBar.topItem.rightBarButtonItem = okButton;
     
     CGRect rectInTableView;
-    if(pickerType == kStateCounty){
+    if(pickerType == kTime){
+        rectInTableView = [self.tableView rectForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+    }
+    else if(pickerType == kStateCounty){
         rectInTableView = [self.tableView rectForRowAtIndexPath:[NSIndexPath indexPathForItem:3 inSection:0]];
     }
     else if(pickerType == kTypeProgram){
@@ -166,7 +193,12 @@
 }
 
 -(void) okayButtonPressed{
-    if(pickerType == kStateCounty){
+    if(pickerType == kTime){
+        _visit.time = datePickerView.date;
+        time.text = [_visit formattedDate];
+        [_visit flagAsDirty:YES];
+    }
+    else if(pickerType == kStateCounty){
         _visit.state = [_states objectAtIndex:[pickerView selectedRowInComponent:0]];
         state.text = _visit.state;
         if([pickerView selectedRowInComponent:0] == 13){
@@ -458,7 +490,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == 0){
-        if(indexPath.row == 0) [time becomeFirstResponder];
+        if(indexPath.row == 0) [self displayDatePicker];
         else if(indexPath.row == 1) [schoolName becomeFirstResponder];
         else if(indexPath.row == 2) [leadTeacher becomeFirstResponder];
         else if(indexPath.row == 3) [self presentStatePicker];

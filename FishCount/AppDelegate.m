@@ -16,8 +16,8 @@
 @synthesize window = _window;
 
 -(void) configureRestKit{
-//    RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
-//    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+    RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
+    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
 
 	RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"http://localhost:3000"];
 //    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"http://brians-macbook-pro.local:3000"];
@@ -88,15 +88,6 @@
     
     // MySQL date format
     [RKObjectMapping addDefaultDateFormatterForString:@"yyyy-MM-dd HH:mm:ss" inTimeZone:nil];
-
-    /**
-     TODO: parameter values are being sent flat RoR expects them to be in an object under the key "visit" ie: Parameters: {"visit" => {school: "brian"}}
-    Visit *test = [Visit new];
-    test.school = @"west!";
-    [[RKObjectManager sharedManager] postObject:test delegate:self];
-     
-     SEE OBJECT SERIALIZATION: https://github.com/RestKit/RestKit/blob/master/Docs/Object%20Mapping.md
-     */
 }
 
 #pragma mark -
