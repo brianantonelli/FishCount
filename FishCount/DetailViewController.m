@@ -266,9 +266,8 @@
 }
 
 -(void) loadNewModel:(Visit*)visitModel{
-    // Handle signature image
     if(visitModel.signatureImage != nil){
-        [sigImage setImage:_visit.signatureImage];
+        [sigImage setImage:visitModel.signatureImage];
         [sigCell setHidden:NO];
     }
     else{
@@ -462,6 +461,7 @@
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 1){
+        [_visit saveSignatureLocally];
         [_visit flagAsNeedingDBUpdate];
         RKManagedObjectStore *store = [RKObjectManager sharedManager].objectStore;
         NSError *err = nil;
@@ -512,7 +512,6 @@
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
 
-    // TODO: deal with time
     if(textField == schoolName && ![textField.text isEqualToString:_visit.school]){
         _visit.school = textField.text;
         [_visit flagAsDirty:YES];

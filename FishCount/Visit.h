@@ -18,6 +18,7 @@
 -(void) flagAsNeedingDBUpdate;
 -(void) flagAsDirty:(BOOL)yup;
 -(BOOL) isDirty;
+-(void) saveSignatureLocally;
 
 @property(nonatomic, strong) NSNumber *identifier;
 @property(nonatomic, strong) NSNumber *order;

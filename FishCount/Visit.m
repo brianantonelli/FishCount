@@ -7,12 +7,24 @@
 //
 
 #import "Visit.h"
+#import "ImageHelper.h"
 
 @implementation Visit
 
 @dynamic identifier, order, school, info, staff, time, grade, studentCount, chaperoneCount, extraChaperoneCount, bus, theatre, lunch, dolphin, notes, curbNotes, county, actualStudentCount, actualChaperoneCount, actualExtraChaperoneCount, leadTeacher, state, paymentType, program, theType, updateDatabase;
 
-@synthesize signatureImage; // TODO: should we serialize this and store image incase they crash the app or the ipad battery dies?
+@synthesize signatureImage;
+
+-(id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context{
+    if((self = [super initWithEntity:entity insertIntoManagedObjectContext:context])){
+        UIImage *sigImg = [ImageHelper retrieveImageWithFileName:[NSString stringWithFormat:@"school-%@.png", self.identifier]];
+        if(sigImg != nil){
+            self.signatureImage = sigImg;
+        }
+	}
+	
+	return self;
+}
 
 -(NSString*) formattedDate{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -33,6 +45,10 @@
 
 -(BOOL) isDirty{
     return dirty;
+}
+
+-(void) saveSignatureLocally{
+    [ImageHelper storeImage:signatureImage withFileName:[NSString stringWithFormat:@"school-%@.png", self.identifier]];
 }
 
 @end

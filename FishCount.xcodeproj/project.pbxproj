@@ -99,6 +99,7 @@
 		37B9A23C15A2AD8800B0C0EF /* whiteButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37B9A21F15A2AD8800B0C0EF /* whiteButton@2x.png */; };
 		37B9A23D15A2AD8800B0C0EF /* whiteButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 37B9A22015A2AD8800B0C0EF /* whiteButtonHighlight.png */; };
 		37B9A23E15A2AD8800B0C0EF /* whiteButtonHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37B9A22115A2AD8800B0C0EF /* whiteButtonHighlight@2x.png */; };
+		37DF3ED115B363A2005BE2A0 /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 37DF3ED015B363A2005BE2A0 /* ImageHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,6 +232,8 @@
 		37B9A21F15A2AD8800B0C0EF /* whiteButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteButton@2x.png"; sourceTree = "<group>"; };
 		37B9A22015A2AD8800B0C0EF /* whiteButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteButtonHighlight.png; sourceTree = "<group>"; };
 		37B9A22115A2AD8800B0C0EF /* whiteButtonHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteButtonHighlight@2x.png"; sourceTree = "<group>"; };
+		37DF3ECF15B363A2005BE2A0 /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHelper.h; sourceTree = "<group>"; };
+		37DF3ED015B363A2005BE2A0 /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +327,7 @@
 		373110C1153E36C900FB43C8 /* FishCount */ = {
 			isa = PBXGroup;
 			children = (
+				37DF3ECE15B36391005BE2A0 /* helpers */,
 				371E294E15433BCF00ECCAEF /* views */,
 				379DA49B154269390081D42F /* controllers */,
 				37311101153E3A0000FB43C8 /* models */,
@@ -430,6 +434,15 @@
 				37B9A22115A2AD8800B0C0EF /* whiteButtonHighlight@2x.png */,
 			);
 			path = buttons;
+			sourceTree = "<group>";
+		};
+		37DF3ECE15B36391005BE2A0 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				37DF3ECF15B363A2005BE2A0 /* ImageHelper.h */,
+				37DF3ED015B363A2005BE2A0 /* ImageHelper.m */,
+			);
+			name = helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -640,6 +653,7 @@
 				37293A29154498F3007560A7 /* VisitorCounterViewController.m in Sources */,
 				372C88B6154639A600A3C31B /* Model.xcdatamodeld in Sources */,
 				377BE1B1159CFCE10020E6F6 /* DetailViewController.m in Sources */,
+				37DF3ED115B363A2005BE2A0 /* ImageHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
